@@ -134,7 +134,8 @@ const CONTENT = {
     "Hagia Sophia and the Blue Mosque",
     "Topkapi Palace",
     "Grand Bazaar and Spice Market"
-   ]
+   ],
+   "img": "img/1794951964628.jpg"
   },
   {
    "id": "t2",
