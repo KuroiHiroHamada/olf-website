@@ -150,7 +150,8 @@ const CONTENT = {
     "Both continents in one trip",
     "Dolmabahce and Rumeli Fortress views",
     "Tea on deck at sunset"
-   ]
+   ],
+   "img": "img/1794952553201.jpg"
   },
   {
    "id": "t3",
@@ -165,7 +166,8 @@ const CONTENT = {
     "Hot air balloon at sunrise (weather permitting)",
     "Goreme Open Air Museum",
     "Cave hotel stay"
-   ]
+   ],
+   "img": "img/1794952768935.jpg"
   },
   {
    "id": "t4",
@@ -180,7 +182,8 @@ const CONTENT = {
     "Natural thermal terraces",
     "Hierapolis ancient city",
     "Antique Pool swim"
-   ]
+   ],
+   "img": "img/1794953452076.jpg"
   },
   {
    "id": "t5",
@@ -195,7 +198,8 @@ const CONTENT = {
     "Library of Celsus",
     "Temple of Artemis site",
     "House of the Virgin Mary"
-   ]
+   ],
+   "img": "img/1794953289179.jpg"
   },
   {
    "id": "t6",
@@ -210,7 +214,8 @@ const CONTENT = {
     "Kaleici old town",
     "Duden waterfalls",
     "Boat trip along the coast"
-   ]
+   ],
+   "img": "img/1794953874057.jpg"
   }
  ],
  "products": [
