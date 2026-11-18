@@ -4,8 +4,8 @@ for(const k of["blue","lime","navy","cream"])document.documentElement.style.setP
 const SERVICES=CONTENT.services;
 const REASONS=CONTENT.reasons;
 const page=location.pathname.split("/").pop()||"index.html";
-const L=[["index.html","Home"],["index.html#services","Services"],["prefab.html","Prefab Homes"],["tours.html","Tours"],["shop.html","Shop"],["book.html","Book now"]];
-document.body.insertAdjacentHTML("afterbegin",`<nav><a class="logo" href="index.html">${SITE.logo}</a><ul>${L.map(([h,t])=>`<li><a href="${h}" class="${h==page?"on":""}">${t}</a></li>`).join("")}</ul></nav>`);
+const L=[["index.html","Home"],["index.html#services","Services"],["prefab.html","Prefab Homes"],["travel.html","Travel"],["shop.html","Shop"],["book.html","Book now"]];
+document.body.insertAdjacentHTML("afterbegin",`<nav><a class="logo" href="index.html">${SITE.logo}</a><ul>${L.map(([h,t])=>`<li><a href="${h}" class="${h==page||(h=="travel.html"&&["tours.html","hotels.html"].includes(page))?"on":""}">${t}</a></li>`).join("")}</ul></nav>`);
 document.body.insertAdjacentHTML("beforeend",`<footer><div class="big">${SITE.logo}</div><p>${SITE.name}</p><p>Turkey: ${CONFIG.turkey} · Ghana: ${CONFIG.ghana}</p><p>${CONFIG.email}</p><p><a href="faq.html">FAQ</a> · <a href="legal.html">Privacy &amp; terms</a></p></footer>`);
 const card=(s,k)=>`<div class="card" data-k="${k}" tabindex="0" role="button"${s.img?` style="background:linear-gradient(rgba(27,43,72,.5),rgba(27,43,72,.9)),url('${encodeURI(s.img).replace(/'/g,"%27")}') center/cover"`:""}><div><div class="ic">${s.ic}</div><h3>${s.n}</h3><p>${s.d}</p></div><span class="more">Tap for more info</span></div>`;
 const sv=document.getElementById("svc"),wy=document.getElementById("why");
@@ -47,3 +47,6 @@ const fq=document.getElementById("faq");
 if(fq&&CONTENT.faq){fq.innerHTML=CONTENT.faq.map(q=>`<details class="faq"><summary>${q.n}</summary><p>${q.a}</p></details>`).join("");
  ld({"@context":"https://schema.org","@type":"FAQPage",mainEntity:CONTENT.faq.map(q=>({"@type":"Question",name:q.n,acceptedAnswer:{"@type":"Answer",text:q.a}}))})}
 if(page=="index.html"||page=="")ld({"@context":"https://schema.org","@type":"LocalBusiness",name:SITE.name,telephone:CONFIG.turkey,email:CONFIG.email,areaServed:["Turkey","Ghana"]});
+
+const tv=document.getElementById("travel");
+if(tv)tv.innerHTML=(CONTENT.travel||[]).map(s=>`<a class="house" href="${s.link||"#"}"><div class="pic" style="background:${s.c}">${s.img?`<img src="${encodeURI(s.img)}" alt="">`:s.e}</div><div class="in"><h3 style="text-align:left;margin:0">${s.n}</h3><p style="margin-top:6px">${s.d||""}</p><p style="color:var(--blue);margin-top:6px">Open →</p></div></a>`).join("");

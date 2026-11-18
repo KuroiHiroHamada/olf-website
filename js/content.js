@@ -33,10 +33,10 @@ const CONTENT = {
    "ic": "✈️",
    "n": "Inbound Travel Consulting",
    "d": "Plan your trip to Turkey, from visa to hotel.",
-   "link": "tours.html",
-   "act": "Explore tours",
-   "more": "Coming to Istanbul for business, shopping or leisure? We help you plan the trip so you arrive prepared and make the most of your time.",
-   "pts": ["Visa and entry guidance", "Hotel and transport suggestions", "Guidance for sourcing trips and market visits"],
+   "link": "travel.html",
+   "act": "Explore travel",
+   "more": "Coming to Istanbul for business, shopping or leisure? Browse our tours, send a hotel booking request, and let us help you plan the trip so you arrive prepared.",
+   "pts": ["Tours to Istanbul, Cappadocia, the Aegean and the Mediterranean", "Hotel booking requests with your dates and room type", "Visa, entry and trip planning guidance"],
    "img": "",
    "shop": false
   },
@@ -785,6 +785,10 @@ const CONTENT = {
    "a": "Open the Book now page, pick the services you need and fill in your details. Your request opens in WhatsApp so you can send it to us, and we reply to confirm details and price."
   },
   {
+   "n": "How do I book a hotel?",
+   "a": "Open Travel, then Hotel booking. Choose a destination and hotel, pick your dates, room type and number of guests, and send the request. We reply on WhatsApp to confirm availability, the price and payment."
+  },
+  {
    "n": "How do I get a price for cargo or freight?",
    "a": "Prices depend on what you ship, its weight and size, the route and how fast you need it. Send those details through the booking form or on WhatsApp and we will quote you."
   },
@@ -932,6 +936,93 @@ const CONTENT = {
    "c": "#7be8d6",
    "img": "",
    "d": "Turquoise coast and old harbours"
+  }
+ ],
+ "travel": [
+  {
+   "id": "tours",
+   "n": "Tours",
+   "e": "🧭",
+   "c": "#f6d365",
+   "img": "",
+   "d": "Browse destinations and tours across Turkey",
+   "link": "tours.html"
+  },
+  {
+   "id": "hotels",
+   "n": "Hotel booking",
+   "e": "🏨",
+   "c": "#a6c1ee",
+   "img": "",
+   "d": "Choose a hotel, pick your dates and room, and send a booking request",
+   "link": "hotels.html"
+  }
+ ],
+ "hotels": [
+  {
+   "id": "h1",
+   "n": "Bosphorus View Hotel (sample)",
+   "dest": "istanbul",
+   "stars": 4,
+   "e": "🏨",
+   "c": "#f6d365",
+   "img": "",
+   "price": 90,
+   "d": "Sample listing: comfortable rooms close to the old city and the waterfront.",
+   "amen": ["Free Wi-Fi", "Breakfast", "Airport transfer on request"],
+   "rooms": ["Standard room | 90", "Deluxe room with view | 120"]
+  },
+  {
+   "id": "h2",
+   "n": "Old City Boutique Hotel (sample)",
+   "dest": "istanbul",
+   "stars": 3,
+   "e": "🏩",
+   "c": "#f9d5ec",
+   "img": "",
+   "price": 65,
+   "d": "Sample listing: small boutique hotel within walking distance of the main sights.",
+   "amen": ["Free Wi-Fi", "Breakfast"],
+   "rooms": ["Double room | 65", "Family room | 95"]
+  },
+  {
+   "id": "h3",
+   "n": "Cave Suites Hotel (sample)",
+   "dest": "cappadocia",
+   "stars": 4,
+   "e": "🏨",
+   "c": "#fbc2eb",
+   "img": "",
+   "price": 110,
+   "d": "Sample listing: stay in a stone cave suite with valley views.",
+   "amen": ["Free Wi-Fi", "Breakfast", "Terrace"],
+   "rooms": ["Cave suite | 110", "Deluxe cave suite | 150"]
+  },
+  {
+   "id": "h4",
+   "n": "Thermal Spa Hotel (sample)",
+   "dest": "aegean",
+   "stars": 4,
+   "e": "♨️",
+   "c": "#96e6a1",
+   "img": "",
+   "price": 75,
+   "d": "Sample listing: thermal pools close to the ancient city.",
+   "amen": ["Thermal pool", "Breakfast", "Free Wi-Fi"],
+   "rooms": ["Standard room | 75", "Family room | 105"]
+  },
+  {
+   "id": "h5",
+   "n": "Coast Resort Hotel (sample)",
+   "dest": "mediterranean",
+   "stars": 5,
+   "e": "🏖️",
+   "c": "#7be8d6",
+   "img": "",
+   "price": 120,
+   "d": "Sample listing: beachfront resort on the Mediterranean coast.",
+   "amen": ["Beach access", "Pool", "Breakfast"],
+   "rooms": ["Sea view room | 120", "Family suite | 180"]
   }
  ]
 };

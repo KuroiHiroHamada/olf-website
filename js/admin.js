@@ -2,7 +2,7 @@ const LS="olf_admin",DR="olf_draft",$=i=>document.getElementById(i);
 let D=JSON.parse(JSON.stringify(CONTENT)),tab="site",dirty=false,G={};
 try{G=JSON.parse(localStorage.getItem(LS))||{};const d=localStorage.getItem(DR);if(d){D=JSON.parse(d);dirty=true}}catch(e){}
 function norm(){const cl=x=>JSON.parse(JSON.stringify(x)),S=CONTENT;
- ["categories","destinations"].forEach(k=>{if(!D[k]&&S[k])D[k]=cl(S[k])});D.faq=D.faq||[];
+ ["categories","destinations","travel","hotels"].forEach(k=>{if(!D[k]&&S[k])D[k]=cl(S[k])});(D.services||[]).forEach(s=>{if(s.id=="travel"&&s.link=="tours.html"){s.link="travel.html";s.act="Explore travel"}});D.faq=D.faq||[];
  (D.services||[]).forEach(s=>{if(s.shop===undefined)s.shop=s.id=="apparel";if(s.img===undefined)s.img=""});
  (D.reasons||[]).forEach(r=>{if(r.img===undefined)r.img=""});
  (D.categories||[]).forEach(c=>{if(!c.svc)c.svc="apparel"});
@@ -17,11 +17,13 @@ const F={
  reasons:{t:"Why us",f:[["ic","Emoji"],["n","Title"],["img","Photo","img"],["d","Short text"],["more","Popup text","area"],["pts","Popup bullets (one per line)","lines"]]},
  faq:{t:"FAQ",f:[["n","Question"],["a","Answer","area"]]},
  houses:{t:"Prefab houses",f:[["n","Name (e.g. RH 204)"],["e","Emoji"],["c","Card colour","bg"],["img","Photo","img"],["type","Type (e.g. 3+1+K)"],["size","Size (e.g. 105 m²)"],["price","Price text"],["wall","Wall colour (outside, 3D)","color"],["roof","Roof colour (3D)","color"]]},
+ travel:{t:"Travel sections",f:[["n","Section name"],["e","Emoji"],["c","Tile colour","bg"],["img","Photo","img"],["d","Short description"],["link","Opens page (e.g. tours.html or hotels.html)"]]},
  destinations:{t:"Tour destinations",f:[["n","Destination name"],["e","Emoji"],["c","Tile colour","bg"],["img","Photo","img"],["d","Short description"]]},
+ hotels:{t:"Hotels",f:[["n","Hotel name"],["dest","Destination","sel:destinations"],["stars","Stars (1 to 5)","num"],["e","Emoji"],["c","Card colour","bg"],["img","Photo","img"],["price","From price per night in USD (number)","num"],["d","Description","area"],["amen","Amenities (comma separated)","csv"],["rooms","Room types, one per line: name | price per night","lines"]]},
  tours:{t:"Tours",f:[["n","Name"],["region","Destination","sel:destinations"],["e","Emoji"],["c","Card colour","bg"],["img","Photo","img"],["days","Duration"],["price","Price text"],["d","Description","area"],["hl","Highlights (one per line)","lines"]]},
  categories:{t:"Shop categories",f:[["n","Category name"],["svc","Belongs to service","sel:services"],["e","Emoji"],["c","Tile colour","bg"],["img","Photo","img"],["d","Short description"]]},
  products:{t:"Shop products",f:[["n","Name"],["cat","Category","sel:categories"],["e","Emoji"],["c","Card colour","bg"],["img","Photo","img"],["price","Price in USD (number)","num"],["sizes","Sizes, comma separated (blank if none)","csv"],["d","Description"]]}};
-const T={destinations:{n:"New destination",e:"📍",c:"#d6e4f7",img:"",d:""},categories:{n:"New category",e:"🧥",c:"#d6e4f7",img:"",d:""},faq:{n:"New question",a:""},services:{ic:"⭐",n:"New service",img:"",d:"",more:"",pts:[],shop:false,link:"",act:""},reasons:{ic:"⭐",n:"New reason",img:"",d:"",more:"",pts:[]},houses:{n:"New house",e:"🏠",c:"#cfe8ff",type:"",size:"",price:"Request a quote",wall:"#f0dc82",roof:"#c0272d"},tours:{n:"New tour",region:"Istanbul",e:"🏞️",c:"#d6e4f7",days:"",price:"",d:"",hl:[]},products:{n:"New product",cat:"Shoes",e:"👟",c:"#e8d5c0",price:0,sizes:[],d:""}};
+const T={travel:{n:"New section",e:"📍",c:"#d6e4f7",img:"",d:"",link:""},hotels:{n:"New hotel",stars:4,e:"🏨",c:"#a6c1ee",img:"",price:0,d:"",amen:[],rooms:[]},destinations:{n:"New destination",e:"📍",c:"#d6e4f7",img:"",d:""},categories:{n:"New category",e:"🧥",c:"#d6e4f7",img:"",d:""},faq:{n:"New question",a:""},services:{ic:"⭐",n:"New service",img:"",d:"",more:"",pts:[],shop:false,link:"",act:""},reasons:{ic:"⭐",n:"New reason",img:"",d:"",more:"",pts:[]},houses:{n:"New house",e:"🏠",c:"#cfe8ff",type:"",size:"",price:"Request a quote",wall:"#f0dc82",roof:"#c0272d"},tours:{n:"New tour",region:"Istanbul",e:"🏞️",c:"#d6e4f7",days:"",price:"",d:"",hl:[]},products:{n:"New product",cat:"Shoes",e:"👟",c:"#e8d5c0",price:0,sizes:[],d:""}};
 norm();
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const msg=t=>$("st").textContent=t;
