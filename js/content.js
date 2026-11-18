@@ -674,5 +674,43 @@ const CONTENT = {
   "lime": "#b4c424",
   "navy": "#1b2b48",
   "cream": "#fff3e0"
- }
+ },
+ "faq": [
+  {
+   "n": "How do I book a service?",
+   "a": "Open the Book now page, pick the services you need and fill in your details. Your request opens in WhatsApp so you can send it to us, and we reply to confirm details and price."
+  },
+  {
+   "n": "How do I get a price for cargo or freight?",
+   "a": "Prices depend on what you ship, its weight and size, the route and how fast you need it. Send those details through the booking form or on WhatsApp and we will quote you."
+  },
+  {
+   "n": "How long does shipping take?",
+   "a": "It depends on the route, the shipping method (air, sea or road) and customs. We give you an estimate with your quote."
+  },
+  {
+   "n": "Which countries do you serve?",
+   "a": "We operate from Istanbul and Accra and handle cargo between Turkey and Ghana. Ask us if you need another destination."
+  },
+  {
+   "n": "What items cannot be shipped?",
+   "a": "Some goods are restricted by airlines, shipping lines or customs. Tell us what you plan to send and we will confirm before you pay."
+  },
+  {
+   "n": "Can I see the pre-fabricated houses before I buy?",
+   "a": "Yes. On the Prefab Homes page you can explore each model in 3D. The layouts are based on the catalogue floor plans, so ask us for the exact plans and specifications."
+  },
+  {
+   "n": "How do I pay for shop orders?",
+   "a": "Your order is sent to us on WhatsApp. We confirm availability, the total, delivery cost and payment method with you. The website does not take card payments."
+  },
+  {
+   "n": "How can I follow up on my shipment?",
+   "a": "Message us on WhatsApp with the name you booked under and we will update you."
+  },
+  {
+   "n": "Do you help visitors who are travelling to Turkey?",
+   "a": "Yes. Our Inbound Travel Consulting service helps you plan your trip, and the Tours page shows popular destinations."
+  }
+ ]
 };

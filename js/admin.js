@@ -6,10 +6,11 @@ const F={
  config:{t:"Contact",one:1,f:[["whatsapp","WhatsApp number for orders and bookings (digits only, with country code)"],["email","Email"],["turkey","Turkey phone"],["ghana","Ghana phone"]]},
  services:{t:"Services",f:[["ic","Emoji"],["n","Title"],["d","Short text"],["more","Popup text","area"],["pts","Popup bullets (one per line)","lines"],["link","Opens a page instead of booking (optional, e.g. tours.html)"],["act","Button text for that page"]]},
  reasons:{t:"Why us",f:[["ic","Emoji"],["n","Title"],["d","Short text"],["more","Popup text","area"],["pts","Popup bullets (one per line)","lines"]]},
+ faq:{t:"FAQ",f:[["n","Question"],["a","Answer","area"]]},
  houses:{t:"Prefab houses",f:[["n","Name (e.g. RH 204)"],["e","Emoji"],["c","Card colour","bg"],["img","Photo","img"],["type","Type (e.g. 3+1+K)"],["size","Size (e.g. 105 m²)"],["price","Price text"],["wall","Wall colour (outside, 3D)","color"],["roof","Roof colour (3D)","color"]]},
  tours:{t:"Tours",f:[["n","Name"],["region","Region"],["e","Emoji"],["c","Card colour","bg"],["img","Photo","img"],["days","Duration"],["price","Price text"],["d","Description","area"],["hl","Highlights (one per line)","lines"]]},
  products:{t:"Shop",f:[["n","Name"],["cat","Category"],["e","Emoji"],["c","Card colour","bg"],["img","Photo","img"],["price","Price in USD (number)","num"],["sizes","Sizes, comma separated (blank if none)","csv"],["d","Description"]]}};
-const T={services:{ic:"⭐",n:"New service",d:"",more:"",pts:[],link:"",act:""},reasons:{ic:"⭐",n:"New reason",d:"",more:"",pts:[]},houses:{n:"New house",e:"🏠",c:"#cfe8ff",type:"",size:"",price:"Request a quote",wall:"#f0dc82",roof:"#c0272d"},tours:{n:"New tour",region:"Istanbul",e:"🏞️",c:"#d6e4f7",days:"",price:"",d:"",hl:[]},products:{n:"New product",cat:"Shoes",e:"👟",c:"#e8d5c0",price:0,sizes:[],d:""}};
+const T={faq:{n:"New question",a:""},services:{ic:"⭐",n:"New service",d:"",more:"",pts:[],link:"",act:""},reasons:{ic:"⭐",n:"New reason",d:"",more:"",pts:[]},houses:{n:"New house",e:"🏠",c:"#cfe8ff",type:"",size:"",price:"Request a quote",wall:"#f0dc82",roof:"#c0272d"},tours:{n:"New tour",region:"Istanbul",e:"🏞️",c:"#d6e4f7",days:"",price:"",d:"",hl:[]},products:{n:"New product",cat:"Shoes",e:"👟",c:"#e8d5c0",price:0,sizes:[],d:""}};
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const msg=t=>$("st").textContent=t;
 const st=()=>msg(dirty?"● Unpublished changes (saved in this browser)":"All changes published");
@@ -25,7 +26,7 @@ function fld(c,i,[k,l,t],o){const v=o[k];let val=t=="lines"?(v||[]).join("\n"):t
  :`<input value="${esc(val)}" ${a}>`;
  return `<label class="f"><span>${l}</span>${inp}</label>`}
 function draw(){$("tabs").innerHTML=Object.entries(F).map(([k,v])=>`<button class="${k==tab?"on":""}" onclick="tab='${k}';draw()">${v.t}</button>`).join("");
- const s=F[tab];let h=`<h2>${s.t}</h2>`;
+ const s=F[tab];if(!s.one)D[tab]=D[tab]||[];let h=`<h2>${s.t}</h2>`;
  if(s.one)h+=s.f.map(f=>fld(tab,-1,f,D[tab])).join("");
  else h+=D[tab].map((o,i)=>`<details class="it"><summary><span>${esc(o.ic||o.e||"")} ${esc(o.n)}</span><span class="ac"><button onclick="mv(event,${i},-1)">↑</button><button onclick="mv(event,${i},1)">↓</button><button onclick="rm(event,${i})">🗑</button></span></summary>${s.f.map(f=>fld(tab,i,f,o)).join("")}</details>`).join("")+`<button class="b p" onclick="add()">+ Add new</button>`;
  $("ed").innerHTML=h;st()}
@@ -41,7 +42,7 @@ const ready=()=>{if(G.o&&G.r&&G.t)return true;gh();return false};
 const cl=()=>$("dlg").innerHTML="";
 function gh(){$("dlg").innerHTML=`<div class="im open"><div class="imb"><button class="x" onclick="cl()">×</button><h2>GitHub connection</h2><p style="font-size:13px">Publishing saves your changes to your GitHub repository, and your free host updates itself. The token stays in this browser only. Use a fine-grained token limited to this one repository with Contents: Read and write.</p>
 <label class="f"><span>GitHub username</span><input id="go" value="${esc(G.o)}"></label><label class="f"><span>Repository name</span><input id="gr" value="${esc(G.r)}"></label><label class="f"><span>Branch</span><input id="gb" value="${esc(G.b||"main")}"></label><label class="f"><span>Token</span><input id="gt" type="password" value="${esc(G.t)}"></label><button class="b p" onclick="gsave()">Save</button></div></div>`}
-function gsave(){G={o:$("go").value.trim(),r:$("gr").value.trim(),b:$("gb").value.trim()||"main",t:$("gt").value.trim()};try{localStorage.setItem(LS,JSON.stringify(G))}catch(e){}cl();msg("GitHub details saved")}
+async function gsave(){G={o:$("go").value.trim(),r:$("gr").value.trim(),b:$("gb").value.trim()||"main",t:$("gt").value.trim()};await saveG();cl();msg("GitHub details saved")}
 async function put(path,c64,m){let sha;const r=await fetch(API()+path+"?ref="+G.b,{headers:H()});if(r.ok)sha=(await r.json()).sha;
  const w=await fetch(API()+path,{method:"PUT",headers:H(),body:JSON.stringify({message:m,content:c64,sha,branch:G.b})});if(!w.ok)throw new Error((await w.json()).message)}
 async function pub(){if(!ready())return;try{msg("Publishing...");await put("js/content.js",b64(out()),"Update site content from admin");dirty=false;try{localStorage.removeItem(DR)}catch(e){}msg("Published. The live site updates in about a minute.")}catch(e){msg("Publish failed");alert("Publish failed: "+e.message)}}
@@ -52,4 +53,20 @@ function dl(){const a=document.createElement("a");a.href=URL.createObjectURL(new
 async function up(c,i,k,el){const f=el.files[0];if(!f||!ready())return;
  try{msg("Uploading photo...");const im=await createImageBitmap(f),s=Math.min(1,1000/Math.max(im.width,im.height)),cv=document.createElement("canvas");cv.width=im.width*s;cv.height=im.height*s;cv.getContext("2d").drawImage(im,0,0,cv.width,cv.height);
  const p="img/"+Date.now()+".jpg";await put(p,cv.toDataURL("image/jpeg",.8).split(",")[1],"Add photo from admin");target(c,i)[k]=p;el.previousElementSibling.value=p;save();msg("Photo uploaded. Press Publish to attach it.")}catch(e){alert("Upload failed: "+e.message)}}
-draw();
+
+// ---- passcode lock: protects the GitHub token stored in this browser ----
+const enc=new TextEncoder(),dec=new TextDecoder(),b2s=b=>btoa(String.fromCharCode(...new Uint8Array(b))),s2b=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+let KEY;
+async function mk(pw,salt){const m=await crypto.subtle.importKey("raw",enc.encode(pw),"PBKDF2",false,["deriveKey"]);return crypto.subtle.deriveKey({name:"PBKDF2",salt,iterations:200000,hash:"SHA-256"},m,{name:"AES-GCM",length:256},false,["encrypt","decrypt"])}
+async function seal(t){const iv=crypto.getRandomValues(new Uint8Array(12));return b2s(iv)+"."+b2s(await crypto.subtle.encrypt({name:"AES-GCM",iv},KEY,enc.encode(t)))}
+async function unseal(s){const[i,c]=s.split(".");return dec.decode(await crypto.subtle.decrypt({name:"AES-GCM",iv:s2b(i)},KEY,s2b(c)))}
+async function saveG(){const o={o:G.o,r:G.r,b:G.b,tk:G.t?await seal(G.t):""};try{localStorage.setItem(LS,JSON.stringify(o))}catch(e){}}
+async function lock(){let L=null;try{L=JSON.parse(localStorage.getItem("olf_lock"))}catch(e){}const has=!!L;
+ $("dlg").innerHTML=`<div class="im open" style="z-index:300;background:#1b2b48"><div class="imb"><h2>${has?"Admin passcode":"Create an admin passcode"}</h2><p style="font-size:13px">${has?"Enter your passcode to continue.":"Choose a passcode for this device. It locks the admin page and protects your GitHub token in this browser. If you forget it, you will need to enter the token again."}</p><label class="f"><span>Passcode (6+ characters)</span><input id="pw" type="password"></label><p id="pe" style="color:#901b3a;min-height:20px"></p><button class="b p" id="pb">${has?"Unlock":"Save passcode"}</button>${has?'<button class="b" id="pr">Forgot passcode</button>':""}</div></div>`;
+ const go=async()=>{const pw=$("pw").value;if(pw.length<6){$("pe").textContent="Use at least 6 characters.";return}
+  try{if(has){KEY=await mk(pw,s2b(L.salt));if(await unseal(L.check)!=="ok")throw 0}else{const salt=crypto.getRandomValues(new Uint8Array(16));KEY=await mk(pw,salt);localStorage.setItem("olf_lock",JSON.stringify({salt:b2s(salt),check:await seal("ok")}))}
+   if(G.tk)G.t=await unseal(G.tk);else if(G.t)await saveG();
+   cl();draw()}catch(e){$("pe").textContent="Wrong passcode."}};
+ $("pb").onclick=go;$("pw").onkeydown=e=>{if(e.key=="Enter")go()};$("pw").focus();
+ if(has)$("pr").onclick=()=>{if(confirm("This removes the passcode and the saved GitHub token from this browser. Unpublished drafts are kept. Continue?")){localStorage.removeItem("olf_lock");localStorage.removeItem(LS);G={};lock()}}}
+lock();
