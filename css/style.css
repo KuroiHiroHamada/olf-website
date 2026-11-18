@@ -59,3 +59,6 @@ footer .big{font:italic 800 80px serif;color:var(--lime)}
 .line{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #eee;font-size:14px}
 .line button{width:26px;height:26px;border:2px solid var(--lime);background:#fff;border-radius:6px;cursor:pointer}
 #cart input,#cart textarea{width:100%;padding:9px;margin:6px 0;border:2px solid var(--lime);border-radius:10px;font:inherit}
+.mbox{max-height:96vh;overflow:auto}#view canvas{display:block}
+#pad{position:absolute;left:10px;bottom:10px;display:none;grid-template-columns:repeat(2,46px);gap:6px}
+#pad button{height:46px;border-radius:10px;border:2px solid var(--lime);background:rgba(255,255,255,.85);font-size:20px;cursor:pointer;touch-action:none}

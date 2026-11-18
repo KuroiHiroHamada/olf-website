@@ -6,10 +6,10 @@ const F={
  config:{t:"Contact",one:1,f:[["whatsapp","WhatsApp number for orders and bookings (digits only, with country code)"],["email","Email"],["turkey","Turkey phone"],["ghana","Ghana phone"]]},
  services:{t:"Services",f:[["ic","Emoji"],["n","Title"],["d","Short text"],["more","Popup text","area"],["pts","Popup bullets (one per line)","lines"],["link","Opens a page instead of booking (optional, e.g. tours.html)"],["act","Button text for that page"]]},
  reasons:{t:"Why us",f:[["ic","Emoji"],["n","Title"],["d","Short text"],["more","Popup text","area"],["pts","Popup bullets (one per line)","lines"]]},
- houses:{t:"Prefab houses",f:[["n","Name"],["e","Emoji"],["c","Card colour","bg"],["img","Photo","img"],["size","Size"],["price","Price text"],["rooms","Rooms for the 3D tour, comma separated: living, kitchen, bedroom, bath","csv"],["wall","3D wall colour","color"]]},
+ houses:{t:"Prefab houses",f:[["n","Name (e.g. RH 204)"],["e","Emoji"],["c","Card colour","bg"],["img","Photo","img"],["type","Type (e.g. 3+1+K)"],["size","Size (e.g. 105 m²)"],["price","Price text"],["wall","Wall colour (outside, 3D)","color"],["roof","Roof colour (3D)","color"]]},
  tours:{t:"Tours",f:[["n","Name"],["region","Region"],["e","Emoji"],["c","Card colour","bg"],["img","Photo","img"],["days","Duration"],["price","Price text"],["d","Description","area"],["hl","Highlights (one per line)","lines"]]},
  products:{t:"Shop",f:[["n","Name"],["cat","Category"],["e","Emoji"],["c","Card colour","bg"],["img","Photo","img"],["price","Price in USD (number)","num"],["sizes","Sizes, comma separated (blank if none)","csv"],["d","Description"]]}};
-const T={services:{ic:"⭐",n:"New service",d:"",more:"",pts:[],link:"",act:""},reasons:{ic:"⭐",n:"New reason",d:"",more:"",pts:[]},houses:{n:"New house",e:"🏠",c:"#cfe8ff",size:"",price:"",rooms:["living","bath"],wall:"#f5efe6"},tours:{n:"New tour",region:"Istanbul",e:"🏞️",c:"#d6e4f7",days:"",price:"",d:"",hl:[]},products:{n:"New product",cat:"Shoes",e:"👟",c:"#e8d5c0",price:0,sizes:[],d:""}};
+const T={services:{ic:"⭐",n:"New service",d:"",more:"",pts:[],link:"",act:""},reasons:{ic:"⭐",n:"New reason",d:"",more:"",pts:[]},houses:{n:"New house",e:"🏠",c:"#cfe8ff",type:"",size:"",price:"Request a quote",wall:"#f0dc82",roof:"#c0272d"},tours:{n:"New tour",region:"Istanbul",e:"🏞️",c:"#d6e4f7",days:"",price:"",d:"",hl:[]},products:{n:"New product",cat:"Shoes",e:"👟",c:"#e8d5c0",price:0,sizes:[],d:""}};
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const msg=t=>$("st").textContent=t;
 const st=()=>msg(dirty?"● Unpublished changes (saved in this browser)":"All changes published");
@@ -33,7 +33,7 @@ function mv(e,i,d){e.preventDefault();const a=D[tab],j=i+d;if(j<0||j>=a.length)r
 function rm(e,i){e.preventDefault();if(confirm("Delete this item?")){D[tab].splice(i,1);save();draw()}}
 function add(){D[tab].push({...T[tab],id:"x"+Date.now().toString(36)});save();draw();const l=[...document.querySelectorAll("details")].pop();l.open=true;l.scrollIntoView()}
 // ---- publishing ----
-const out=()=>"const CONTENT = "+JSON.stringify(D,null,1)+";\n";
+const out=()=>{let s=JSON.stringify(D,null,1);for(let i=0;i<3;i++)s=s.replace(/\[\s*([^\[\]{}]*?)\s*\]/g,(m,x)=>"["+x.replace(/\s*\n\s*/g," ")+"]");return "const CONTENT = "+s+";\n"};
 const API=()=>`https://api.github.com/repos/${G.o}/${G.r}/contents/`;
 const H=()=>({Authorization:"Bearer "+G.t,Accept:"application/vnd.github+json"});
 const b64=s=>btoa(unescape(encodeURIComponent(s)));
