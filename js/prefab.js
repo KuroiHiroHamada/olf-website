@@ -3,8 +3,8 @@ const DEF=[[["l",0,0,5,4],["h",5,0,1.5,7.5],["k",6.5,0,3,3.5],["t",6.5,3.5,3,1.5
 const pl=h=>h.plan&&h.plan.length?h.plan:DEF;
 const NAMES={l:"Living room",k:"Kitchen",b:"Bedroom",t:"Bathroom",h:"Hall",s:"Stairs",o:"Terrace",n:"Balcony"};
 const FC={b:"#b78b5a",l:"#c19a6b",k:"#e6e2d8",t:"#cfe0e6",h:"#c19a6b",s:"#c19a6b",o:"#b8b8b4",n:"#b8b8b4"};
-$("houses").innerHTML=HOUSES.map((h,i)=>`<div class="house" onclick="openHouse(${i})"><div class="pic" style="background:${h.c}">${h.img?`<img src="${h.img}" alt="">`:h.e}</div><div class="in"><h3 style="text-align:left;margin:0">${h.n}</h3><span class="tag">${h.size||""}</span>${h.type?`<span class="tag">${h.type}</span>`:""}<span class="tag">${pl(h).length} floor${pl(h).length>1?"s":""}</span><p style="margin-top:8px">${h.price||""}</p><p style="color:var(--blue);margin-top:6px">Click to explore in 3D →</p></div></div>`).join("");
-let R,S,C,G,WM,WMAT,GLASS,COL=[],H0,ctr={x:0,z:0},top=3,mode="out",fl=0,cur=0,P={x:0,z:0},ry=0,rx=0,az=.8,oe=.45,dist=16,fov=75,drag=0,mv={f:0,s:0,t:0};
+$("houses").innerHTML=HOUSES.map((h,i)=>`<div class="house" onclick="openHouse(${i})"><div class="pic" style="background:${h.c}">${h.img?`<img src="${h.img}" alt="">`:h.e}</div><div class="in"><h3 style="text-align:left;margin:0">${h.n}</h3><span class="tag">${h.size||""}</span>${h.type?`<span class="tag">${h.type}</span>`:""}<span class="tag">${pl(h).length} floor${pl(h).length>1?"s":""}</span><p style="margin-topH:8px">${h.price||""}</p><p style="color:var(--blue);margin-topH:6px">Click to explore in 3D →</p></div></div>`).join("");
+let R,S,C,G,WM,WMAT,GLASS,COL=[],H0,ctr={x:0,z:0},topH=3,mode="out",fl=0,cur=0,P={x:0,z:0},ry=0,rx=0,az=.8,oe=.45,dist=16,fov=75,drag=0,mv={f:0,s:0,t:0};
 const mat=c=>new THREE.MeshStandardMaterial({color:c});
 const box=(w,h,d,x,y,z,c,m)=>{const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m||mat(c));o.position.set(x,y+h/2,z);G.add(o);return o};
 const inr=(r,x,z)=>x>r[1]&&x<r[1]+r[3]&&z>r[2]&&z<r[2]+r[4];
@@ -50,7 +50,7 @@ function roof(h,x0,z0,x1,z1,n){const w=x1-x0+1,d=z1-z0+1,al=w>=d,span=al?d:w,L=a
  const m=new THREE.Mesh(g,[mat("#f4f4f0"),new THREE.MeshStandardMaterial({color:h.roof||"#c0272d",side:THREE.DoubleSide})]);
  m.position.set((x0+x1)/2,(n-1)*FH+WH+.08,(z0+z1)/2);if(al)m.rotation.y=Math.PI/2;G.add(m)}
 function build(h){if(G)S.remove(G);G=new THREE.Group();COL=[];WMAT=mat("#f3ece0");GLASS=new THREE.MeshStandardMaterial({color:"#9fd3ff",transparent:true,opacity:.35});
- const p=pl(h);top=p.length*FH;let x0=1e9,z0=1e9,x1=-1e9,z1=-1e9;
+ const p=pl(h);topH=p.length*FH;let x0=1e9,z0=1e9,x1=-1e9,z1=-1e9;
  p.forEach(rs=>rs.forEach(r=>{if(r[0]!="o"&&r[0]!="n"){x0=Math.min(x0,r[1]);z0=Math.min(z0,r[2]);x1=Math.max(x1,r[1]+r[3]);z1=Math.max(z1,r[2]+r[4])}}));
  ctr={x:(x0+x1)/2,z:(z0+z1)/2};dist=Math.max(x1-x0,z1-z0)*1.5+7;
  box(140,.2,140,ctr.x,-.3,ctr.z,"#6fae4f");
@@ -87,7 +87,7 @@ function init(){const el=$("view");R=new THREE.WebGLRenderer({antialias:true});e
  (function loop(){requestAnimationFrame(loop);if(!$("modal").classList.contains("open")||!G)return;
   if(mode=="in"){ry+=mv.t*.03;const nx=P.x+(-Math.sin(ry)*mv.f+Math.cos(ry)*mv.s)*.06,nz=P.z+(-Math.cos(ry)*mv.f-Math.sin(ry)*mv.s)*.06;
    if(!hit(nx,P.z))P.x=nx;if(!hit(P.x,nz))P.z=nz;C.position.set(P.x,fl*FH+1.6,P.z);C.rotation.set(rx,ry,0,"YXZ")}
-  else{if(!drag)az+=.003;C.position.set(ctr.x+Math.sin(az)*Math.cos(oe)*dist,top*.5+Math.sin(oe)*dist,ctr.z+Math.cos(az)*Math.cos(oe)*dist);C.lookAt(ctr.x,top*.4,ctr.z)}
+  else{if(!drag)az+=.003;C.position.set(ctr.x+Math.sin(az)*Math.cos(oe)*dist,topH*.5+Math.sin(oe)*dist,ctr.z+Math.cos(az)*Math.cos(oe)*dist);C.lookAt(ctr.x,topH*.4,ctr.z)}
   R.render(S,C)})()}
 function openHouse(i){if(!R)init();cur=i;H0=HOUSES[i];build(H0);fl=0;az=.8;oe=.45;
  $("rn").textContent=`${H0.n}${H0.size?" · "+H0.size:""}${H0.type?" · "+H0.type:""}`;
