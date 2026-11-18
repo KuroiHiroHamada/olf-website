@@ -67,3 +67,5 @@ details.faq{background:#fff;border:2px solid var(--lime);border-radius:12px;marg
 [hidden]{display:none!important}a.house{display:block}
 .crumbs{margin:0 0 14px;font-size:15px}.crumbs a{color:var(--blue);text-decoration:underline}.mimg{width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:10px}
 .hform label{display:block;font-size:13px;margin-top:6px}.hform input,.hform select,.hform textarea{width:100%;padding:9px;margin:4px 0;border:2px solid var(--lime);border-radius:10px;font:inherit}.hform{margin-top:12px}
+.imb{max-height:92vh;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.imb .x{position:sticky;top:0;float:right;margin:-18px -14px 0 8px;width:38px;height:38px;border-radius:50%;background:#fff;z-index:3;line-height:1}
