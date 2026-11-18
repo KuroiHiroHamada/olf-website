@@ -1,6 +1,8 @@
 const LS="olf_admin",DR="olf_draft",$=i=>document.getElementById(i);
 let D=JSON.parse(JSON.stringify(CONTENT)),tab="site",dirty=false,G={};
 try{G=JSON.parse(localStorage.getItem(LS))||{};const d=localStorage.getItem(DR);if(d){D=JSON.parse(d);dirty=true}}catch(e){}
+function norm(){if(!D.categories&&CONTENT.categories)D.categories=JSON.parse(JSON.stringify(CONTENT.categories));D.faq=D.faq||[];
+ (D.products||[]).forEach(p=>{const c=(D.categories||[]).find(c=>c.n==p.cat);if(c)p.cat=c.id})}
 const F={
  site:{t:"Site",one:1,f:[["logo","Logo text"],["name","Business name (footer)"],["heroTitle","Home headline"],["heroText","Home subtitle","area"],["blue","Main colour","color"],["lime","Accent colour","color"],["navy","Dark colour","color"],["cream","Page background","color"]]},
  config:{t:"Contact",one:1,f:[["whatsapp","WhatsApp number for orders and bookings (digits only, with country code)"],["email","Email"],["turkey","Turkey phone"],["ghana","Ghana phone"]]},
@@ -9,8 +11,10 @@ const F={
  faq:{t:"FAQ",f:[["n","Question"],["a","Answer","area"]]},
  houses:{t:"Prefab houses",f:[["n","Name (e.g. RH 204)"],["e","Emoji"],["c","Card colour","bg"],["img","Photo","img"],["type","Type (e.g. 3+1+K)"],["size","Size (e.g. 105 m²)"],["price","Price text"],["wall","Wall colour (outside, 3D)","color"],["roof","Roof colour (3D)","color"]]},
  tours:{t:"Tours",f:[["n","Name"],["region","Region"],["e","Emoji"],["c","Card colour","bg"],["img","Photo","img"],["days","Duration"],["price","Price text"],["d","Description","area"],["hl","Highlights (one per line)","lines"]]},
- products:{t:"Shop",f:[["n","Name"],["cat","Category"],["e","Emoji"],["c","Card colour","bg"],["img","Photo","img"],["price","Price in USD (number)","num"],["sizes","Sizes, comma separated (blank if none)","csv"],["d","Description"]]}};
-const T={faq:{n:"New question",a:""},services:{ic:"⭐",n:"New service",d:"",more:"",pts:[],link:"",act:""},reasons:{ic:"⭐",n:"New reason",d:"",more:"",pts:[]},houses:{n:"New house",e:"🏠",c:"#cfe8ff",type:"",size:"",price:"Request a quote",wall:"#f0dc82",roof:"#c0272d"},tours:{n:"New tour",region:"Istanbul",e:"🏞️",c:"#d6e4f7",days:"",price:"",d:"",hl:[]},products:{n:"New product",cat:"Shoes",e:"👟",c:"#e8d5c0",price:0,sizes:[],d:""}};
+ categories:{t:"Shop categories",f:[["n","Category name"],["e","Emoji"],["c","Tile colour","bg"],["img","Photo","img"],["d","Short description"]]},
+ products:{t:"Shop products",f:[["n","Name"],["cat","Category","cat"],["e","Emoji"],["c","Card colour","bg"],["img","Photo","img"],["price","Price in USD (number)","num"],["sizes","Sizes, comma separated (blank if none)","csv"],["d","Description"]]}};
+const T={categories:{n:"New category",e:"🧥",c:"#d6e4f7",img:"",d:""},faq:{n:"New question",a:""},services:{ic:"⭐",n:"New service",d:"",more:"",pts:[],link:"",act:""},reasons:{ic:"⭐",n:"New reason",d:"",more:"",pts:[]},houses:{n:"New house",e:"🏠",c:"#cfe8ff",type:"",size:"",price:"Request a quote",wall:"#f0dc82",roof:"#c0272d"},tours:{n:"New tour",region:"Istanbul",e:"🏞️",c:"#d6e4f7",days:"",price:"",d:"",hl:[]},products:{n:"New product",cat:"Shoes",e:"👟",c:"#e8d5c0",price:0,sizes:[],d:""}};
+norm();
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const msg=t=>$("st").textContent=t;
 const st=()=>msg(dirty?"● Unpublished changes (saved in this browser)":"All changes published");
@@ -22,6 +26,7 @@ function fld(c,i,[k,l,t],o){const v=o[k];let val=t=="lines"?(v||[]).join("\n"):t
  const inp=t=="area"||t=="lines"?`<textarea rows="${t=="lines"?4:3}" ${a}>${esc(val)}</textarea>`
  :t=="color"?`<input type="color" value="${esc(val)}" ${a}>`
  :t=="bg"?`<input value="${esc(val)}" ${a}> <input type="color" value="${/^#[0-9a-f]{6}$/i.test(val)?val:"#cccccc"}" oninput="const p=this.previousElementSibling;p.value=this.value;p.dispatchEvent(new Event('input'))">`
+ :t=="cat"?`<select onchange="set('${c}',${i},'${k}',this,'')">${(D.categories||[]).map(x=>`<option value="${esc(x.id)}" ${x.id==val?"selected":""}>${esc(x.n)}</option>`).join("")}</select>`
  :t=="img"?`<input value="${esc(val)}" placeholder="img/photo.jpg (or upload below)" ${a}><input type="file" accept="image/*" onchange="up('${c}',${i},'${k}',this)">`
  :`<input value="${esc(val)}" ${a}>`;
  return `<label class="f"><span>${l}</span>${inp}</label>`}
@@ -32,7 +37,7 @@ function draw(){$("tabs").innerHTML=Object.entries(F).map(([k,v])=>`<button clas
  $("ed").innerHTML=h;st()}
 function mv(e,i,d){e.preventDefault();const a=D[tab],j=i+d;if(j<0||j>=a.length)return;[a[i],a[j]]=[a[j],a[i]];save();draw()}
 function rm(e,i){e.preventDefault();if(confirm("Delete this item?")){D[tab].splice(i,1);save();draw()}}
-function add(){D[tab].push({...T[tab],id:"x"+Date.now().toString(36)});save();draw();const l=[...document.querySelectorAll("details")].pop();l.open=true;l.scrollIntoView()}
+function add(){const o={...T[tab],id:"x"+Date.now().toString(36)};if(tab=="products")o.cat=((D.categories||[])[0]||{}).id||"";D[tab].push(o);save();draw();const l=[...document.querySelectorAll("details")].pop();l.open=true;l.scrollIntoView()}
 // ---- publishing ----
 const out=()=>{let s=JSON.stringify(D,null,1);for(let i=0;i<3;i++)s=s.replace(/\[\s*([^\[\]{}]*?)\s*\]/g,(m,x)=>"["+x.replace(/\s*\n\s*/g," ")+"]");return "const CONTENT = "+s+";\n"};
 const API=()=>`https://api.github.com/repos/${G.o}/${G.r}/contents/`;
@@ -48,7 +53,7 @@ async function put(path,c64,m){let sha;const r=await fetch(API()+path+"?ref="+G.
 async function pub(){if(!ready())return;try{msg("Publishing...");await put("js/content.js",b64(out()),"Update site content from admin");dirty=false;try{localStorage.removeItem(DR)}catch(e){}msg("Published. The live site updates in about a minute.")}catch(e){msg("Publish failed");alert("Publish failed: "+e.message)}}
 async function pull(){if(!ready())return;if(dirty&&!confirm("This replaces your unpublished changes. Continue?"))return;
  try{const r=await fetch(API()+"js/content.js?ref="+G.b,{headers:{...H(),Accept:"application/vnd.github.raw"}});if(!r.ok)throw new Error("Not found");
- D=JSON.parse((await r.text()).replace(/^[^{]*/,"").replace(/;\s*$/,""));dirty=false;try{localStorage.removeItem(DR)}catch(e){}draw();msg("Loaded latest published version")}catch(e){alert("Could not load: "+e.message)}}
+ D=JSON.parse((await r.text()).replace(/^[^{]*/,"").replace(/;\s*$/,""));norm();dirty=false;try{localStorage.removeItem(DR)}catch(e){}draw();msg("Loaded latest published version")}catch(e){alert("Could not load: "+e.message)}}
 function dl(){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([out()],{type:"text/javascript"}));a.download="content.js";a.click()}
 async function up(c,i,k,el){const f=el.files[0];if(!f||!ready())return;
  try{msg("Uploading photo...");const im=await createImageBitmap(f),s=Math.min(1,1000/Math.max(im.width,im.height)),cv=document.createElement("canvas");cv.width=im.width*s;cv.height=im.height*s;cv.getContext("2d").drawImage(im,0,0,cv.width,cv.height);

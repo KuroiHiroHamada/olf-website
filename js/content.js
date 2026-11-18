@@ -156,7 +156,7 @@ const CONTENT = {
   {
    "id": "p1",
    "n": "Men's Leather Oxford",
-   "cat": "Shoes",
+   "cat": "shoes",
    "e": "👞",
    "c": "#e8d5c0",
    "price": 85,
@@ -166,7 +166,7 @@ const CONTENT = {
   {
    "id": "p2",
    "n": "Women's Block Heels",
-   "cat": "Shoes",
+   "cat": "shoes",
    "e": "👠",
    "c": "#f7d6e0",
    "price": 70,
@@ -176,7 +176,7 @@ const CONTENT = {
   {
    "id": "p3",
    "n": "Men's Sneakers",
-   "cat": "Shoes",
+   "cat": "shoes",
    "e": "👟",
    "c": "#d6e4f7",
    "price": 60,
@@ -186,7 +186,7 @@ const CONTENT = {
   {
    "id": "p4",
    "n": "Elegant Pink Dress",
-   "cat": "Ladies wear",
+   "cat": "ladies",
    "e": "👗",
    "c": "#f9d5ec",
    "price": 95,
@@ -196,7 +196,7 @@ const CONTENT = {
   {
    "id": "p5",
    "n": "Silk Scarf",
-   "cat": "Ladies wear",
+   "cat": "ladies",
    "e": "🧣",
    "c": "#e3d9f7",
    "price": 25,
@@ -205,7 +205,7 @@ const CONTENT = {
   {
    "id": "p6",
    "n": "Men's Two-Piece Suit",
-   "cat": "Men's wear",
+   "cat": "mens",
    "e": "🤵",
    "c": "#d0d7e5",
    "price": 210,
@@ -215,7 +215,7 @@ const CONTENT = {
   {
    "id": "p7",
    "n": "Leather Handbag",
-   "cat": "Accessories",
+   "cat": "accessories",
    "e": "👜",
    "c": "#f0dcc4",
    "price": 75,
@@ -224,7 +224,7 @@ const CONTENT = {
   {
    "id": "p8",
    "n": "Leather Belt",
-   "cat": "Accessories",
+   "cat": "accessories",
    "e": "🧵",
    "c": "#e6dccd",
    "price": 30,
@@ -711,6 +711,40 @@ const CONTENT = {
   {
    "n": "Do you help visitors who are travelling to Turkey?",
    "a": "Yes. Our Inbound Travel Consulting service helps you plan your trip, and the Tours page shows popular destinations."
+  }
+ ],
+ "categories": [
+  {
+   "id": "shoes",
+   "n": "Shoes",
+   "e": "👟",
+   "c": "#e8d5c0",
+   "img": "",
+   "d": "Men's and women's shoes"
+  },
+  {
+   "id": "ladies",
+   "n": "Ladies wear",
+   "e": "👗",
+   "c": "#f9d5ec",
+   "img": "",
+   "d": "Dresses, scarves and more"
+  },
+  {
+   "id": "mens",
+   "n": "Men's wear",
+   "e": "🤵",
+   "c": "#d0d7e5",
+   "img": "",
+   "d": "Suits, shirts and more"
+  },
+  {
+   "id": "accessories",
+   "n": "Accessories",
+   "e": "👜",
+   "c": "#f0dcc4",
+   "img": "",
+   "d": "Bags, belts and more"
   }
  ]
 };
