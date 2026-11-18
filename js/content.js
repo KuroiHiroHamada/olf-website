@@ -1,7 +1,7 @@
 const CONTENT = {
  "config": {
   "whatsapp": "905312784676",
-  "email": "outshinealuconst@yahoo.com",
+  "email": "onelifebusinessconsults1@gmail.com",
   "ghana": "+233 24 481 3141",
   "turkey": "+90 531 278 46 76"
  },
