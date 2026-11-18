@@ -27,9 +27,9 @@ function fld(c,i,[k,l,t],o){const v=o[k];let val=t=="lines"?(v||[]).join("\n"):t
  :t=="color"?`<input type="color" value="${esc(val)}" ${a}>`
  :t=="bg"?`<input value="${esc(val)}" ${a}> <input type="color" value="${/^#[0-9a-f]{6}$/i.test(val)?val:"#cccccc"}" oninput="const p=this.previousElementSibling;p.value=this.value;p.dispatchEvent(new Event('input'))">`
  :t=="cat"?`<select onchange="set('${c}',${i},'${k}',this,'')">${(D.categories||[]).map(x=>`<option value="${esc(x.id)}" ${x.id==val?"selected":""}>${esc(x.n)}</option>`).join("")}</select>`
- :t=="img"?`<input value="${esc(val)}" placeholder="img/photo.jpg (or upload below)" ${a}><input type="file" accept="image/*" onchange="up('${c}',${i},'${k}',this)">`
+ :t=="img"?`<div class="imgf"><input value="${esc(val)}" placeholder="img/photo.jpg (or choose a photo)" ${a}><label class="b upl">📷 Choose photo<input type="file" accept="image/*" hidden onchange="up('${c}',${i},'${k}',this)"></label>${val?`<img class="th" src="${esc(val)}" alt="" onerror="this.style.display='none'">`:""}<span class="us"></span></div>`
  :`<input value="${esc(val)}" ${a}>`;
- return `<label class="f"><span>${l}</span>${inp}</label>`}
+ const g=t=="img"?"div":"label";return `<${g} class="f"><span>${l}</span>${inp}</${g}>`}
 function draw(){$("tabs").innerHTML=Object.entries(F).map(([k,v])=>`<button class="${k==tab?"on":""}" onclick="tab='${k}';draw()">${v.t}</button>`).join("");
  const s=F[tab];if(!s.one)D[tab]=D[tab]||[];let h=`<h2>${s.t}</h2>`;
  if(s.one)h+=s.f.map(f=>fld(tab,-1,f,D[tab])).join("");
@@ -50,15 +50,21 @@ function gh(){$("dlg").innerHTML=`<div class="im open"><div class="imb"><button 
 async function gsave(){G={o:$("go").value.trim(),r:$("gr").value.trim(),b:$("gb").value.trim()||"main",t:$("gt").value.trim()};await saveG();cl();msg("GitHub details saved")}
 async function put(path,c64,m){let sha;const r=await fetch(API()+path+"?ref="+G.b,{headers:H()});if(r.ok)sha=(await r.json()).sha;
  const w=await fetch(API()+path,{method:"PUT",headers:H(),body:JSON.stringify({message:m,content:c64,sha,branch:G.b})});if(!w.ok)throw new Error((await w.json()).message)}
-async function pub(){if(!ready())return;try{msg("Publishing...");await put("js/content.js",b64(out()),"Update site content from admin");dirty=false;try{localStorage.removeItem(DR)}catch(e){}msg("Published. The live site updates in about a minute.")}catch(e){msg("Publish failed");alert("Publish failed: "+e.message)}}
+async function pub(){if(!ready())return;try{msg("Publishing...");await put("js/content.js",b64(out()),"Update site content from admin");dirty=false;try{localStorage.removeItem(DR)}catch(e){}msg("Published. The live site updates in about a minute.")}catch(e){msg("Publish failed");alert("Publish failed: "+explain(e.message))}}
 async function pull(){if(!ready())return;if(dirty&&!confirm("This replaces your unpublished changes. Continue?"))return;
  try{const r=await fetch(API()+"js/content.js?ref="+G.b,{headers:{...H(),Accept:"application/vnd.github.raw"}});if(!r.ok)throw new Error("Not found");
- D=JSON.parse((await r.text()).replace(/^[^{]*/,"").replace(/;\s*$/,""));norm();dirty=false;try{localStorage.removeItem(DR)}catch(e){}draw();msg("Loaded latest published version")}catch(e){alert("Could not load: "+e.message)}}
+ D=JSON.parse((await r.text()).replace(/^[^{]*/,"").replace(/;\s*$/,""));norm();dirty=false;try{localStorage.removeItem(DR)}catch(e){}draw();msg("Loaded latest published version")}catch(e){alert("Could not load: "+explain(e.message))}}
 function dl(){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([out()],{type:"text/javascript"}));a.download="content.js";a.click()}
-async function up(c,i,k,el){const f=el.files[0];if(!f||!ready())return;
- try{msg("Uploading photo...");const im=await createImageBitmap(f),s=Math.min(1,1000/Math.max(im.width,im.height)),cv=document.createElement("canvas");cv.width=im.width*s;cv.height=im.height*s;cv.getContext("2d").drawImage(im,0,0,cv.width,cv.height);
- const p="img/"+Date.now()+".jpg";await put(p,cv.toDataURL("image/jpeg",.8).split(",")[1],"Add photo from admin");target(c,i)[k]=p;el.previousElementSibling.value=p;save();msg("Photo uploaded. Press Publish to attach it.")}catch(e){alert("Upload failed: "+e.message)}}
-
+const explain=m=>/bad credentials/i.test(m)?"GitHub rejected the token. Click ⚙ GitHub and enter the token again.":/not found/i.test(m)?"GitHub could not find the repository, or the token has no access to it. Check the username, repository name and that the token has Contents: Read and write.":/not accessible|forbidden|permission/i.test(m)?"The token does not have permission. Create it for this repository with Contents: Read and write.":m;
+async function shrink(f){let im;try{im=await createImageBitmap(f)}catch(e){im=await new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=()=>no(new Error("This photo format is not supported. Please use a JPG or PNG photo."));i.src=URL.createObjectURL(f)})}
+ const w=im.width||im.naturalWidth,h=im.height||im.naturalHeight,s=Math.min(1,1000/Math.max(w,h)),cv=document.createElement("canvas");cv.width=Math.round(w*s);cv.height=Math.round(h*s);cv.getContext("2d").drawImage(im,0,0,cv.width,cv.height);return cv.toDataURL("image/jpeg",.8).split(",")[1]}
+async function up(c,i,k,el){const f=el.files[0],box=el.closest(".f"),us=box.querySelector(".us"),say=(t,bad)=>{us.textContent=t;us.style.color=bad?"#901b3a":"#2a6b2a"};
+ if(!f)return;
+ if(!(G.o&&G.r&&G.t)){say("Connect GitHub first: click the ⚙ GitHub button at the top, save your details, then choose the photo again.",1);el.value="";gh();return}
+ try{say("Uploading, please wait...");const data=await shrink(f),p="img/"+Date.now()+".jpg";await put(p,data,"Add photo from admin");
+  target(c,i)[k]=p;const t=box.querySelector("input:not([type=file])");t.value=p;let im=box.querySelector(".th");if(!im){im=document.createElement("img");im.className="th";t.parentNode.insertBefore(im,us)}im.style.display="";im.src=p;save();say("Photo uploaded. Now click Publish at the top to put it on the site.")}
+ catch(e){say("Upload failed: "+explain(e.message||String(e)),1)}
+ el.value=""}
 // ---- passcode lock: protects the GitHub token stored in this browser ----
 const enc=new TextEncoder(),dec=new TextDecoder(),b2s=b=>btoa(String.fromCharCode(...new Uint8Array(b))),s2b=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
 let KEY;
