@@ -94,7 +94,8 @@ const CONTENT = {
    "days": "3 days",
    "price": "From $240",
    "d": "Walk through the heart of old Istanbul, where Europe meets Asia.",
-   "hl": ["Hagia Sophia and the Blue Mosque", "Topkapi Palace", "Grand Bazaar and Spice Market"]
+   "hl": ["Hagia Sophia and the Blue Mosque", "Topkapi Palace", "Grand Bazaar and Spice Market"],
+   "img": "img/1795006157278.jpg"
   },
   {
    "id": "t2",
@@ -105,7 +106,8 @@ const CONTENT = {
    "days": "Half day",
    "price": "From $35",
    "d": "See palaces, fortresses and waterfront homes from the water.",
-   "hl": ["Both continents in one trip", "Dolmabahce and Rumeli Fortress views", "Tea on deck at sunset"]
+   "hl": ["Both continents in one trip", "Dolmabahce and Rumeli Fortress views", "Tea on deck at sunset"],
+   "img": "img/1795006184651.jpg"
   },
   {
    "id": "t3",
@@ -116,7 +118,8 @@ const CONTENT = {
    "days": "2 days",
    "price": "From $320",
    "d": "Fairy chimneys, cave hotels and sunrise balloon flights.",
-   "hl": ["Hot air balloon at sunrise (weather permitting)", "Goreme Open Air Museum", "Cave hotel stay"]
+   "hl": ["Hot air balloon at sunrise (weather permitting)", "Goreme Open Air Museum", "Cave hotel stay"],
+   "img": "img/1795006202482.jpg"
   },
   {
    "id": "t4",
@@ -127,7 +130,8 @@ const CONTENT = {
    "days": "2 days",
    "price": "From $210",
    "d": "White travertine pools and ancient Hierapolis.",
-   "hl": ["Natural thermal terraces", "Hierapolis ancient city", "Antique Pool swim"]
+   "hl": ["Natural thermal terraces", "Hierapolis ancient city", "Antique Pool swim"],
+   "img": "img/1795006234527.jpg"
   },
   {
    "id": "t5",
@@ -138,7 +142,8 @@ const CONTENT = {
    "days": "2 days",
    "price": "From $230",
    "d": "Walk the marble streets of one of the best preserved ancient cities.",
-   "hl": ["Library of Celsus", "Temple of Artemis site", "House of the Virgin Mary"]
+   "hl": ["Library of Celsus", "Temple of Artemis site", "House of the Virgin Mary"],
+   "img": "img/1795006264770.jpg"
   },
   {
    "id": "t6",
@@ -149,7 +154,8 @@ const CONTENT = {
    "days": "4 days",
    "price": "From $380",
    "d": "Turquoise coast, old town harbour and waterfalls.",
-   "hl": ["Kaleici old town", "Duden waterfalls", "Boat trip along the coast"]
+   "hl": ["Kaleici old town", "Duden waterfalls", "Boat trip along the coast"],
+   "img": "img/1795006282035.jpg"
   }
  ],
  "products": [
