@@ -64,3 +64,4 @@ footer .big{font:italic 800 80px serif;color:var(--lime)}
 #pad button{height:46px;border-radius:10px;border:2px solid var(--lime);background:rgba(255,255,255,.85);font-size:20px;cursor:pointer;touch-action:none}
 details.faq{background:#fff;border:2px solid var(--lime);border-radius:12px;margin:10px 0;padding:14px}.faq summary{cursor:pointer;font-weight:600}.faq p{margin-top:10px;line-height:1.6}
 .legal h2{margin:22px 0 6px}.legal p{line-height:1.65;margin:6px 0}
+[hidden]{display:none!important}a.house{display:block}
