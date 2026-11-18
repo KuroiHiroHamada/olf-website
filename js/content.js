@@ -1,7 +1,7 @@
 const CONTENT = {
  "config": {
   "whatsapp": "905312784676",
-  "email": "onelifebusinessconsults1@gmail.com",
+  "email": "outshinealuconst@yahoo.com",
   "ghana": "+233 24 481 3141",
   "turkey": "+90 531 278 46 76"
  },
@@ -14,7 +14,9 @@ const CONTENT = {
    "link": "prefab.html",
    "act": "Explore homes",
    "more": "Browse a range of pre-fabricated houses, from compact studios to family villas. Each home is built in sections, shipped to you and assembled on your plot, which saves time compared with traditional building.",
-   "pts": ["Explore each house in 3D, room by room", "Options for different sizes and budgets", "Shipping and delivery arranged with your order"]
+   "pts": ["Explore each house in 3D, room by room", "Options for different sizes and budgets", "Shipping and delivery arranged with your order"],
+   "img": "",
+   "shop": false
   },
   {
    "id": "estate",
@@ -22,7 +24,9 @@ const CONTENT = {
    "n": "Estate Management",
    "d": "Property care, tenants and maintenance handled.",
    "more": "Let us look after your property while you are away or busy. We act as your on-the-ground team so your investment stays in good shape.",
-   "pts": ["Routine inspections and maintenance", "Tenant sourcing and rent follow-up", "Regular updates to you"]
+   "pts": ["Routine inspections and maintenance", "Tenant sourcing and rent follow-up", "Regular updates to you"],
+   "img": "",
+   "shop": false
   },
   {
    "id": "travel",
@@ -32,7 +36,9 @@ const CONTENT = {
    "link": "tours.html",
    "act": "Explore tours",
    "more": "Coming to Istanbul for business, shopping or leisure? We help you plan the trip so you arrive prepared and make the most of your time.",
-   "pts": ["Visa and entry guidance", "Hotel and transport suggestions", "Guidance for sourcing trips and market visits"]
+   "pts": ["Visa and entry guidance", "Hotel and transport suggestions", "Guidance for sourcing trips and market visits"],
+   "img": "",
+   "shop": false
   },
   {
    "id": "freight",
@@ -40,7 +46,9 @@ const CONTENT = {
    "n": "Freight",
    "d": "Air, sea and road freight from Istanbul.",
    "more": "We move goods in larger volumes by the mode that suits your timeline and budget: air for speed, sea for bulk, road for regional deliveries.",
-   "pts": ["Air, sea and road options", "Help with shipping paperwork", "Suitable for businesses and bulk orders"]
+   "pts": ["Air, sea and road options", "Help with shipping paperwork", "Suitable for businesses and bulk orders"],
+   "img": "",
+   "shop": false
   },
   {
    "id": "cargo",
@@ -48,17 +56,33 @@ const CONTENT = {
    "n": "Cargo and Logistics",
    "d": "Door-to-door cargo, packing and tracking.",
    "more": "Our door-to-door cargo service collects your goods, packs them securely and delivers them to your address, with offices in both Turkey and Ghana to support you.",
-   "pts": ["Door-to-door pickup and delivery", "Secure packing", "Support from our Istanbul and Accra offices"]
+   "pts": ["Door-to-door pickup and delivery", "Secure packing", "Support from our Istanbul and Accra offices"],
+   "img": "",
+   "shop": false
   },
   {
    "id": "apparel",
    "ic": "👗",
    "n": "Apparel and Clothing",
    "d": "Shoes, ladies wear and fashion sourcing.",
-   "link": "shop.html",
-   "act": "Visit the shop",
+   "link": "",
+   "act": "",
    "more": "Buy quality Turkish fashion without the hassle. We source shoes, ladies wear and other apparel, and can ship your order straight to you.",
-   "pts": ["Shoes, clothing and ladies wear", "Sourcing for resellers and individuals", "Combine with our cargo service for delivery"]
+   "pts": ["Shoes, clothing and ladies wear", "Sourcing for resellers and individuals", "Combine with our cargo service for delivery"],
+   "img": "",
+   "shop": true
+  },
+  {
+   "id": "building",
+   "ic": "🏗️",
+   "n": "Building Materials and Interior Fit-out",
+   "img": "",
+   "d": "Locks, doors, furniture, appliances and fittings for homes and hotels.",
+   "more": "Source building materials and interior fit-out products for homes, hotels and commercial projects, from hotel card lock systems to furniture, appliances and sanitaryware.",
+   "pts": ["Hotel card locks and systems", "Security doors and accessories", "Contract furniture, home appliances, sanitaryware and casework"],
+   "link": "",
+   "act": "",
+   "shop": true
   }
  ],
  "reasons": [
@@ -67,95 +91,92 @@ const CONTENT = {
    "n": "Solution",
    "d": "One partner for shipping, housing, travel and sourcing.",
    "more": "Instead of juggling several companies, you deal with one team that can handle your cargo, your property and your trip to Turkey.",
-   "pts": ["Six services under one roof", "One point of contact", "Less paperwork and fewer delays"]
+   "pts": ["Six services under one roof", "One point of contact", "Less paperwork and fewer delays"],
+   "img": ""
   },
   {
    "ic": "🌍",
    "n": "Experience",
    "d": "Door-to-door cargo between Turkey and Ghana.",
    "more": "We operate with offices in Istanbul and Accra, so we understand both ends of the journey your goods or plans take.",
-   "pts": ["Presence in Turkey and Ghana", "Knowledge of both markets", "Guidance you can ask for in person"]
+   "pts": ["Presence in Turkey and Ghana", "Knowledge of both markets", "Guidance you can ask for in person"],
+   "img": ""
   },
   {
    "ic": "⚡",
    "n": "Convenience",
    "d": "Book online in a minute through WhatsApp or email.",
    "more": "Fill in a short form and your booking arrives straight on WhatsApp or email, so you can chat with us right away.",
-   "pts": ["Quick online booking", "Talk to us on WhatsApp", "Pick the services you need in one go"]
+   "pts": ["Quick online booking", "Talk to us on WhatsApp", "Pick the services you need in one go"],
+   "img": ""
   }
  ],
  "tours": [
   {
    "id": "t1",
    "n": "Historic Istanbul",
-   "region": "Istanbul",
+   "region": "istanbul",
    "e": "🕌",
    "c": "linear-gradient(160deg,#f6d365,#fda085)",
    "days": "3 days",
    "price": "From $240",
    "d": "Walk through the heart of old Istanbul, where Europe meets Asia.",
-   "hl": ["Hagia Sophia and the Blue Mosque", "Topkapi Palace", "Grand Bazaar and Spice Market"],
-   "img": "img/1795006157278.jpg"
+   "hl": ["Hagia Sophia and the Blue Mosque", "Topkapi Palace", "Grand Bazaar and Spice Market"]
   },
   {
    "id": "t2",
    "n": "Bosphorus Cruise",
-   "region": "Istanbul",
+   "region": "istanbul",
    "e": "⛴️",
    "c": "linear-gradient(160deg,#89f7fe,#66a6ff)",
    "days": "Half day",
    "price": "From $35",
    "d": "See palaces, fortresses and waterfront homes from the water.",
-   "hl": ["Both continents in one trip", "Dolmabahce and Rumeli Fortress views", "Tea on deck at sunset"],
-   "img": "img/1795006184651.jpg"
+   "hl": ["Both continents in one trip", "Dolmabahce and Rumeli Fortress views", "Tea on deck at sunset"]
   },
   {
    "id": "t3",
    "n": "Cappadocia Balloons",
-   "region": "Cappadocia",
+   "region": "cappadocia",
    "e": "🎈",
    "c": "linear-gradient(160deg,#fbc2eb,#a6c1ee)",
    "days": "2 days",
    "price": "From $320",
    "d": "Fairy chimneys, cave hotels and sunrise balloon flights.",
-   "hl": ["Hot air balloon at sunrise (weather permitting)", "Goreme Open Air Museum", "Cave hotel stay"],
-   "img": "img/1795006202482.jpg"
+   "hl": ["Hot air balloon at sunrise (weather permitting)", "Goreme Open Air Museum", "Cave hotel stay"]
   },
   {
    "id": "t4",
    "n": "Pamukkale Terraces",
-   "region": "Aegean",
+   "region": "aegean",
    "e": "♨️",
    "c": "linear-gradient(160deg,#e0f7fa,#80deea)",
    "days": "2 days",
    "price": "From $210",
    "d": "White travertine pools and ancient Hierapolis.",
-   "hl": ["Natural thermal terraces", "Hierapolis ancient city", "Antique Pool swim"],
-   "img": "img/1795006234527.jpg"
+   "hl": ["Natural thermal terraces", "Hierapolis ancient city", "Antique Pool swim"]
   },
   {
    "id": "t5",
    "n": "Ephesus and Izmir",
-   "region": "Aegean",
+   "region": "aegean",
    "e": "🏛️",
    "c": "linear-gradient(160deg,#d4fc79,#96e6a1)",
    "days": "2 days",
    "price": "From $230",
    "d": "Walk the marble streets of one of the best preserved ancient cities.",
-   "hl": ["Library of Celsus", "Temple of Artemis site", "House of the Virgin Mary"],
-   "img": "img/1795006264770.jpg"
+   "hl": ["Library of Celsus", "Temple of Artemis site", "House of the Virgin Mary"]
   },
   {
    "id": "t6",
    "n": "Antalya Riviera",
-   "region": "Mediterranean",
+   "region": "mediterranean",
    "e": "🏖️",
    "c": "linear-gradient(160deg,#43e97b,#38f9d7)",
    "days": "4 days",
    "price": "From $380",
    "d": "Turquoise coast, old town harbour and waterfalls.",
-   "hl": ["Kaleici old town", "Duden waterfalls", "Boat trip along the coast"],
-   "img": "img/1795006282035.jpg"
+   "hl": ["Kaleici old town", "Duden waterfalls", "Boat trip along the coast"]
   }
  ],
  "products": [
@@ -235,6 +256,83 @@ const CONTENT = {
    "c": "#e6dccd",
    "price": 30,
    "d": "Genuine leather belt."
+  },
+  {
+   "id": "b1",
+   "n": "Electronic hotel door lock",
+   "cat": "hotel-locks",
+   "e": "🔐",
+   "c": "#d6e4f7",
+   "img": "",
+   "price": 0,
+   "sizes": [],
+   "d": "Key card lock for hotel guest rooms."
+  },
+  {
+   "id": "b2",
+   "n": "Key card encoder and software",
+   "cat": "hotel-locks",
+   "e": "💳",
+   "c": "#d6e4f7",
+   "img": "",
+   "price": 0,
+   "sizes": [],
+   "d": "Programs key cards and manages room access."
+  },
+  {
+   "id": "b3",
+   "n": "Steel security door",
+   "cat": "security-doors",
+   "e": "🚪",
+   "c": "#e8d5c0",
+   "img": "",
+   "price": 0,
+   "sizes": [],
+   "d": "Reinforced door for homes and apartments."
+  },
+  {
+   "id": "b4",
+   "n": "Hotel room furniture set",
+   "cat": "contract-furniture",
+   "e": "🛏️",
+   "c": "#f0dcc4",
+   "img": "",
+   "price": 0,
+   "sizes": [],
+   "d": "Bed, wardrobe and bedside tables for hotel rooms."
+  },
+  {
+   "id": "b5",
+   "n": "Home appliance package",
+   "cat": "home-appliances",
+   "e": "🧊",
+   "c": "#e3d9f7",
+   "img": "",
+   "price": 0,
+   "sizes": [],
+   "d": "Kitchen and household appliances, supplied as a package."
+  },
+  {
+   "id": "b6",
+   "n": "Bathroom sanitaryware set",
+   "cat": "sanitaryware",
+   "e": "🚽",
+   "c": "#cfe0e6",
+   "img": "",
+   "price": 0,
+   "sizes": [],
+   "d": "Toilet, basin and fittings set."
+  },
+  {
+   "id": "b7",
+   "n": "Fitted kitchen cabinets",
+   "cat": "sanitaryware",
+   "e": "🗄️",
+   "c": "#cfe0e6",
+   "img": "",
+   "price": 0,
+   "sizes": [],
+   "d": "Made-to-measure cabinetry and casework."
   }
  ],
  "houses": [
@@ -242,7 +340,7 @@ const CONTENT = {
    "n": "RH 107",
    "e": "🏠",
    "c": "#e9d4bd",
-   "img": "img/1795006699039.jpg",
+   "img": "",
    "type": "2+1+K",
    "size": "69 m²",
    "price": "Request a quote",
@@ -264,7 +362,7 @@ const CONTENT = {
    "n": "RH 108",
    "e": "🏠",
    "c": "#e2f2ca",
-   "img": "img/1795007660962.jpg",
+   "img": "",
    "type": "2+1+K",
    "size": "72 m²",
    "price": "Request a quote",
@@ -286,7 +384,7 @@ const CONTENT = {
    "n": "RH 109",
    "e": "🏠",
    "c": "#f9f5d0",
-   "img": "img/1795007690917.jpg",
+   "img": "",
    "type": "2+1",
    "size": "73 m²",
    "price": "Request a quote",
@@ -307,7 +405,7 @@ const CONTENT = {
    "n": "RH 110",
    "e": "🏠",
    "c": "#f0d5bf",
-   "img": "img/1795007716430.jpg",
+   "img": "",
    "type": "2+1+K",
    "size": "74 m²",
    "price": "Request a quote",
@@ -331,7 +429,7 @@ const CONTENT = {
    "n": "RH 200",
    "e": "🏘️",
    "c": "#e9daa9",
-   "img": "img/1795007750565.jpg",
+   "img": "",
    "type": "2+1+K",
    "size": "82 m²",
    "price": "Request a quote",
@@ -360,7 +458,7 @@ const CONTENT = {
    "n": "RH 201",
    "e": "🏘️",
    "c": "#f3e9d2",
-   "img": "img/1795007765127.jpg",
+   "img": "",
    "type": "2+1+K",
    "size": "92 m²",
    "price": "Request a quote",
@@ -390,7 +488,7 @@ const CONTENT = {
    "n": "RH 125",
    "e": "🏠",
    "c": "#d1a4a4",
-   "img": "img/1795007775028.jpg",
+   "img": "",
    "type": "3+1+K",
    "size": "98 m²",
    "price": "Request a quote",
@@ -414,7 +512,7 @@ const CONTENT = {
    "n": "RH 126",
    "e": "🏠",
    "c": "#f5e9d7",
-   "img": "img/1795007785173.jpg",
+   "img": "",
    "type": "3+1+K",
    "size": "100 m²",
    "price": "Request a quote",
@@ -437,7 +535,7 @@ const CONTENT = {
    "n": "RH 202",
    "e": "🏘️",
    "c": "#f9f9f6",
-   "img": "img/1795007800878.jpg",
+   "img": "",
    "type": "2+1",
    "size": "100 m²",
    "price": "Request a quote",
@@ -467,7 +565,7 @@ const CONTENT = {
    "n": "RH 203",
    "e": "🏘️",
    "c": "#d7d9d5",
-   "img": "img/1795007815249.jpg",
+   "img": "",
    "type": "3+1+K",
    "size": "101 m²",
    "price": "Request a quote",
@@ -496,7 +594,7 @@ const CONTENT = {
    "n": "RH 204",
    "e": "🏘️",
    "c": "#f9f1cd",
-   "img": "img/1795007825601.jpg",
+   "img": "",
    "type": "3+1+K",
    "size": "105 m²",
    "price": "Request a quote",
@@ -528,7 +626,7 @@ const CONTENT = {
    "n": "RH 132",
    "e": "🏠",
    "c": "#fae8d2",
-   "img": "img/1795007839667.jpg",
+   "img": "",
    "type": "3+1+K",
    "size": "123 m²",
    "price": "Request a quote",
@@ -552,7 +650,7 @@ const CONTENT = {
    "n": "RH 209",
    "e": "🏘️",
    "c": "#ecd0ab",
-   "img": "img/1795007859802.jpg",
+   "img": "",
    "type": "3+1+K",
    "size": "131 m²",
    "price": "Request a quote",
@@ -582,7 +680,7 @@ const CONTENT = {
    "n": "RH 210",
    "e": "🏘️",
    "c": "#d1a4a4",
-   "img": "img/1795007886853.jpg",
+   "img": "",
    "type": "3+1",
    "size": "134 m²",
    "price": "Request a quote",
@@ -613,7 +711,7 @@ const CONTENT = {
    "n": "RH 212",
    "e": "🏘️",
    "c": "#d1a4a4",
-   "img": "img/1795007907376.jpg",
+   "img": "",
    "type": "4+1",
    "size": "149 m²",
    "price": "Request a quote",
@@ -644,7 +742,7 @@ const CONTENT = {
    "n": "RH 213",
    "e": "🏘️",
    "c": "#d7e8bb",
-   "img": "img/1795007932503.jpg",
+   "img": "",
    "type": "4+1",
    "size": "150 m²",
    "price": "Request a quote",
@@ -725,32 +823,115 @@ const CONTENT = {
    "n": "Shoes",
    "e": "👟",
    "c": "#e8d5c0",
-   "img": "img/1795010557419.jpg",
-   "d": "Men's and women's shoes"
+   "img": "",
+   "d": "Men's and women's shoes",
+   "svc": "apparel"
   },
   {
    "id": "ladies",
    "n": "Ladies wear",
    "e": "👗",
    "c": "#f9d5ec",
-   "img": "img/1795010569489.jpg",
-   "d": "Dresses, scarves and more"
+   "img": "",
+   "d": "Dresses, scarves and more",
+   "svc": "apparel"
   },
   {
    "id": "mens",
    "n": "Men's wear",
    "e": "🤵",
    "c": "#d0d7e5",
-   "img": "img/1795010579012.jpg",
-   "d": "Suits, shirts and more"
+   "img": "",
+   "d": "Suits, shirts and more",
+   "svc": "apparel"
   },
   {
    "id": "accessories",
    "n": "Accessories",
    "e": "👜",
    "c": "#f0dcc4",
-   "img": "img/1795010594982.jpg",
-   "d": "Bags, belts and more"
+   "img": "",
+   "d": "Bags, belts and more",
+   "svc": "apparel"
+  },
+  {
+   "id": "hotel-locks",
+   "svc": "building",
+   "n": "Hotel card locks and systems",
+   "e": "🔐",
+   "c": "#d6e4f7",
+   "img": "",
+   "d": "Electronic locks and key card systems for hotels"
+  },
+  {
+   "id": "security-doors",
+   "svc": "building",
+   "n": "Security doors and accessories",
+   "e": "🚪",
+   "c": "#e8d5c0",
+   "img": "",
+   "d": "Doors, handles and door accessories"
+  },
+  {
+   "id": "contract-furniture",
+   "svc": "building",
+   "n": "Contract furniture",
+   "e": "🛋️",
+   "c": "#f0dcc4",
+   "img": "",
+   "d": "Furniture for hotels, offices and projects"
+  },
+  {
+   "id": "home-appliances",
+   "svc": "building",
+   "n": "Home appliances",
+   "e": "🔌",
+   "c": "#e3d9f7",
+   "img": "",
+   "d": "Appliances for homes and hotels"
+  },
+  {
+   "id": "sanitaryware",
+   "svc": "building",
+   "n": "Sanitaryware and casework",
+   "e": "🚿",
+   "c": "#cfe0e6",
+   "img": "",
+   "d": "Bathroom fittings and fitted cabinetry"
+  }
+ ],
+ "destinations": [
+  {
+   "id": "istanbul",
+   "n": "Istanbul",
+   "e": "🕌",
+   "c": "#f6d365",
+   "img": "",
+   "d": "Palaces, mosques, bazaars and the Bosphorus"
+  },
+  {
+   "id": "cappadocia",
+   "n": "Cappadocia",
+   "e": "🎈",
+   "c": "#fbc2eb",
+   "img": "",
+   "d": "Fairy chimneys and balloon flights"
+  },
+  {
+   "id": "aegean",
+   "n": "Aegean",
+   "e": "🏛️",
+   "c": "#96e6a1",
+   "img": "",
+   "d": "Ancient cities and thermal pools"
+  },
+  {
+   "id": "mediterranean",
+   "n": "Mediterranean",
+   "e": "🏖️",
+   "c": "#7be8d6",
+   "img": "",
+   "d": "Turquoise coast and old harbours"
   }
  ]
 };

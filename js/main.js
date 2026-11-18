@@ -7,7 +7,7 @@ const page=location.pathname.split("/").pop()||"index.html";
 const L=[["index.html","Home"],["index.html#services","Services"],["prefab.html","Prefab Homes"],["tours.html","Tours"],["shop.html","Shop"],["book.html","Book now"]];
 document.body.insertAdjacentHTML("afterbegin",`<nav><a class="logo" href="index.html">${SITE.logo}</a><ul>${L.map(([h,t])=>`<li><a href="${h}" class="${h==page?"on":""}">${t}</a></li>`).join("")}</ul></nav>`);
 document.body.insertAdjacentHTML("beforeend",`<footer><div class="big">${SITE.logo}</div><p>${SITE.name}</p><p>Turkey: ${CONFIG.turkey} · Ghana: ${CONFIG.ghana}</p><p>${CONFIG.email}</p><p><a href="faq.html">FAQ</a> · <a href="legal.html">Privacy &amp; terms</a></p></footer>`);
-const card=(s,k)=>`<div class="card" data-k="${k}" tabindex="0" role="button"><div><div class="ic">${s.ic}</div><h3>${s.n}</h3><p>${s.d}</p></div><span class="more">Tap for more info</span></div>`;
+const card=(s,k)=>`<div class="card" data-k="${k}" tabindex="0" role="button"${s.img?` style="background:linear-gradient(rgba(27,43,72,.5),rgba(27,43,72,.9)),url('${encodeURI(s.img).replace(/'/g,"%27")}') center/cover"`:""}><div><div class="ic">${s.ic}</div><h3>${s.n}</h3><p>${s.d}</p></div><span class="more">Tap for more info</span></div>`;
 const sv=document.getElementById("svc"),wy=document.getElementById("why");
 if(sv)sv.innerHTML=SERVICES.map((s,i)=>card(s,"s"+i)).join("");
 if(wy)wy.innerHTML=REASONS.map((s,i)=>card(s,"r"+i)).join("");
@@ -30,9 +30,10 @@ if(f){const box=document.getElementById("checks"),pre=new URLSearchParams(locati
 // info modal for service and reason cards
 document.body.insertAdjacentHTML("beforeend",'<div class="im" id="im"><div class="imb"><button class="x" aria-label="Close" onclick="closeInfo()">×</button><div id="imc"></div></div></div>');
 const im=document.getElementById("im");
-function openInfo(k){const it=(k[0]=="s"?SERVICES:REASONS)[k.slice(1)];
- const act=k[0]=="s"?`<a class="btn" href="${it.link||"book.html?s="+it.id}">${it.act||"Book this service"}</a>`:`<a class="btn" href="book.html">Book now</a>`;
- document.getElementById("imc").innerHTML=`<div class="ic">${it.ic}</div><h2>${it.n}</h2><p>${it.more}</p><ul>${it.pts.map(p=>`<li>${p}</li>`).join("")}</ul>${act}`;
+const svcLink=s=>s.link||(s.shop?"shop.html#"+s.id:"book.html?s="+s.id);
+function openInfo(k){const isS=k[0]=="s",it=(isS?SERVICES:REASONS)[k.slice(1)],go=isS&&(it.link||it.shop);
+ const act=isS?`<a class="btn" href="${svcLink(it)}">${it.act||(it.shop?"Browse products":"Book this service")}</a>${go?` <a class="btn" href="book.html?s=${it.id}" style="font-size:15px;padding:12px 18px">Book / enquire</a>`:""}`:`<a class="btn" href="book.html">Book now</a>`;
+ document.getElementById("imc").innerHTML=`${it.img?`<img class="mimg" src="${encodeURI(it.img)}" alt="">`:""}<div class="ic">${it.ic}</div><h2>${it.n}</h2><p>${it.more}</p><ul>${(it.pts||[]).map(p=>`<li>${p}</li>`).join("")}</ul>${act}`;
  im.classList.add("open")}
 function closeInfo(){im.classList.remove("open")}
 im.onclick=e=>{if(e.target==im)closeInfo()};

@@ -1,19 +1,27 @@
 const LS="olf_admin",DR="olf_draft",$=i=>document.getElementById(i);
 let D=JSON.parse(JSON.stringify(CONTENT)),tab="site",dirty=false,G={};
 try{G=JSON.parse(localStorage.getItem(LS))||{};const d=localStorage.getItem(DR);if(d){D=JSON.parse(d);dirty=true}}catch(e){}
-function norm(){if(!D.categories&&CONTENT.categories)D.categories=JSON.parse(JSON.stringify(CONTENT.categories));D.faq=D.faq||[];
- (D.products||[]).forEach(p=>{const c=(D.categories||[]).find(c=>c.n==p.cat);if(c)p.cat=c.id})}
+function norm(){const cl=x=>JSON.parse(JSON.stringify(x)),S=CONTENT;
+ ["categories","destinations"].forEach(k=>{if(!D[k]&&S[k])D[k]=cl(S[k])});D.faq=D.faq||[];
+ (D.services||[]).forEach(s=>{if(s.shop===undefined)s.shop=s.id=="apparel";if(s.img===undefined)s.img=""});
+ (D.reasons||[]).forEach(r=>{if(r.img===undefined)r.img=""});
+ (D.categories||[]).forEach(c=>{if(!c.svc)c.svc="apparel"});
+ if(S.services&&D.services&&!D.services.some(s=>s.id=="building")){const b=S.services.find(s=>s.id=="building");
+  if(b){D.services.push(cl(b));S.categories.filter(c=>c.svc=="building").forEach(c=>D.categories.push(cl(c)));S.products.filter(p=>S.categories.some(c=>c.id==p.cat&&c.svc=="building")).forEach(p=>(D.products=D.products||[]).push(cl(p)))}}
+ (D.products||[]).forEach(p=>{const c=(D.categories||[]).find(c=>c.n==p.cat);if(c)p.cat=c.id});
+ (D.tours||[]).forEach(t=>{const d=(D.destinations||[]).find(d=>d.n==t.region);if(d)t.region=d.id})}
 const F={
  site:{t:"Site",one:1,f:[["logo","Logo text"],["name","Business name (footer)"],["heroTitle","Home headline"],["heroText","Home subtitle","area"],["blue","Main colour","color"],["lime","Accent colour","color"],["navy","Dark colour","color"],["cream","Page background","color"]]},
  config:{t:"Contact",one:1,f:[["whatsapp","WhatsApp number for orders and bookings (digits only, with country code)"],["email","Email"],["turkey","Turkey phone"],["ghana","Ghana phone"]]},
- services:{t:"Services",f:[["ic","Emoji"],["n","Title"],["d","Short text"],["more","Popup text","area"],["pts","Popup bullets (one per line)","lines"],["link","Opens a page instead of booking (optional, e.g. tours.html)"],["act","Button text for that page"]]},
- reasons:{t:"Why us",f:[["ic","Emoji"],["n","Title"],["d","Short text"],["more","Popup text","area"],["pts","Popup bullets (one per line)","lines"]]},
+ services:{t:"Services",f:[["ic","Emoji"],["n","Title"],["img","Photo","img"],["d","Short text"],["more","Popup text","area"],["pts","Popup bullets (one per line)","lines"],["shop","Sell products from this service in the shop","bool"],["link","Opens a page instead (optional, e.g. tours.html)"],["act","Button text (optional)"]]},
+ reasons:{t:"Why us",f:[["ic","Emoji"],["n","Title"],["img","Photo","img"],["d","Short text"],["more","Popup text","area"],["pts","Popup bullets (one per line)","lines"]]},
  faq:{t:"FAQ",f:[["n","Question"],["a","Answer","area"]]},
  houses:{t:"Prefab houses",f:[["n","Name (e.g. RH 204)"],["e","Emoji"],["c","Card colour","bg"],["img","Photo","img"],["type","Type (e.g. 3+1+K)"],["size","Size (e.g. 105 m²)"],["price","Price text"],["wall","Wall colour (outside, 3D)","color"],["roof","Roof colour (3D)","color"]]},
- tours:{t:"Tours",f:[["n","Name"],["region","Region"],["e","Emoji"],["c","Card colour","bg"],["img","Photo","img"],["days","Duration"],["price","Price text"],["d","Description","area"],["hl","Highlights (one per line)","lines"]]},
- categories:{t:"Shop categories",f:[["n","Category name"],["e","Emoji"],["c","Tile colour","bg"],["img","Photo","img"],["d","Short description"]]},
- products:{t:"Shop products",f:[["n","Name"],["cat","Category","cat"],["e","Emoji"],["c","Card colour","bg"],["img","Photo","img"],["price","Price in USD (number)","num"],["sizes","Sizes, comma separated (blank if none)","csv"],["d","Description"]]}};
-const T={categories:{n:"New category",e:"🧥",c:"#d6e4f7",img:"",d:""},faq:{n:"New question",a:""},services:{ic:"⭐",n:"New service",d:"",more:"",pts:[],link:"",act:""},reasons:{ic:"⭐",n:"New reason",d:"",more:"",pts:[]},houses:{n:"New house",e:"🏠",c:"#cfe8ff",type:"",size:"",price:"Request a quote",wall:"#f0dc82",roof:"#c0272d"},tours:{n:"New tour",region:"Istanbul",e:"🏞️",c:"#d6e4f7",days:"",price:"",d:"",hl:[]},products:{n:"New product",cat:"Shoes",e:"👟",c:"#e8d5c0",price:0,sizes:[],d:""}};
+ destinations:{t:"Tour destinations",f:[["n","Destination name"],["e","Emoji"],["c","Tile colour","bg"],["img","Photo","img"],["d","Short description"]]},
+ tours:{t:"Tours",f:[["n","Name"],["region","Destination","sel:destinations"],["e","Emoji"],["c","Card colour","bg"],["img","Photo","img"],["days","Duration"],["price","Price text"],["d","Description","area"],["hl","Highlights (one per line)","lines"]]},
+ categories:{t:"Shop categories",f:[["n","Category name"],["svc","Belongs to service","sel:services"],["e","Emoji"],["c","Tile colour","bg"],["img","Photo","img"],["d","Short description"]]},
+ products:{t:"Shop products",f:[["n","Name"],["cat","Category","sel:categories"],["e","Emoji"],["c","Card colour","bg"],["img","Photo","img"],["price","Price in USD (number)","num"],["sizes","Sizes, comma separated (blank if none)","csv"],["d","Description"]]}};
+const T={destinations:{n:"New destination",e:"📍",c:"#d6e4f7",img:"",d:""},categories:{n:"New category",e:"🧥",c:"#d6e4f7",img:"",d:""},faq:{n:"New question",a:""},services:{ic:"⭐",n:"New service",img:"",d:"",more:"",pts:[],shop:false,link:"",act:""},reasons:{ic:"⭐",n:"New reason",img:"",d:"",more:"",pts:[]},houses:{n:"New house",e:"🏠",c:"#cfe8ff",type:"",size:"",price:"Request a quote",wall:"#f0dc82",roof:"#c0272d"},tours:{n:"New tour",region:"Istanbul",e:"🏞️",c:"#d6e4f7",days:"",price:"",d:"",hl:[]},products:{n:"New product",cat:"Shoes",e:"👟",c:"#e8d5c0",price:0,sizes:[],d:""}};
 norm();
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const msg=t=>$("st").textContent=t;
@@ -21,12 +29,15 @@ const st=()=>msg(dirty?"● Unpublished changes (saved in this browser)":"All ch
 const target=(c,i)=>i<0?D[c]:D[c][i];
 function save(){dirty=true;try{localStorage.setItem(DR,JSON.stringify(D))}catch(e){}st()}
 function set(c,i,k,el,t){let v=el.value;if(t=="lines")v=v.split("\n").map(x=>x.trim()).filter(Boolean);else if(t=="csv")v=v.split(",").map(x=>x.trim()).filter(Boolean);else if(t=="num")v=+v||0;target(c,i)[k]=v;save()}
+const lbl=(col,x)=>col=="categories"?(((D.services||[]).find(s=>s.id==x.svc)||{}).n||"?")+" › "+x.n:x.n;
+const opts=(col,val)=>(D[col]||[]).map(x=>`<option value="${esc(x.id)}" ${x.id==val?"selected":""}>${esc(lbl(col,x))}</option>`).join("");
 function fld(c,i,[k,l,t],o){const v=o[k];let val=t=="lines"?(v||[]).join("\n"):t=="csv"?(v||[]).join(", "):v??"";
  const a=`oninput="set('${c}',${i},'${k}',this,'${t||""}')"`;
  const inp=t=="area"||t=="lines"?`<textarea rows="${t=="lines"?4:3}" ${a}>${esc(val)}</textarea>`
  :t=="color"?`<input type="color" value="${esc(val)}" ${a}>`
  :t=="bg"?`<input value="${esc(val)}" ${a}> <input type="color" value="${/^#[0-9a-f]{6}$/i.test(val)?val:"#cccccc"}" oninput="const p=this.previousElementSibling;p.value=this.value;p.dispatchEvent(new Event('input'))">`
- :t=="cat"?`<select onchange="set('${c}',${i},'${k}',this,'')">${(D.categories||[]).map(x=>`<option value="${esc(x.id)}" ${x.id==val?"selected":""}>${esc(x.n)}</option>`).join("")}</select>`
+   :(t||"").startsWith("sel:")?`<select onchange="set('${c}',${i},'${k}',this,'')"><option value="">Choose...</option>${opts(t.slice(4),val)}</select>`
+ :t=="bool"?`<input type="checkbox" ${val?"checked":""} onchange="set('${c}',${i},'${k}',{value:this.checked},'bool')">`
  :t=="img"?`<div class="imgf"><input value="${esc(val)}" placeholder="img/photo.jpg (or choose a photo)" ${a}><label class="b upl">📷 Choose photo<input type="file" accept="image/*" hidden onchange="up('${c}',${i},'${k}',this)"></label>${val?`<img class="th" src="${esc(val)}" alt="" onerror="this.style.display='none'">`:""}<span class="us"></span></div>`
  :`<input value="${esc(val)}" ${a}>`;
  const g=t=="img"?"div":"label";return `<${g} class="f"><span>${l}</span>${inp}</${g}>`}
@@ -37,7 +48,7 @@ function draw(){$("tabs").innerHTML=Object.entries(F).map(([k,v])=>`<button clas
  $("ed").innerHTML=h;st()}
 function mv(e,i,d){e.preventDefault();const a=D[tab],j=i+d;if(j<0||j>=a.length)return;[a[i],a[j]]=[a[j],a[i]];save();draw()}
 function rm(e,i){e.preventDefault();if(confirm("Delete this item?")){D[tab].splice(i,1);save();draw()}}
-function add(){const o={...T[tab],id:"x"+Date.now().toString(36)};if(tab=="products")o.cat=((D.categories||[])[0]||{}).id||"";D[tab].push(o);save();draw();const l=[...document.querySelectorAll("details")].pop();l.open=true;l.scrollIntoView()}
+function add(){const o={...T[tab],id:"x"+Date.now().toString(36)};F[tab].f.forEach(([k,,t])=>{if((t||"").startsWith("sel:")){const L=D[t.slice(4)]||[];o[k]=(L.find(x=>x.shop)||L[0]||{}).id||""}});D[tab].push(o);save();draw();const l=[...document.querySelectorAll("details")].pop();l.open=true;l.scrollIntoView()}
 // ---- publishing ----
 const out=()=>{let s=JSON.stringify(D,null,1);for(let i=0;i<3;i++)s=s.replace(/\[\s*([^\[\]{}]*?)\s*\]/g,(m,x)=>"["+x.replace(/\s*\n\s*/g," ")+"]");return "const CONTENT = "+s+";\n"};
 const API=()=>`https://api.github.com/repos/${G.o}/${G.r}/contents/`;
