@@ -725,7 +725,7 @@ const CONTENT = {
    "n": "Shoes",
    "e": "👟",
    "c": "#e8d5c0",
-   "img": "",
+   "img": "img/1795010557419.jpg",
    "d": "Men's and women's shoes"
   },
   {
@@ -733,7 +733,7 @@ const CONTENT = {
    "n": "Ladies wear",
    "e": "👗",
    "c": "#f9d5ec",
-   "img": "",
+   "img": "img/1795010569489.jpg",
    "d": "Dresses, scarves and more"
   },
   {
@@ -741,7 +741,7 @@ const CONTENT = {
    "n": "Men's wear",
    "e": "🤵",
    "c": "#d0d7e5",
-   "img": "",
+   "img": "img/1795010579012.jpg",
    "d": "Suits, shirts and more"
   },
   {
@@ -749,7 +749,7 @@ const CONTENT = {
    "n": "Accessories",
    "e": "👜",
    "c": "#f0dcc4",
-   "img": "",
+   "img": "img/1795010594982.jpg",
    "d": "Bags, belts and more"
   }
  ]
