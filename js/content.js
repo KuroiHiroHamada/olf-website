@@ -242,7 +242,7 @@ const CONTENT = {
    "n": "RH 107",
    "e": "🏠",
    "c": "#e9d4bd",
-   "img": "",
+   "img": "img/1795006699039.jpg",
    "type": "2+1+K",
    "size": "69 m²",
    "price": "Request a quote",
