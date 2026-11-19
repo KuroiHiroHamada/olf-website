@@ -992,7 +992,7 @@ const CONTENT = {
    "n": "Tours",
    "e": "🧭",
    "c": "#f6d365",
-   "img": "img/1795123036088.jpg",
+   "img": "img/1795125683004.jpg",
    "d": "Browse destinations and tours across Turkey",
    "link": "tours.html"
   },
