@@ -92,7 +92,9 @@ const CONTENT = {
    "d": "One partner for shipping, housing, travel and sourcing.",
    "more": "Instead of juggling several companies, you deal with one team that can handle your cargo, your property and your trip to Turkey.",
    "pts": ["Six services under one roof", "One point of contact", "Less paperwork and fewer delays"],
-   "img": ""
+   "img": "",
+   "href": "index.html#services",
+   "cta": "See our services"
   },
   {
    "ic": "🌍",
@@ -100,7 +102,9 @@ const CONTENT = {
    "d": "Door-to-door cargo between Turkey and Ghana.",
    "more": "We operate with offices in Istanbul and Accra, so we understand both ends of the journey your goods or plans take.",
    "pts": ["Presence in Turkey and Ghana", "Knowledge of both markets", "Guidance you can ask for in person"],
-   "img": ""
+   "img": "",
+   "href": "faq.html",
+   "cta": "Read our FAQ"
   },
   {
    "ic": "⚡",
@@ -108,7 +112,9 @@ const CONTENT = {
    "d": "Book online in a minute through WhatsApp or email.",
    "more": "Fill in a short form and your booking arrives straight on WhatsApp or email, so you can chat with us right away.",
    "pts": ["Quick online booking", "Talk to us on WhatsApp", "Pick the services you need in one go"],
-   "img": ""
+   "img": "",
+   "href": "book.html",
+   "cta": "Book now"
   }
  ],
  "tours": [
@@ -807,7 +813,13 @@ const CONTENT = {
   "blue": "#2a52be",
   "lime": "#b4c424",
   "navy": "#1b2b48",
-  "cream": "#fff3e0"
+  "cream": "#fff3e0",
+  "tagline": "Cargo, logistics, housing, travel and more, from Istanbul.",
+  "trust": ["Offices in Istanbul and Accra", "Door-to-door cargo", "Housing, travel and shopping in one place"],
+  "heroImg": "",
+  "ctaTitle": "Ready to get started?",
+  "ctaText": "Tell us what you need and we will reply on WhatsApp.",
+  "partnersTitle": "Brands and partners"
  },
  "faq": [
   {
@@ -1054,5 +1066,6 @@ const CONTENT = {
    "amen": ["Beach access", "Pool", "Breakfast"],
    "rooms": ["Sea view room | 120", "Family suite | 180"]
   }
- ]
+ ],
+ "partners": []
 };
