@@ -875,7 +875,7 @@ const CONTENT = {
    "n": "Shoes",
    "e": "👟",
    "c": "#e8d5c0",
-   "img": "",
+   "img": "img/1795123781588.jpg",
    "d": "Men's and women's shoes",
    "svc": "apparel"
   },
@@ -884,7 +884,7 @@ const CONTENT = {
    "n": "Ladies wear",
    "e": "👗",
    "c": "#f9d5ec",
-   "img": "",
+   "img": "img/1795123793057.jpg",
    "d": "Dresses, scarves and more",
    "svc": "apparel"
   },
@@ -893,7 +893,7 @@ const CONTENT = {
    "n": "Men's wear",
    "e": "🤵",
    "c": "#d0d7e5",
-   "img": "",
+   "img": "img/1795123803990.jpg",
    "d": "Suits, shirts and more",
    "svc": "apparel"
   },
@@ -902,7 +902,7 @@ const CONTENT = {
    "n": "Accessories",
    "e": "👜",
    "c": "#f0dcc4",
-   "img": "",
+   "img": "img/1795123815199.jpg",
    "d": "Bags, belts and more",
    "svc": "apparel"
   },
@@ -912,7 +912,7 @@ const CONTENT = {
    "n": "Hotel card locks and systems",
    "e": "🔐",
    "c": "#d6e4f7",
-   "img": "",
+   "img": "img/1795123982832.jpg",
    "d": "Electronic locks and key card systems for hotels"
   },
   {
@@ -921,7 +921,7 @@ const CONTENT = {
    "n": "Security doors and accessories",
    "e": "🚪",
    "c": "#e8d5c0",
-   "img": "",
+   "img": "img/1795124103821.jpg",
    "d": "Doors, handles and door accessories"
   },
   {
@@ -930,7 +930,7 @@ const CONTENT = {
    "n": "Contract furniture",
    "e": "🛋️",
    "c": "#f0dcc4",
-   "img": "",
+   "img": "img/1795124358076.jpg",
    "d": "Furniture for hotels, offices and projects"
   },
   {
@@ -939,7 +939,7 @@ const CONTENT = {
    "n": "Home appliances",
    "e": "🔌",
    "c": "#e3d9f7",
-   "img": "",
+   "img": "img/1795124455515.jpg",
    "d": "Appliances for homes and hotels"
   },
   {
@@ -948,7 +948,7 @@ const CONTENT = {
    "n": "Sanitaryware and casework",
    "e": "🚿",
    "c": "#cfe0e6",
-   "img": "",
+   "img": "img/1795124535454.jpg",
    "d": "Bathroom fittings and fitted cabinetry"
   }
  ],
