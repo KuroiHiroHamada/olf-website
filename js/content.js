@@ -164,7 +164,7 @@ const CONTENT = {
    "price": "From $210",
    "d": "White travertine pools and ancient Hierapolis.",
    "hl": ["Natural thermal terraces", "Hierapolis ancient city", "Antique Pool swim"],
-   "img": "img/1795123693671.jpg"
+   "img": "img/1795124670732.jpg"
   },
   {
    "id": "t5",
