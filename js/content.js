@@ -188,7 +188,9 @@ const CONTENT = {
    "c": "#e8d5c0",
    "price": 85,
    "sizes": ["40", "41", "42", "43", "44", "45"],
-   "d": "Handcrafted leather dress shoe."
+   "d": "Handcrafted leather dress shoe.",
+   "specs": ["Material: Leather", "Sole: Leather", "Style: Oxford, lace-up", "Colour: Brown"],
+   "more": "Handcrafted leather dress shoe. Choose your size where shown, add it to the cart and send your order on WhatsApp."
   },
   {
    "id": "p2",
@@ -198,7 +200,9 @@ const CONTENT = {
    "c": "#f7d6e0",
    "price": 70,
    "sizes": ["36", "37", "38", "39", "40"],
-   "d": "Comfortable heels for events and office."
+   "d": "Comfortable heels for events and office.",
+   "specs": ["Heel type: Block", "Style: Closed toe", "Colour: Black"],
+   "more": "Comfortable heels for events and office. Choose your size where shown, add it to the cart and send your order on WhatsApp."
   },
   {
    "id": "p3",
@@ -208,7 +212,9 @@ const CONTENT = {
    "c": "#d6e4f7",
    "price": 60,
    "sizes": ["40", "41", "42", "43", "44", "45"],
-   "d": "Everyday casual sneakers."
+   "d": "Everyday casual sneakers.",
+   "specs": ["Style: Casual sneaker", "Colour: White", "Closure: Laces"],
+   "more": "Everyday casual sneakers. Choose your size where shown, add it to the cart and send your order on WhatsApp."
   },
   {
    "id": "p4",
@@ -218,7 +224,9 @@ const CONTENT = {
    "c": "#f9d5ec",
    "price": 95,
    "sizes": ["S", "M", "L", "XL", "XXL"],
-   "d": "Flowing dress in sizes up to plus size."
+   "d": "Flowing dress in sizes up to plus size.",
+   "specs": ["Style: Flowing dress", "Colour: Pink", "Sizes: S to XXL", "Care: Hand wash or gentle machine wash"],
+   "more": "Flowing dress in sizes up to plus size. Choose your size where shown, add it to the cart and send your order on WhatsApp."
   },
   {
    "id": "p5",
@@ -227,7 +235,9 @@ const CONTENT = {
    "e": "🧣",
    "c": "#e3d9f7",
    "price": 25,
-   "d": "Soft printed scarf."
+   "d": "Soft printed scarf.",
+   "specs": ["Style: Printed scarf", "Material: Silk-feel fabric", "Care: Gentle wash"],
+   "more": "Soft printed scarf. Choose your size where shown, add it to the cart and send your order on WhatsApp."
   },
   {
    "id": "p6",
@@ -237,7 +247,9 @@ const CONTENT = {
    "c": "#d0d7e5",
    "price": 210,
    "sizes": ["48", "50", "52", "54", "56"],
-   "d": "Tailored fit suit."
+   "d": "Tailored fit suit.",
+   "specs": ["Pieces: Jacket and trousers", "Fit: Tailored", "Colour: Navy", "Sizes: 48 to 56"],
+   "more": "Tailored fit suit. Choose your size where shown, add it to the cart and send your order on WhatsApp."
   },
   {
    "id": "p7",
@@ -246,7 +258,9 @@ const CONTENT = {
    "e": "👜",
    "c": "#f0dcc4",
    "price": 75,
-   "d": "Spacious everyday bag."
+   "d": "Spacious everyday bag.",
+   "specs": ["Material: Leather", "Closure: Zip", "Colour: Tan"],
+   "more": "Spacious everyday bag. Choose your size where shown, add it to the cart and send your order on WhatsApp."
   },
   {
    "id": "p8",
@@ -255,7 +269,9 @@ const CONTENT = {
    "e": "🧵",
    "c": "#e6dccd",
    "price": 30,
-   "d": "Genuine leather belt."
+   "d": "Genuine leather belt.",
+   "specs": ["Material: Genuine leather", "Colour: Brown", "Style: Classic buckle"],
+   "more": "Genuine leather belt. Choose your size where shown, add it to the cart and send your order on WhatsApp."
   },
   {
    "id": "b1",
@@ -266,7 +282,9 @@ const CONTENT = {
    "img": "",
    "price": 0,
    "sizes": [],
-   "d": "Key card lock for hotel guest rooms."
+   "d": "Key card lock for hotel guest rooms.",
+   "specs": ["Opens with: RFID key card", "Use: Hotel guest rooms", "Power: Batteries", "Supplied with: Lock body and handle (confirm in quote)"],
+   "more": "Key card lock for hotel guest rooms. Send us your quantity and delivery location and we will quote you."
   },
   {
    "id": "b2",
@@ -277,7 +295,9 @@ const CONTENT = {
    "img": "",
    "price": 0,
    "sizes": [],
-   "d": "Programs key cards and manages room access."
+   "d": "Programs key cards and manages room access.",
+   "specs": ["Function: Issues and cancels guest key cards", "Works with: Hotel card lock systems", "Supplied as: Encoder and software"],
+   "more": "Programs key cards and manages room access. Send us your quantity and delivery location and we will quote you."
   },
   {
    "id": "b3",
@@ -288,7 +308,9 @@ const CONTENT = {
    "img": "",
    "price": 0,
    "sizes": [],
-   "d": "Reinforced door for homes and apartments."
+   "d": "Reinforced door for homes and apartments.",
+   "specs": ["Material: Steel", "Use: Homes and apartments", "Options: Colour, handle and lock type"],
+   "more": "Reinforced door for homes and apartments. Send us your quantity and delivery location and we will quote you."
   },
   {
    "id": "b4",
@@ -299,7 +321,9 @@ const CONTENT = {
    "img": "",
    "price": 0,
    "sizes": [],
-   "d": "Bed, wardrobe and bedside tables for hotel rooms."
+   "d": "Bed, wardrobe and bedside tables for hotel rooms.",
+   "specs": ["Includes: Bed, wardrobe and bedside tables", "Use: Hotel and guest rooms", "Options: Finish, size and quantity"],
+   "more": "Bed, wardrobe and bedside tables for hotel rooms. Send us your quantity and delivery location and we will quote you."
   },
   {
    "id": "b5",
@@ -310,7 +334,9 @@ const CONTENT = {
    "img": "",
    "price": 0,
    "sizes": [],
-   "d": "Kitchen and household appliances, supplied as a package."
+   "d": "Kitchen and household appliances, supplied as a package.",
+   "specs": ["Includes: Kitchen and household appliances (list agreed with you)", "Use: Homes and hotels", "Price: Depends on the selection"],
+   "more": "Kitchen and household appliances, supplied as a package. Send us your quantity and delivery location and we will quote you."
   },
   {
    "id": "b6",
@@ -321,7 +347,9 @@ const CONTENT = {
    "img": "",
    "price": 0,
    "sizes": [],
-   "d": "Toilet, basin and fittings set."
+   "d": "Toilet, basin and fittings set.",
+   "specs": ["Includes: Toilet, basin and fittings", "Use: Homes and hotels", "Options: Colour and style"],
+   "more": "Toilet, basin and fittings set. Send us your quantity and delivery location and we will quote you."
   },
   {
    "id": "b7",
@@ -332,7 +360,9 @@ const CONTENT = {
    "img": "",
    "price": 0,
    "sizes": [],
-   "d": "Made-to-measure cabinetry and casework."
+   "d": "Made-to-measure cabinetry and casework.",
+   "specs": ["Type: Made to measure", "Use: Homes and projects", "Options: Finish and layout"],
+   "more": "Made-to-measure cabinetry and casework. Send us your quantity and delivery location and we will quote you."
   }
  ],
  "houses": [
