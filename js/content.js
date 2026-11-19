@@ -15,7 +15,7 @@ const CONTENT = {
    "act": "Explore homes",
    "more": "Browse a range of pre-fabricated houses, from compact studios to family villas. Each home is built in sections, shipped to you and assembled on your plot, which saves time compared with traditional building.",
    "pts": ["Explore each house in 3D, room by room", "Options for different sizes and budgets", "Shipping and delivery arranged with your order"],
-   "img": "",
+   "img": "img/1795121698179.jpg",
    "shop": false
   },
   {
@@ -25,7 +25,7 @@ const CONTENT = {
    "d": "Property care, tenants and maintenance handled.",
    "more": "Let us look after your property while you are away or busy. We act as your on-the-ground team so your investment stays in good shape.",
    "pts": ["Routine inspections and maintenance", "Tenant sourcing and rent follow-up", "Regular updates to you"],
-   "img": "",
+   "img": "img/1795121925460.jpg",
    "shop": false
   },
   {
@@ -37,7 +37,7 @@ const CONTENT = {
    "act": "Explore travel",
    "more": "Coming to Istanbul for business, shopping or leisure? Browse our tours, send a hotel booking request, and let us help you plan the trip so you arrive prepared.",
    "pts": ["Tours to Istanbul, Cappadocia, the Aegean and the Mediterranean", "Hotel booking requests with your dates and room type", "Visa, entry and trip planning guidance"],
-   "img": "",
+   "img": "img/1795121963589.jpg",
    "shop": false
   },
   {
@@ -47,7 +47,7 @@ const CONTENT = {
    "d": "Air, sea and road freight from Istanbul.",
    "more": "We move goods in larger volumes by the mode that suits your timeline and budget: air for speed, sea for bulk, road for regional deliveries.",
    "pts": ["Air, sea and road options", "Help with shipping paperwork", "Suitable for businesses and bulk orders"],
-   "img": "",
+   "img": "img/1795121974721.jpg",
    "shop": false
   },
   {
@@ -57,7 +57,7 @@ const CONTENT = {
    "d": "Door-to-door cargo, packing and tracking.",
    "more": "Our door-to-door cargo service collects your goods, packs them securely and delivers them to your address, with offices in both Turkey and Ghana to support you.",
    "pts": ["Door-to-door pickup and delivery", "Secure packing", "Support from our Istanbul and Accra offices"],
-   "img": "",
+   "img": "img/1795121990138.jpg",
    "shop": false
   },
   {
@@ -69,14 +69,14 @@ const CONTENT = {
    "act": "",
    "more": "Buy quality Turkish fashion without the hassle. We source shoes, ladies wear and other apparel, and can ship your order straight to you.",
    "pts": ["Shoes, clothing and ladies wear", "Sourcing for resellers and individuals", "Combine with our cargo service for delivery"],
-   "img": "",
+   "img": "img/1795122001267.jpg",
    "shop": true
   },
   {
    "id": "building",
    "ic": "🏗️",
    "n": "Building Materials and Interior Fit-out",
-   "img": "",
+   "img": "img/1795122710920.jpg",
    "d": "Locks, doors, furniture, appliances and fittings for homes and hotels.",
    "more": "Source building materials and interior fit-out products for homes, hotels and commercial projects, from hotel card lock systems to furniture, appliances and sanitaryware.",
    "pts": ["Hotel card locks and systems", "Security doors and accessories", "Contract furniture, home appliances, sanitaryware and casework"],
