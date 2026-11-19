@@ -986,7 +986,7 @@ const CONTENT = {
    "n": "Tours",
    "e": "🧭",
    "c": "#f6d365",
-   "img": "",
+   "img": "img/1795123036088.jpg",
    "d": "Browse destinations and tours across Turkey",
    "link": "tours.html"
   },
@@ -995,7 +995,7 @@ const CONTENT = {
    "n": "Hotel booking",
    "e": "🏨",
    "c": "#a6c1ee",
-   "img": "",
+   "img": "img/1795123054259.jpg",
    "d": "Choose a hotel, pick your dates and room, and send a booking request",
    "link": "hotels.html"
   }
