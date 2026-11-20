@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="favicon.svg" type="image/svg+xml"><meta name="theme-color" content="#1b2b48"><meta name="description" content="Estimate the cost of sending goods by air, sea or road with OLF, then request a confirmed quote on WhatsApp."><meta property="og:title" content="Freight cost estimator | OLF"><meta property="og:description" content="Estimate the cost of sending goods by air, sea or road with OLF, then request a confirmed quote on WhatsApp."><meta property="og:type" content="website"><meta property="og:url" content="https://kuroihirohamada.github.io/olf-website/freight.html"><link rel="stylesheet" href="css/style.css"><title>Freight cost estimator | OLF</title></head><body><section class="hero"><h1 id="ft">Freight cost estimator</h1><p id="fi"></p></section>
+<section class="sec"><p class="warn" id="fs" hidden>Sample rates are showing. Replace them in the admin panel (Freight rates and Freight settings) before launch.</p>
+<div class="calc"><div class="box" style="max-width:none;margin:0"><h2>Your shipment</h2>
+<label class="fl">Route<select id="route"></select></label>
+<div class="prow ph"><span>Qty</span><span>Weight each (kg)</span><span>Length (cm)</span><span>Width (cm)</span><span>Height (cm)</span><span></span></div><div id="rows"></div>
+<button class="btn btn-small" id="addrow" type="button">+ Add another package type</button>
+<label class="ck"><input type="checkbox" id="fragile"> Fragile or special handling</label><label class="ck"><input type="checkbox" id="door"> Door pickup and delivery</label>
+<label class="fl">Declared value for insurance (optional, USD)<input id="value" type="number" min="0" step="any" placeholder="0"></label>
+<label class="fl">Your name (optional)<input id="nm"></label><label class="fl">Phone / WhatsApp (optional)<input id="ph"></label></div>
+<div><div id="sum" class="sumbox"></div><div id="res"></div><p id="note" class="fnote"></p></div></div></section>
+<script src="js/content.js"></script><script src="js/main.js"></script><script src="js/freight.js"></script></body></html>
