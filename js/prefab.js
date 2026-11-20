@@ -38,12 +38,25 @@ function stairs(r,y){const[t,x,z,w,d,dr="s"]=r,N=14;for(let i=0;i<N;i++){const h
  if(dr=="s"||dr=="n")box(w,hh,d/N,x+w/2,y,z+(a+.5)*d/N,"#b08a60");else box(w/N,hh,d,x+(a+.5)*w/N,y,z+d/2,"#b08a60")}}
 function rail(r,rooms,y){const[t,x,z,w,d]=r;[["h",z,x,x+w,0,-1],["h",z+d,x,x+w,0,1],["v",x,z,z+d,-1,0],["v",x+w,z,z+d,1,0]].forEach(([o,c,a0,a1,nx,nz])=>{const m=(a0+a1)/2;
  if(rooms.some(q=>q!==r&&inr(q,o=="h"?m:c+nx*.3,o=="h"?c+nz*.3:m)))return;box(o=="h"?a1-a0:.05,.95,o=="h"?.05:a1-a0,o=="h"?m:c,y,o=="h"?c:m,"#3b4252")})}
-function furn(r,y){const[t,x,z,w,d]=r,cx=x+w/2,cz=z+d/2,b=(a,h,e,px,py,pz,c)=>box(a,h,e,px,y+py,pz,c);
- if(t=="b"){b(1.6,.4,2,cx,0,cz,"#8a6a45");b(1.5,.15,1.9,cx,.4,cz,"#fff");b(1.2,.12,.4,cx,.55,cz-.75,"#e8d9c5");b(.9,1.9,.5,x+w-.4,0,z+.35,"#8a6a45")}
- if(t=="l"){b(2,.45,.9,cx,0,z+d*.3,"#2a52be");b(2,.5,.2,cx,.45,z+d*.3-.4,"#1b2b48");b(1,.4,.6,cx,0,cz,"#6b4a2b");if(w*d>16)b(1.6,.75,.9,cx,0,z+d*.78,"#8a6a45")}
- if(t=="k"){b(w-.4,.9,.6,cx,0,z+.35,"#eeeeee");b(w-.4,.7,.3,cx,1.5,z+.2,"#2a52be");if(d>2.8)b(.9,.75,.9,cx,0,cz+.4,"#8a6a45")}
- if(t=="t"){b(.4,.4,.6,x+.4,0,z+d-.5,"#fff");b(.5,.85,.4,x+w-.45,0,z+.3,"#fff");b(.9,.06,.9,x+.5,0,z+.5,"#cfe8f0")}
- if(t=="o"&&w>2)b(.9,.75,.9,cx,0,cz,"#8a6a45")}
+function furn(r,y,f,D,W){const[t,x,z,w,d]=r,x1=x+w,z1=z+d,cx=x+w/2,cz=z+d/2,walls=COL.filter(c=>c[4]==f),placed=[];
+ const ov=(a,b,m)=>a[0]<b[1]+m&&a[1]>b[0]-m&&a[2]<b[3]+m&&a[3]>b[2]-m;
+ const dz=D.map(p=>p.o=="h"?[p.a-p.w/2-.2,p.a+p.w/2+.2,p.c-.95,p.c+.95]:[p.c-.95,p.c+.95,p.a-p.w/2-.2,p.a+p.w/2+.2]);
+ const wz=W.map(p=>p.o=="h"?[p.a-p.w/2-.1,p.a+p.w/2+.1,p.c-.45,p.c+.45]:[p.c-.45,p.c+.45,p.a-p.w/2-.1,p.a+p.w/2+.1]);
+ const free=(px,pz,a,e,tall)=>{const R=[px-a/2,px+a/2,pz-e/2,pz+e/2];return R[0]>=x+.1&&R[1]<=x1-.1&&R[2]>=z+.1&&R[3]<=z1-.1&&!walls.some(c=>ov(R,c,.04))&&!dz.some(q=>ov(R,q,0))&&!(tall&&wz.some(q=>ov(R,q,0)))&&!placed.some(q=>ov(R,q,.05))};
+ const part=(p,k,c,sv)=>{const a=k=="N"||k=="S",wx=a?c[0]+p[0]:k=="W"?c[0]-sv/2+p[1]:c[0]+sv/2-p[1],wzz=k=="N"?c[1]-sv/2+p[1]:k=="S"?c[1]+sv/2-p[1]:c[1]+p[0];
+  box(a?p[2]:p[3],p[4],a?p[3]:p[2],wx,y+p[5],wzz,p[6])};
+ const against=(parts,su,sv,tall)=>{for(const[k,L]of[["N",w],["S",w],["W",d],["E",d]].sort((a,b)=>b[1]-a[1])){const span=L/2-su/2-.15;
+   for(const o of span>0?[0,-span,span,-span/2,span/2]:[0]){const hz=k=="N"||k=="S",c=k=="N"?[cx+o,z+.12+sv/2]:k=="S"?[cx+o,z1-.12-sv/2]:k=="W"?[x+.12+sv/2,cz+o]:[x1-.12-sv/2,cz+o],A=hz?su:sv,E=hz?sv:su;
+    if(free(c[0],c[1],A,E,tall)){placed.push([c[0]-A/2,c[0]+A/2,c[1]-E/2,c[1]+E/2]);parts.forEach(p=>part(p,k,c,sv));return true}}}return false};
+ const loose=(parts,su,sv,tall)=>{for(const[a,b]of[[0,0],[.9,.6],[-.9,.6],[.9,-.6],[-.9,-.6],[0,1.1],[0,-1.1],[1.6,0],[-1.6,0]]){const px=cx+a,pz=cz+b;
+   if(free(px,pz,su,sv,tall)){placed.push([px-su/2,px+su/2,pz-sv/2,pz+sv/2]);parts.forEach(p=>part(p,"N",[px,pz],sv));return true}}return false};
+ const TBL=[[0,.45,.9,.9,.75,0,"#8a6a45"]];
+ if(t=="b"){[1.6,1.3,1].some(su=>against([[0,1,su,2,.4,0,"#8a6a45"],[0,1,su-.1,1.9,.15,.4,"#fff"],[0,.05,su,.1,.9,0,"#6b4a2b"],[0,.4,su-.4,.4,.12,.55,"#e8d9c5"]],su,2));against([[0,.25,1.2,.5,2,0,"#8a6a45"]],1.2,.5,1)||against([[0,.25,.8,.5,2,0,"#8a6a45"]],.8,.5,1)}
+ if(t=="l"){[2,1.6].some(su=>against([[0,.1,su,.2,.9,0,"#1b2b48"],[0,.575,su,.75,.45,0,"#2a52be"],[-su/2+.1,.575,.2,.75,.65,0,"#1b2b48"],[su/2-.1,.575,.2,.75,.65,0,"#1b2b48"]],su,.95));
+  against([[0,.2,1.4,.4,.5,0,"#6b4a2b"],[0,.06,1,.06,.6,.9,"#111"]],1.4,.4);loose([[0,.3,1,.6,.4,0,"#6b4a2b"]],1,.6);if(w*d>16)loose([[0,.45,1.6,.9,.75,0,"#8a6a45"]],1.6,.9)}
+ if(t=="k"){const s0=Math.max(1.2,Math.min(3,Math.max(w,d)-.8));[s0,1.8,1.4,1].some(su=>su<=s0&&against([[0,.3,su,.6,.9,0,"#eee"],[0,.15,su,.3,.7,1.5,"#2a52be"]],su,.6,1));if(w*d>8)loose(TBL,.9,.9)}
+ if(t=="t"){against([[0,.45,.9,.9,.06,0,"#cfe8f0"]],.9,.9);against([[0,.3,.4,.6,.4,0,"#fff"]],.4,.6);against([[0,.2,.5,.4,.85,0,"#fff"]],.5,.4)}
+ if(t=="o"&&Math.min(w,d)>1.4)loose(TBL,.9,.9)}
 function roof(h,x0,z0,x1,z1,n){const w=x1-x0+1,d=z1-z0+1,al=w>=d,span=al?d:w,L=al?w:d,rh=Math.min(2.8,span*.28),sh=new THREE.Shape();
  sh.moveTo(-span/2,0);sh.lineTo(span/2,0);sh.lineTo(0,rh);sh.closePath();
  const g=new THREE.ExtrudeGeometry(sh,{depth:L,bevelEnabled:false});g.translate(0,0,-L/2);
@@ -54,14 +67,14 @@ function build(h){if(G)S.remove(G);G=new THREE.Group();COL=[];WMAT=mat("#f3ece0"
  p.forEach(rs=>rs.forEach(r=>{if(r[0]!="o"&&r[0]!="n"){x0=Math.min(x0,r[1]);z0=Math.min(z0,r[2]);x1=Math.max(x1,r[1]+r[3]);z1=Math.max(z1,r[2]+r[4])}}));
  ctr={x:(x0+x1)/2,z:(z0+z1)/2};dist=Math.max(x1-x0,z1-z0)*1.5+7;
  box(140,.2,140,ctr.x,-.3,ctr.z,"#6fae4f");
- p.forEach((rooms,f)=>{const y=f*FH,D=doors(rooms,h,f),OP=D.concat(wins(rooms,D)),seen=new Set(),nx=p[f+1];
+ p.forEach((rooms,f)=>{const y=f*FH,D=doors(rooms,h,f),W=wins(rooms,D),OP=D.concat(W),seen=new Set(),nx=p[f+1];
   rooms.forEach(r=>{const[t,x,z,w,d]=r,cx=x+w/2,cz=z+d/2;
    if(!(t=="s"&&f>0)){box(w,.1,d,cx,y-.1,cz,"#fafafa");box(w-.02,.012,d-.02,cx,y,cz,FC[t])}
    if(t!="o"&&t!="n"&&!(nx&&nx.some(q=>inr(q,cx,cz))))box(w,.08,d,cx,y+WH,cz,"#fafafa");
    if(t=="s"){COL.push([x,x+w,z,z+d,f]);if(f<p.length-1)stairs(r,y)}
-   if(t=="n")rail(r,rooms,y);furn(r,y)});
+   if(t=="n")rail(r,rooms,y)});
   rooms.forEach(r=>{const[t,x,z,w,d]=r;if(t=="o"||t=="n")return;
-   [["h",z,x,x+w],["h",z+d,x,x+w],["v",x,z,z+d],["v",x+w,z,z+d]].forEach(([o,c,a0,a1])=>{const k=o+c.toFixed(1)+a0.toFixed(1)+a1.toFixed(1);if(seen.has(k))return;seen.add(k);wall(o,c,a0,a1,OP,y,f)})})});
+   [["h",z,x,x+w],["h",z+d,x,x+w],["v",x,z,z+d],["v",x+w,z,z+d]].forEach(([o,c,a0,a1])=>{const k=o+c.toFixed(1)+a0.toFixed(1)+a1.toFixed(1);if(seen.has(k))return;seen.add(k);wall(o,c,a0,a1,OP,y,f)})});rooms.forEach(r=>furn(r,y,f,D,W))});
  roof(h,x0,z0,x1,z1,p.length);S.add(G)}
 const hit=(x,z)=>COL.some(b=>b[4]==fl&&x>b[0]-.22&&x<b[1]+.22&&z>b[2]-.22&&z<b[3]+.22);
 function ui(){const p=pl(H0),cnt={},tot={};p[fl].forEach(r=>tot[r[0]]=(tot[r[0]]||0)+1);
@@ -74,7 +87,7 @@ function goto(f){fl=f;const p=pl(H0)[f],r=p.find(r=>r[0]=="h")||p.find(r=>r[0]!=
 function jump(j){const r=pl(H0)[fl][j];P={x:r[1]+r[3]/2,z:r[2]+r[4]/2};ry=0;rx=0;ui()}
 function init(){const el=$("view");R=new THREE.WebGLRenderer({antialias:true});el.appendChild(R.domElement);S=new THREE.Scene();S.background=new THREE.Color("#bfe3ff");C=new THREE.PerspectiveCamera(45,1,.1,300);
  S.add(new THREE.HemisphereLight(0xffffff,0x88aa77,.95));const dl=new THREE.DirectionalLight(0xffffff,.5);dl.position.set(8,15,6);S.add(dl);
- let lx,ly;el.onpointerdown=e=>{drag=1;lx=e.clientX;ly=e.clientY;el.setPointerCapture(e.pointerId)};el.onpointerup=el.onpointercancel=()=>drag=0;
+ el.addEventListener("touchstart",e=>e.preventDefault(),{passive:false});el.oncontextmenu=e=>e.preventDefault();let lx,ly;el.onpointerdown=e=>{drag=1;lx=e.clientX;ly=e.clientY;el.setPointerCapture(e.pointerId)};el.onpointerup=el.onpointercancel=()=>drag=0;
  el.onpointermove=e=>{if(!drag)return;const dx=e.clientX-lx,dy=e.clientY-ly;lx=e.clientX;ly=e.clientY;
   if(mode=="in"){ry-=dx*.005;rx=Math.max(-1.2,Math.min(1.2,rx-dy*.005))}else{az-=dx*.008;oe=Math.max(.05,Math.min(1.4,oe+dy*.006))}};
  el.onwheel=e=>{e.preventDefault();if(mode=="out")dist=Math.max(5,Math.min(70,dist+e.deltaY*.03));else{fov=Math.max(40,Math.min(95,fov+e.deltaY*.05));C.fov=fov;C.updateProjectionMatrix()}};
@@ -82,7 +95,7 @@ function init(){const el=$("view");R=new THREE.WebGLRenderer({antialias:true});e
  addEventListener("keydown",e=>{const k=K[e.key.toLowerCase()];if(k&&$("modal").classList.contains("open")){mv[k[0]]=k[1];e.preventDefault()}});
  addEventListener("keyup",e=>{const k=K[e.key.toLowerCase()];if(k)mv[k[0]]=0});
  document.querySelectorAll("#pad button").forEach(b=>{const k=b.dataset.k,set=v=>{if(k=="f")mv.f=v;if(k=="b")mv.f=-v;if(k=="l")mv.t=v;if(k=="r")mv.t=-v};
-  b.onpointerdown=e=>{e.preventDefault();set(1)};b.onpointerup=b.onpointerleave=b.onpointercancel=()=>set(0)});
+  b.addEventListener("touchstart",e=>e.preventDefault(),{passive:false});b.oncontextmenu=e=>e.preventDefault();b.onpointerdown=e=>{e.preventDefault();set(1)};b.onpointerup=b.onpointerleave=b.onpointercancel=()=>set(0)});
  new ResizeObserver(()=>{R.setSize(el.clientWidth,el.clientHeight);C.aspect=el.clientWidth/el.clientHeight;C.updateProjectionMatrix()}).observe(el);
  (function loop(){requestAnimationFrame(loop);if(!$("modal").classList.contains("open")||!G)return;
   if(mode=="in"){ry+=mv.t*.03;const nx=P.x+(-Math.sin(ry)*mv.f+Math.cos(ry)*mv.s)*.06,nz=P.z+(-Math.cos(ry)*mv.f-Math.sin(ry)*mv.s)*.06;
