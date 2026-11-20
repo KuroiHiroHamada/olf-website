@@ -2,18 +2,21 @@ const LS="olf_admin",DR="olf_draft",$=i=>document.getElementById(i);
 let D=JSON.parse(JSON.stringify(CONTENT)),tab="site",dirty=false,G={};
 try{G=JSON.parse(localStorage.getItem(LS))||{};const d=localStorage.getItem(DR);if(d){D=JSON.parse(d);dirty=true}}catch(e){}
 function norm(){const cl=x=>JSON.parse(JSON.stringify(x)),S=CONTENT;
- ["categories","destinations","travel","hotels","partners","lanes","calc"].forEach(k=>{if(!D[k]&&S[k])D[k]=cl(S[k])});(D.services||[]).forEach(s=>{if(s.id=="travel"&&s.link=="tours.html"){s.link="travel.html";s.act="Explore travel"}});D.faq=D.faq||[];if(D.site)Object.keys(S.site).forEach(k=>{if(D.site[k]===undefined)D.site[k]=S.site[k]});
- (D.services||[]).forEach(s=>{if(s.shop===undefined)s.shop=s.id=="apparel";if(s.img===undefined)s.img=""});
+ ["categories","destinations","travel","hotels","partners","lanes","calc","shopInfo"].forEach(k=>{if(!D[k]&&S[k])D[k]=cl(S[k])});D.faq=D.faq||[];
+ if(D.site)Object.keys(S.site).forEach(k=>{if(D.site[k]===undefined)D.site[k]=S.site[k]});
+ (D.services||[]).forEach(s=>{if(s.id=="travel"&&s.link=="tours.html"){s.link="travel.html";s.act="Explore travel"}if(s.img===undefined)s.img=""});
  (D.reasons||[]).forEach(r=>{if(r.img===undefined)r.img=""});
- (D.categories||[]).forEach(c=>{if(!c.svc)c.svc="apparel"});
- if(S.services&&D.services&&!D.services.some(s=>s.id=="building")){const b=S.services.find(s=>s.id=="building");
-  if(b){D.services.push(cl(b));S.categories.filter(c=>c.svc=="building").forEach(c=>D.categories.push(cl(c)));S.products.filter(p=>S.categories.some(c=>c.id==p.cat&&c.svc=="building")).forEach(p=>(D.products=D.products||[]).push(cl(p)))}}
- (D.products||[]).forEach(p=>{const c=(D.categories||[]).find(c=>c.n==p.cat);if(c)p.cat=c.id});
+ if(!D.sections){D.sections=(D.services||[]).filter(s=>s.shop||s.id=="apparel").map(s=>({id:s.id,n:s.n,e:s.ic,c:"#e3d9f7",img:s.img||"",d:s.d,svc:s.id,allN:"",allImg:"",allD:""}));if(!D.sections.length&&S.sections)D.sections=cl(S.sections)}
+ (D.categories||[]).forEach(c=>{if(c.svc&&!c.sec){c.sec=c.svc;delete c.svc}if(!c.sec&&D.sections[0])c.sec=D.sections[0].id});
+ if(S.services&&D.services&&!D.services.some(s=>s.id=="building")&&!D.sections.some(s=>s.id=="building")){const b=S.services.find(s=>s.id=="building");
+  if(b){D.services.push(cl(b));const sec=(S.sections||[]).find(s=>s.id=="building");if(sec)D.sections.push(cl(sec));S.categories.filter(c=>c.sec=="building").forEach(c=>D.categories.push(cl(c)));S.products.filter(p=>S.categories.some(c=>c.id==p.cat&&c.sec=="building")).forEach(p=>(D.products=D.products||[]).push(cl(p)))}}
+ (D.services||[]).forEach(s=>{delete s.shop});
+ (D.products||[]).forEach(p=>{const c=(D.categories||[]).find(c=>c.n==p.cat);if(c)p.cat=c.id;if(!p.imgs)p.imgs=p.img?[p.img]:[]});
  (D.tours||[]).forEach(t=>{const d=(D.destinations||[]).find(d=>d.n==t.region);if(d)t.region=d.id})}
 const F={
  site:{t:"Site",one:1,f:[["logo","Logo text"],["name","Business name (footer)"],["heroTitle","Home headline"],["heroText","Home subtitle","area"],["heroImg","Home banner photo (optional)","img"],["trust","Trust strip under the banner (one per line)","lines"],["ctaTitle","Bottom banner headline"],["ctaText","Bottom banner text","area"],["tagline","Footer tagline"],["showQr","Show the 'scan to open on your phone' box on the home page","bool"],["partnersTitle","Partners heading"],["blue","Main colour","color"],["lime","Accent colour","color"],["navy","Dark colour","color"],["cream","Page background","color"]]},
  config:{t:"Contact",one:1,f:[["whatsapp","WhatsApp number for orders and bookings (digits only, with country code)"],["email","Email"],["turkey","Turkey phone"],["ghana","Ghana phone"]]},
- services:{t:"Services",f:[["ic","Emoji"],["n","Title"],["img","Photo","img"],["d","Short text"],["more","Popup text","area"],["pts","Popup bullets (one per line)","lines"],["shop","Sell products from this service in the shop","bool"],["link","Opens a page instead (optional, e.g. tours.html)"],["act","Button text (optional)"]]},
+ services:{t:"Services",f:[["ic","Emoji"],["n","Title"],["img","Photo","img"],["d","Short text"],["more","Popup text","area"],["pts","Popup bullets (one per line)","lines"],["link","Opens a page instead (optional, e.g. tours.html)"],["act","Button text (optional)"]]},
  reasons:{t:"Why us",f:[["ic","Emoji"],["n","Title"],["img","Photo","img"],["d","Short text"],["more","Popup text","area"],["pts","Popup bullets (one per line)","lines"],["href","Button link (optional, e.g. book.html)"],["cta","Button text"]]},
  partners:{t:"Partners",f:[["n","Name"],["img","Logo","img"]]},
  lanes:{t:"Freight rates",f:[["route","Route (for example Istanbul to Accra)"],["mode","Mode","opt:air|sea|road"],["rate","Rate in USD: per kg for air and road, per cubic metre for sea","num"],["min","Minimum charge in USD","num"],["days","Transit time (for example 5 to 8 days)"]]},
@@ -24,9 +27,11 @@ const F={
  destinations:{t:"Tour destinations",f:[["n","Destination name"],["e","Emoji"],["c","Tile colour","bg"],["img","Photo","img"],["d","Short description"]]},
  hotels:{t:"Hotels",f:[["n","Hotel name"],["dest","Destination","sel:destinations"],["stars","Stars (1 to 5)","num"],["e","Emoji"],["c","Card colour","bg"],["img","Photo","img"],["price","From price per night in USD (number)","num"],["d","Description","area"],["amen","Amenities (comma separated)","csv"],["rooms","Room types, one per line: name | price per night","lines"]]},
  tours:{t:"Tours",f:[["n","Name"],["region","Destination","sel:destinations"],["e","Emoji"],["c","Card colour","bg"],["img","Photo","img"],["days","Duration"],["price","Price text"],["d","Description","area"],["hl","Highlights (one per line)","lines"]]},
- categories:{t:"Shop categories",f:[["n","Category name"],["svc","Belongs to service","sel:services"],["e","Emoji"],["c","Tile colour","bg"],["img","Photo","img"],["d","Short description"]]},
- products:{t:"Shop products",f:[["n","Name"],["cat","Category","sel:categories"],["e","Emoji"],["c","Card colour","bg"],["img","Photo","img"],["price","Price in USD (number)","num"],["sizes","Sizes, comma separated (blank if none)","csv"],["d","Short description (shown on the card)"],["more","Full description (shown when the product is opened)","area"],["specs","Specifications, one per line, written Label: value","lines"]]}};
-const T={lanes:{route:"",mode:"air",rate:0,min:0,days:""},partners:{n:"New partner",img:""},travel:{n:"New section",e:"📍",c:"#d6e4f7",img:"",d:"",link:""},hotels:{n:"New hotel",stars:4,e:"🏨",c:"#a6c1ee",img:"",price:0,d:"",amen:[],rooms:[]},destinations:{n:"New destination",e:"📍",c:"#d6e4f7",img:"",d:""},categories:{n:"New category",e:"🧥",c:"#d6e4f7",img:"",d:""},faq:{n:"New question",a:""},services:{ic:"⭐",n:"New service",img:"",d:"",more:"",pts:[],shop:false,link:"",act:""},reasons:{ic:"⭐",n:"New reason",img:"",d:"",more:"",pts:[]},houses:{n:"New house",e:"🏠",c:"#cfe8ff",type:"",size:"",price:"Request a quote",wall:"#f0dc82",roof:"#c0272d"},tours:{n:"New tour",region:"Istanbul",e:"🏞️",c:"#d6e4f7",days:"",price:"",d:"",hl:[]},products:{n:"New product",e:"🛍️",c:"#e8d5c0",img:"",price:0,sizes:[],d:"",more:"",specs:[]}};
+ shopInfo:{t:"Shop page",one:1,f:[["title","Page title"],["intro","Intro text","area"]]},
+ sections:{t:"Shop sections",f:[["n","Section name"],["e","Emoji"],["c","Tile colour","bg"],["img","Photo","img"],["d","Short description"],["svc","Linked service (adds a Browse link on that service card)","sel:services"],["allN","Name of the 'all items' tile (optional)"],["allImg","Photo for the 'all items' tile","img"],["allD","Text for the 'all items' tile"]]},
+ categories:{t:"Shop categories",f:[["n","Category name"],["sec","Belongs to shop section","sel:sections"],["e","Emoji"],["c","Tile colour","bg"],["img","Photo","img"],["d","Short description"]]},
+ products:{t:"Shop products",f:[["n","Name"],["cat","Category","sel:categories"],["e","Emoji"],["c","Card colour","bg"],["imgs","Photos (the first one is the main photo)","imgs"],["price","Price in USD (number)","num"],["sizes","Sizes, comma separated (blank if none)","csv"],["d","Short description (shown on the card)"],["more","Full description (shown when the product is opened)","area"],["specs","Specifications, one per line, written Label: value","lines"]]}};
+const T={sections:{n:"New section",e:"🛍️",c:"#e3d9f7",img:"",d:"",svc:"",allN:"",allImg:"",allD:""},lanes:{route:"",mode:"air",rate:0,min:0,days:""},partners:{n:"New partner",img:""},travel:{n:"New section",e:"📍",c:"#d6e4f7",img:"",d:"",link:""},hotels:{n:"New hotel",stars:4,e:"🏨",c:"#a6c1ee",img:"",price:0,d:"",amen:[],rooms:[]},destinations:{n:"New destination",e:"📍",c:"#d6e4f7",img:"",d:""},categories:{n:"New category",e:"🧥",c:"#d6e4f7",img:"",d:""},faq:{n:"New question",a:""},services:{ic:"⭐",n:"New service",img:"",d:"",more:"",pts:[],shop:false,link:"",act:""},reasons:{ic:"⭐",n:"New reason",img:"",d:"",more:"",pts:[]},houses:{n:"New house",e:"🏠",c:"#cfe8ff",type:"",size:"",price:"Request a quote",wall:"#f0dc82",roof:"#c0272d"},tours:{n:"New tour",region:"Istanbul",e:"🏞️",c:"#d6e4f7",days:"",price:"",d:"",hl:[]},products:{n:"New product",e:"🛍️",c:"#e8d5c0",img:"",price:0,sizes:[],d:"",more:"",specs:[],imgs:[]}};
 norm();
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const msg=t=>$("st").textContent=t;
@@ -34,7 +39,7 @@ const st=()=>msg(dirty?"● Unpublished changes (saved in this browser)":"All ch
 const target=(c,i)=>i<0?D[c]:D[c][i];
 function save(){dirty=true;try{localStorage.setItem(DR,JSON.stringify(D))}catch(e){}st()}
 function set(c,i,k,el,t){let v=el.value;if(t=="lines")v=v.split("\n").map(x=>x.trim()).filter(Boolean);else if(t=="csv")v=v.split(",").map(x=>x.trim()).filter(Boolean);else if(t=="num")v=+v||0;target(c,i)[k]=v;save()}
-const lbl=(col,x)=>col=="categories"?(((D.services||[]).find(s=>s.id==x.svc)||{}).n||"?")+" › "+x.n:x.n;
+const lbl=(col,x)=>col=="categories"?(((D.sections||[]).find(s=>s.id==x.sec)||{}).n||"?")+" › "+x.n:x.n;
 const opts=(col,val)=>(D[col]||[]).map(x=>`<option value="${esc(x.id)}" ${x.id==val?"selected":""}>${esc(lbl(col,x))}</option>`).join("");
 function fld(c,i,[k,l,t],o){const v=o[k];let val=t=="lines"?(v||[]).join("\n"):t=="csv"?(v||[]).join(", "):v??"";
  const a=`oninput="set('${c}',${i},'${k}',this,'${t||""}')"`;
@@ -44,9 +49,10 @@ function fld(c,i,[k,l,t],o){const v=o[k];let val=t=="lines"?(v||[]).join("\n"):t
    :(t||"").startsWith("opt:")?`<select onchange="set('${c}',${i},'${k}',this,'')">${t.slice(4).split("|").map(o=>`<option ${o==val?"selected":""}>${o}</option>`).join("")}</select>`
  :(t||"").startsWith("sel:")?`<select onchange="set('${c}',${i},'${k}',this,'')"><option value="">Choose...</option>${opts(t.slice(4),val)}</select>`
  :t=="bool"?`<input type="checkbox" ${val?"checked":""} onchange="set('${c}',${i},'${k}',{value:this.checked},'bool')">`
+ :t=="imgs"?`<div class="imgsf">${thumbs(o[k]||[],c,i,k)}</div>`
  :t=="img"?`<div class="imgf"><input value="${esc(val)}" placeholder="img/photo.jpg (or choose a photo)" ${a}><label class="b upl">📷 Choose photo<input type="file" accept="image/*" hidden onchange="up('${c}',${i},'${k}',this)"></label>${val?`<img class="th" src="${esc(val)}" alt="" onerror="this.style.display='none'">`:""}<span class="us"></span></div>`
  :`<input value="${esc(val)}" ${a}>`;
- const g=t=="img"?"div":"label";return `<${g} class="f"><span>${l}</span>${inp}</${g}>`}
+ const g=t=="img"||t=="imgs"?"div":"label";return `<${g} class="f"><span>${l}</span>${inp}</${g}>`}
 function draw(){$("tabs").innerHTML=Object.entries(F).map(([k,v])=>`<button class="${k==tab?"on":""}" onclick="tab='${k}';draw()">${v.t}</button>`).join("");
  const s=F[tab];if(!s.one)D[tab]=D[tab]||[];let h=`<h2>${s.t}</h2>`;
  if(s.one)h+=s.f.map(f=>fld(tab,-1,f,D[tab])).join("");
@@ -73,8 +79,17 @@ async function pull(){if(!ready())return;if(dirty&&!confirm("This replaces your 
  D=JSON.parse((await r.text()).replace(/^[^{]*/,"").replace(/;\s*$/,""));norm();dirty=false;try{localStorage.removeItem(DR)}catch(e){}draw();msg("Loaded latest published version")}catch(e){alert("Could not load: "+explain(e.message))}}
 function dl(){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([out()],{type:"text/javascript"}));a.download="content.js";a.click()}
 const explain=m=>/bad credentials/i.test(m)?"GitHub rejected the token. Click ⚙ GitHub and enter the token again.":/not found/i.test(m)?"GitHub could not find the repository, or the token has no access to it. Check the username, repository name and that the token has Contents: Read and write.":/not accessible|forbidden|permission/i.test(m)?"The token does not have permission. Create it for this repository with Contents: Read and write.":m;
-async function shrink(f){let im;try{im=await createImageBitmap(f)}catch(e){im=await new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=()=>no(new Error("This photo format is not supported. Please use a JPG or PNG photo."));i.src=URL.createObjectURL(f)})}
- const w=im.width||im.naturalWidth,h=im.height||im.naturalHeight,s=Math.min(1,1000/Math.max(w,h)),cv=document.createElement("canvas");cv.width=Math.round(w*s);cv.height=Math.round(h*s);cv.getContext("2d").drawImage(im,0,0,cv.width,cv.height);return cv.toDataURL("image/jpeg",.8).split(",")[1]}
+async function shrink(f,mx=1000,q=.8){let im;try{im=await createImageBitmap(f)}catch(e){im=await new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=()=>no(new Error("This photo format is not supported. Please use a JPG or PNG photo."));i.src=URL.createObjectURL(f)})}
+ const w=im.width||im.naturalWidth,h=im.height||im.naturalHeight,s=Math.min(1,mx/Math.max(w,h)),cv=document.createElement("canvas");cv.width=Math.round(w*s);cv.height=Math.round(h*s);cv.getContext("2d").drawImage(im,0,0,cv.width,cv.height);return cv.toDataURL("image/jpeg",q).split(",")[1]}
+const thumbs=(a,c,i,k)=>`<div class="thumbs">${a.map((u,j)=>`<div class="tb"><img src="${esc(u)}" alt=""><span class="tbn"><button type="button" title="Make this the main photo" onclick="mainImg('${c}',${i},'${k}',${j},this)">★</button><button type="button" title="Remove this photo" onclick="delImg('${c}',${i},'${k}',${j},this)">✕</button></span></div>`).join("")}</div><label class="b upl">📷 Add photos<input type="file" accept="image/*" multiple hidden onchange="upMany('${c}',${i},'${k}',this)"></label><span class="us"></span>`;
+const redraw=(box,c,i,k)=>{box.innerHTML=thumbs(target(c,i)[k]||[],c,i,k)},syncMain=o=>{o.img=(o.imgs&&o.imgs[0])||""};
+function mainImg(c,i,k,j,b){const o=target(c,i),a=o[k];a.unshift(a.splice(j,1)[0]);syncMain(o);save();redraw(b.closest(".imgsf"),c,i,k)}
+function delImg(c,i,k,j,b){const o=target(c,i);o[k].splice(j,1);syncMain(o);save();redraw(b.closest(".imgsf"),c,i,k)}
+async function upMany(c,i,k,el){const box=el.closest(".imgsf"),files=[...el.files];el.value="";if(!files.length)return;
+ const say=(t,bad)=>{const s=box.querySelector(".us");if(s){s.textContent=t;s.style.color=bad?"#901b3a":"#2a6b2a"}};
+ if(!(G.o&&G.r&&G.t)){say("Connect GitHub first: click the ⚙ GitHub button at the top, save your details, then add the photos again.",1);gh();return}
+ let ok=0;for(let n=0;n<files.length;n++){try{say(`Uploading photo ${n+1} of ${files.length}, please wait...`);const data=await shrink(files[n],1400,.85),p="img/"+Date.now()+"-"+n+".jpg";await put(p,data,"Add product photo from admin");const o=target(c,i);(o[k]=o[k]||[]).push(p);syncMain(o);save();ok++;redraw(box,c,i,k)}catch(e){say("Upload failed: "+explain(e.message||String(e)),1);return}}
+ say(ok+" photo"+(ok>1?"s":"")+" uploaded. Click Publish at the top to put them on the site.")}
 async function up(c,i,k,el){const f=el.files[0],box=el.closest(".f"),us=box.querySelector(".us"),say=(t,bad)=>{us.textContent=t;us.style.color=bad?"#901b3a":"#2a6b2a"};
  if(!f)return;
  if(!(G.o&&G.r&&G.t)){say("Connect GitHub first: click the ⚙ GitHub button at the top, save your details, then choose the photo again.",1);el.value="";gh();return}

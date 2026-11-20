@@ -4,7 +4,7 @@ for(const k of["blue","lime","navy","cream"])document.documentElement.style.setP
 const SERVICES=CONTENT.services;
 const REASONS=CONTENT.reasons;
 const page=location.pathname.split("/").pop()||"index.html";
-const svcLink=s=>s.link||(s.shop?"shop.html#"+s.id:"book.html?s="+s.id);
+const SECS=CONTENT.sections||[],secOf=s=>SECS.find(x=>x.svc==s.id),svcLink=s=>s.link||(secOf(s)?"shop.html#"+secOf(s).id:"book.html?s="+s.id);
 const L=[["index.html","Home"],["index.html#services","Services"],["prefab.html","Prefab Homes"],["travel.html","Travel"],["shop.html","Shop"],["freight.html","Freight quote"],["faq.html","FAQ"]];
 const onp=h=>h==page||(h=="travel.html"&&["tours.html","hotels.html"].includes(page));
 const short=SITE.name.split(",")[0];
@@ -33,11 +33,11 @@ if(f){const box=document.getElementById("checks"),pre=new URLSearchParams(locati
 // info modal for service and reason cards
 document.body.insertAdjacentHTML("beforeend",'<div class="im" id="im"><div class="imb"><button class="x" aria-label="Close" onclick="closeInfo()">×</button><div id="imc"></div></div></div>');
 const im=document.getElementById("im");
-function openInfo(k){const isS=k[0]=="s",it=(isS?SERVICES:REASONS)[k.slice(1)],go=isS&&(it.link||it.shop);
- const act=isS?`<a class="btn" href="${svcLink(it)}">${it.act||(it.shop?"Browse products":"Book this service")}</a>${go?` <a class="btn" href="book.html?s=${it.id}" style="font-size:15px;padding:12px 18px">Book / enquire</a>`:""}`:`<a class="btn" href="book.html">Book now</a>`;
+function openInfo(k){const isS=k[0]=="s",it=(isS?SERVICES:REASONS)[k.slice(1)],go=isS&&(it.link||secOf(it));
+ const act=isS?`<a class="btn" href="${svcLink(it)}">${it.act||(secOf(it)?"Browse products":"Book this service")}</a>${go?` <a class="btn" href="book.html?s=${it.id}" style="font-size:15px;padding:12px 18px">Book / enquire</a>`:""}`:`<a class="btn" href="book.html">Book now</a>`;
  document.getElementById("imc").innerHTML=`${it.img?`<img class="mimg" src="${encodeURI(it.img)}" alt="">`:""}<div class="ic">${it.ic}</div><h2>${it.n}</h2><p>${it.more}</p><ul>${(it.pts||[]).map(p=>`<li>${p}</li>`).join("")}</ul>${act}`;
  im.classList.add("open")}
-function closeInfo(){im.classList.remove("open")}
+function closeInfo(){im.classList.remove("open");const b=im.querySelector(".imb");if(b)b.classList.remove("big")}
 im.onclick=e=>{if(e.target==im)closeInfo()};
 addEventListener("keydown",e=>{if(e.key=="Escape")closeInfo();if((e.key=="Enter"||e.key==" ")&&e.target.dataset&&e.target.dataset.k){e.preventDefault();openInfo(e.target.dataset.k)}});
 document.addEventListener("click",e=>{if(e.target.closest("a"))return;const c=e.target.closest(".card[data-k]");if(c&&!window.moved)openInfo(c.dataset.k)});

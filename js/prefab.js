@@ -11,11 +11,14 @@ const inr=(r,x,z)=>x>r[1]&&x<r[1]+r[3]&&z>r[2]&&z<r[2]+r[4];
 function share(A,B){for(const[p,q]of[[A,B],[B,A]]){
  if(Math.abs(p[1]+p[3]-q[1])<.06){const a=Math.max(p[2],q[2]),b=Math.min(p[2]+p[4],q[2]+q[4]);if(b-a>=.9)return{o:"v",c:q[1],a:(a+b)/2,l:b-a}}
  if(Math.abs(p[2]+p[4]-q[2])<.06){const a=Math.max(p[1],q[1]),b=Math.min(p[1]+p[3],q[1]+q[3]);if(b-a>=.9)return{o:"h",c:q[2],a:(a+b)/2,l:b-a}}}return null}
-function doors(rooms,h,f){const D=[],PR={b:"hl",t:"hl",k:"hl",l:"hl",o:"hl",n:"bh"};
- rooms.forEach(r=>{const t=r[0];for(const k of PR[t]||""){let best=null;rooms.forEach(q=>{if(q!==r&&q[0]==k){const s=share(r,q);if(s&&(!best||s.l>best.l))best=s}});
-  if(best){D.push({...best,w:(t=="l"||k=="l")&&t!="o"?1.5:.9,y0:0,y1:2.1,leaf:t=="o"});break}}});
- const on=(r,p)=>p.o=="h"?(Math.abs(p.c-r[2])<.1||Math.abs(p.c-r[2]-r[4])<.1)&&p.a>r[1]&&p.a<r[1]+r[3]:(Math.abs(p.c-r[1])<.1||Math.abs(p.c-r[1]-r[3])<.1)&&p.a>r[2]&&p.a<r[2]+r[4];
- rooms.forEach(r=>{if(r[0]!="h"||D.some(p=>on(r,p)))return;let best=null;rooms.forEach(q=>{if(q!==r&&"hl".includes(q[0])){const s=share(r,q);if(s&&(!best||s.l>best.l))best=s}});if(best)D.push({...best,w:1.5,y0:0,y1:2.1})});
+function doors(rooms,h,f){const D=[],PR={b:"hl",t:"hl",k:"hl",l:"hl",o:"hl",n:"bh",s:"hl"};
+ const on=(r,p)=>p.o=="h"?(Math.abs(r[2]-p.c)<.07||Math.abs(r[2]+r[4]-p.c)<.07)&&p.a>r[1]&&p.a<r[1]+r[3]:(Math.abs(r[1]-p.c)<.07||Math.abs(r[1]+r[3]-p.c)<.07)&&p.a>r[2]&&p.a<r[2]+r[4];
+ const wide=(a,b,l)=>Math.min(a=="l"&&b=="l"?9:a=="s"||b=="s"?1.2:a=="l"||b=="l"||a=="h"&&b=="h"?1.5:.9,l-.3);
+ rooms.forEach(r=>{const t=r[0];for(const k of PR[t]||""){let best=null;rooms.forEach(q=>{if(q!==r&&q[0]==k){const s=share(r,q);if(s&&s.l>=1&&(!best||s.l>best.l))best=s}});
+  if(best){D.push({...best,w:t=="o"?.9:wide(t,k,best.l),y0:0,y1:2.1,leaf:t=="o"});break}}});
+ const par=rooms.map((_,i)=>i),find=i=>par[i]==i?i:(par[i]=find(par[i])),link=()=>D.forEach(d=>{const t=[];rooms.forEach((r,i)=>{if(on(r,d))t.push(i)});for(let i=1;i<t.length;i++)par[find(t[i])]=find(t[0])});
+ for(let n=0;n<40;n++){link();let best=null;rooms.forEach((a,i)=>rooms.forEach((b,j)=>{if(j>i&&find(i)!=find(j)&&a[0]!="n"&&b[0]!="n"){const s=share(a,b);if(s&&s.l>=1){const sc=s.l+(a[0]=="h")+(b[0]=="h");if(!best||sc>best.sc)best={s,sc,a,b}}}}));
+  if(!best)break;D.push({...best.s,w:wide(best.a[0],best.b[0],best.s.l),y0:0,y1:2.1,leaf:false})}
  if(f==0){const e=h.door;if(e)D.push({o:e[2],c:e[2]=="h"?e[1]:e[0],a:e[2]=="h"?e[0]:e[1],w:.9,y0:0,y1:2.1,leaf:1});
   else if(!rooms.some(r=>r[0]=="o")){const r=rooms.find(r=>r[0]=="h")||rooms.find(r=>r[0]=="l");if(r)D.push({o:"h",c:r[2]+r[4],a:r[1]+r[3]/2,w:.9,y0:0,y1:2.1,leaf:1})}}
  return D}
