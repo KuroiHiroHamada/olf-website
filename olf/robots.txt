@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://kuroihirohamada.github.io/olf-website/sitemap.xml
