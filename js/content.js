@@ -839,7 +839,7 @@ const CONTENT = {
   "ctaTitle": "Ready to get started?",
   "ctaText": "Tell us what you need and we will reply on WhatsApp.",
   "partnersTitle": "Brands and partners",
-  "showQr": true
+  "showQr": false
  },
  "faq": [
   {
