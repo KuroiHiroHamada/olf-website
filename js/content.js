@@ -835,7 +835,7 @@ const CONTENT = {
   "cream": "#fff3e0",
   "tagline": "Cargo, logistics, housing, travel and more, from Istanbul.",
   "trust": ["Offices in Istanbul and Accra", "Door-to-door cargo", "Housing, travel and shopping in one place"],
-  "heroImg": "img/1795283475925.jpg",
+  "heroImg": "img/1795283590144.jpg",
   "ctaTitle": "Ready to get started?",
   "ctaText": "Tell us what you need and we will reply on WhatsApp.",
   "partnersTitle": "Brands and partners",
