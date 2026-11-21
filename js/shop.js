@@ -1,5 +1,5 @@
 const PRODUCTS=CONTENT.products,CATS=CONTENT.categories||[],SECTIONS=CONTENT.sections||[],INFO=CONTENT.shopInfo||{};
-const KEY="olf_cart";let cart=[],cur={},q="",GP=[];
+const KEY="olf_cart";let cart=[],cur={},q="";
 try{cart=JSON.parse(localStorage.getItem(KEY))||[]}catch(e){}
 const $=i=>document.getElementById(i),money=n=>"$"+n,find=id=>PRODUCTS.find(p=>p.id==id),priced=p=>+p.price>0;
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -27,24 +27,11 @@ $("st").textContent=INFO.title||"Shop";$("si").textContent=INFO.intro||"Choose a
 $("s").oninput=e=>{q=e.target.value;drawList()};
 addEventListener("hashchange",route);
 function add(id,sz){const p=find(id);if(sz===undefined)sz=p.sizes&&p.sizes.length?$("sz"+id).value:"";const l=cart.find(c=>c.id==id&&c.sz==sz);l?l.q++:cart.push({id,sz,q:1});save();openCart()}
-// ----- product pop-up with swipeable photos -----
-const gi=()=>{const t=$("gt");return t&&t.clientWidth?Math.round(t.scrollLeft/t.clientWidth):0};
-function galTo(i){const t=$("gt");t.scrollTo({left:i*t.clientWidth,behavior:"smooth"})}
-function gal(d){galTo(Math.max(0,Math.min(GP.length-1,gi()+d)))}
-function gdot(){const i=gi(),c=$("gcn"),th=$("gth");if(c)c.textContent=(i+1)+" / "+GP.length;document.querySelectorAll("#gd i").forEach((e,k)=>e.classList.toggle("on",k==i));document.querySelectorAll("#gth img").forEach((e,k)=>{e.classList.toggle("on",k==i);if(k==i&&th)th.scrollTo({left:e.offsetLeft-(th.clientWidth-e.clientWidth)/2,behavior:"smooth"})})}
-function product(id){const p=find(id),ph=photos(p),sp=(p.specs||[]).map(l=>{const i=l.indexOf(":");return i>0?`<tr><td>${esc(l.slice(0,i))}</td><td>${esc(l.slice(i+1).trim())}</td></tr>`:`<tr><td colspan="2">${esc(l)}</td></tr>`}).join("");GP=ph;
- document.getElementById("imc").innerHTML=`<div class="pwrap"><div><div class="gal"><div class="gtrack" id="gt" onscroll="gdot()">${ph.length?ph.map((u,i)=>`<img src="${esc(u)}" alt="${esc(p.n)}, photo ${i+1}" onclick="lightbox(${i})">`).join(""):`<div class="gph" style="background:${esc(p.c)}">${esc(p.e||"")}</div>`}</div>${ph.length>1?`<button class="gnav prev" onclick="gal(-1)" aria-label="Previous photo">‹</button><button class="gnav next" onclick="gal(1)" aria-label="Next photo">›</button>${ph.length>8?`<div class="gcount" id="gcn">1 / ${ph.length}</div>`:`<div class="gdots" id="gd">${ph.map((_,i)=>`<i class="${i?"":"on"}"></i>`).join("")}</div>`}`:""}</div>${ph.length>1?`<div class="gthumbs" id="gth">${ph.map((u,i)=>`<img src="${esc(u)}" class="${i?"":"on"}" alt="" onclick="galTo(${i})">`).join("")}</div>`:""}${ph.length?`<p class="ghint">${ph.length>1?"Swipe or use the arrows for more photos. ":""}Tap a photo to enlarge it.</p>`:""}</div>
+function product(id){const p=find(id),ph=photos(p),sp=(p.specs||[]).map(l=>{const i=l.indexOf(":");return i>0?`<tr><td>${esc(l.slice(0,i))}</td><td>${esc(l.slice(i+1).trim())}</td></tr>`:`<tr><td colspan="2">${esc(l)}</td></tr>`}).join("");
+ document.getElementById("imc").innerHTML=`<div class="pwrap"><div>${galleryHTML(ph,p.n,`<div class="gph" style="background:${esc(p.c)}">${esc(p.e||"")}</div>`)}</div>
  <div class="pinfo"><h2>${esc(p.n)}</h2><p><span class="tag" style="margin-top:0">${esc(catName(p.cat))}</span> <span class="price" style="font-size:22px">${priced(p)?money(p.price):"Price on request"}</span></p><p>${esc(p.more||p.d)}</p>${sp?`<h3 style="text-align:left;margin:14px 0 4px">Specifications</h3><table class="spec">${sp}</table>`:""}${p.sizes&&p.sizes.length?`<label style="font-size:13px">Size<br><select id="psz" style="padding:9px;border:1px solid #cfd6e4;border-radius:8px;margin:4px 0 12px;font:inherit">${p.sizes.map(z=>`<option>${esc(z)}</option>`).join("")}</select></label><br>`:""}<button class="btn" style="width:100%" onclick="addP('${p.id}')">${priced(p)?"Add to cart":"Request a quote"}</button></div></div>`;
  im.querySelector(".imb").classList.add("big");im.classList.add("open")}
 function addP(id){const p=find(id);add(id,p.sizes&&p.sizes.length?$("psz").value:"");closeInfo()}
-// ----- full-screen photo viewer -----
-function lbi(){const t=$("lbt");return t&&t.clientWidth?Math.round(t.scrollLeft/t.clientWidth):0}
-function lbCount(){$("lbc").textContent=GP.length>1?(lbi()+1)+" / "+GP.length:""}
-function lbGo(d){const t=$("lbt"),i=Math.max(0,Math.min(GP.length-1,lbi()+d));t.scrollTo({left:i*t.clientWidth,behavior:"smooth"})}
-function closeLb(){const l=$("lb");if(l)l.classList.remove("open")}
-function lightbox(i){let lb=$("lb");if(!lb){document.body.insertAdjacentHTML("beforeend",'<div id="lb"><button class="x" aria-label="Close" onclick="closeLb()">×</button><span class="lbc" id="lbc"></span><button class="gnav prev" id="lbp" onclick="lbGo(-1)" aria-label="Previous photo">‹</button><button class="gnav next" id="lbn" onclick="lbGo(1)" aria-label="Next photo">›</button><div class="lbt" id="lbt" onscroll="lbCount()"></div></div>');lb=$("lb");lb.addEventListener("click",e=>{if(e.target.tagName=="DIV")closeLb()})}
- $("lbt").innerHTML=GP.map(u=>`<div><img src="${esc(u)}" alt=""></div>`).join("");$("lbp").hidden=$("lbn").hidden=GP.length<2;lb.classList.add("open");$("lbt").scrollLeft=i*$("lbt").clientWidth;lbCount()}
-addEventListener("keydown",e=>{const l=$("lb");if(!l||!l.classList.contains("open"))return;if(e.key=="Escape"){e.stopImmediatePropagation();closeLb()}if(e.key=="ArrowRight")lbGo(1);if(e.key=="ArrowLeft")lbGo(-1)},true);
 function chg(i,d){cart[i].q+=d;if(cart[i].q<1)cart.splice(i,1);save()}
 function drawCart(){$("cn").textContent=cart.reduce((a,c)=>a+c.q,0);
  $("lines").innerHTML=cart.map((c,i)=>{const p=find(c.id);return p?`<div class="line"><span>${esc(p.n)}${c.sz?" ("+esc(c.sz)+")":""}<br>${priced(p)?money(p.price):"Price on request"}</span><span><button onclick="chg(${i},-1)">−</button> ${c.q} <button onclick="chg(${i},1)">+</button></span></div>`:""}).join("")||"<p>Your cart is empty.</p>";

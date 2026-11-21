@@ -14,7 +14,11 @@ const CONTENT = {
    "link": "prefab.html",
    "act": "Explore homes",
    "more": "Browse a range of pre-fabricated houses, from compact studios to family villas. Each home is built in sections, shipped to you and assembled on your plot, which saves time compared with traditional building.",
-   "pts": ["Explore each house in 3D, room by room", "Options for different sizes and budgets", "Shipping and delivery arranged with your order"],
+   "pts": [
+    "Explore each house in 3D, room by room",
+    "Options for different sizes and budgets",
+    "Shipping and delivery arranged with your order"
+   ],
    "img": "img/1795121698179.jpg"
   },
   {
@@ -23,7 +27,11 @@ const CONTENT = {
    "n": "Estate Management",
    "d": "Property care, tenants and maintenance handled.",
    "more": "Let us look after your property while you are away or busy. We act as your on-the-ground team so your investment stays in good shape.",
-   "pts": ["Routine inspections and maintenance", "Tenant sourcing and rent follow-up", "Regular updates to you"],
+   "pts": [
+    "Routine inspections and maintenance",
+    "Tenant sourcing and rent follow-up",
+    "Regular updates to you"
+   ],
    "img": "img/1795121925460.jpg"
   },
   {
@@ -34,7 +42,11 @@ const CONTENT = {
    "link": "travel.html",
    "act": "Explore travel",
    "more": "Coming to Istanbul for business, shopping or leisure? Browse our tours, send a hotel booking request, and let us help you plan the trip so you arrive prepared.",
-   "pts": ["Tours to Istanbul, Cappadocia, the Aegean and the Mediterranean", "Hotel booking requests with your dates and room type", "Visa, entry and trip planning guidance"],
+   "pts": [
+    "Tours to Istanbul, Cappadocia, the Aegean and the Mediterranean",
+    "Hotel booking requests with your dates and room type",
+    "Visa, entry and trip planning guidance"
+   ],
    "img": "img/1795121963589.jpg"
   },
   {
@@ -43,7 +55,11 @@ const CONTENT = {
    "n": "Freight",
    "d": "Air, sea and road freight from Istanbul.",
    "more": "We move goods in larger volumes by the mode that suits your timeline and budget: air for speed, sea for bulk, road for regional deliveries.",
-   "pts": ["Air, sea and road options", "Help with shipping paperwork", "Suitable for businesses and bulk orders"],
+   "pts": [
+    "Air, sea and road options",
+    "Help with shipping paperwork",
+    "Suitable for businesses and bulk orders"
+   ],
    "img": "img/1795121974721.jpg",
    "link": "freight.html",
    "act": "Estimate your shipping cost"
@@ -54,7 +70,11 @@ const CONTENT = {
    "n": "Cargo and Logistics",
    "d": "Door-to-door cargo, packing and tracking.",
    "more": "Our door-to-door cargo service collects your goods, packs them securely and delivers them to your address, with offices in both Turkey and Ghana to support you.",
-   "pts": ["Door-to-door pickup and delivery", "Secure packing", "Support from our Istanbul and Accra offices"],
+   "pts": [
+    "Door-to-door pickup and delivery",
+    "Secure packing",
+    "Support from our Istanbul and Accra offices"
+   ],
    "img": "img/1795121990138.jpg",
    "link": "freight.html",
    "act": "Estimate your shipping cost"
@@ -67,7 +87,11 @@ const CONTENT = {
    "link": "",
    "act": "",
    "more": "Buy quality Turkish fashion without the hassle. We source shoes, ladies wear and other apparel, and can ship your order straight to you.",
-   "pts": ["Shoes, clothing and ladies wear", "Sourcing for resellers and individuals", "Combine with our cargo service for delivery"],
+   "pts": [
+    "Shoes, clothing and ladies wear",
+    "Sourcing for resellers and individuals",
+    "Combine with our cargo service for delivery"
+   ],
    "img": "img/1795122001267.jpg"
   },
   {
@@ -77,7 +101,11 @@ const CONTENT = {
    "img": "img/1795122710920.jpg",
    "d": "Locks, doors, furniture, appliances and fittings for homes and hotels.",
    "more": "Source building materials and interior fit-out products for homes, hotels and commercial projects, from hotel card lock systems to furniture, appliances and sanitaryware.",
-   "pts": ["Hotel card locks and systems", "Security doors and accessories", "Contract furniture, home appliances, sanitaryware and casework"],
+   "pts": [
+    "Hotel card locks and systems",
+    "Security doors and accessories",
+    "Contract furniture, home appliances, sanitaryware and casework"
+   ],
    "link": "",
    "act": ""
   }
@@ -88,7 +116,11 @@ const CONTENT = {
    "n": "Solution",
    "d": "One partner for shipping, housing, travel and sourcing.",
    "more": "Instead of juggling several companies, you deal with one team that can handle your cargo, your property and your trip to Turkey.",
-   "pts": ["Six services under one roof", "One point of contact", "Less paperwork and fewer delays"],
+   "pts": [
+    "Six services under one roof",
+    "One point of contact",
+    "Less paperwork and fewer delays"
+   ],
    "img": "",
    "href": "index.html#services",
    "cta": "See our services"
@@ -98,7 +130,11 @@ const CONTENT = {
    "n": "Experience",
    "d": "Door-to-door cargo between Turkey and Ghana.",
    "more": "We operate with offices in Istanbul and Accra, so we understand both ends of the journey your goods or plans take.",
-   "pts": ["Presence in Turkey and Ghana", "Knowledge of both markets", "Guidance you can ask for in person"],
+   "pts": [
+    "Presence in Turkey and Ghana",
+    "Knowledge of both markets",
+    "Guidance you can ask for in person"
+   ],
    "img": "",
    "href": "faq.html",
    "cta": "Read our FAQ"
@@ -108,7 +144,11 @@ const CONTENT = {
    "n": "Convenience",
    "d": "Book online in a minute through WhatsApp or email.",
    "more": "Fill in a short form and your booking arrives straight on WhatsApp or email, so you can chat with us right away.",
-   "pts": ["Quick online booking", "Talk to us on WhatsApp", "Pick the services you need in one go"],
+   "pts": [
+    "Quick online booking",
+    "Talk to us on WhatsApp",
+    "Pick the services you need in one go"
+   ],
    "img": "",
    "href": "book.html",
    "cta": "Book now"
@@ -124,7 +164,11 @@ const CONTENT = {
    "days": "3 days",
    "price": "From $240",
    "d": "Walk through the heart of old Istanbul, where Europe meets Asia.",
-   "hl": ["Hagia Sophia and the Blue Mosque", "Topkapi Palace", "Grand Bazaar and Spice Market"],
+   "hl": [
+    "Hagia Sophia and the Blue Mosque",
+    "Topkapi Palace",
+    "Grand Bazaar and Spice Market"
+   ],
    "img": "img/1795123599432.jpg"
   },
   {
@@ -136,7 +180,11 @@ const CONTENT = {
    "days": "Half day",
    "price": "From $35",
    "d": "See palaces, fortresses and waterfront homes from the water.",
-   "hl": ["Both continents in one trip", "Dolmabahce and Rumeli Fortress views", "Tea on deck at sunset"],
+   "hl": [
+    "Both continents in one trip",
+    "Dolmabahce and Rumeli Fortress views",
+    "Tea on deck at sunset"
+   ],
    "img": "img/1795123642979.jpg"
   },
   {
@@ -148,7 +196,11 @@ const CONTENT = {
    "days": "2 days",
    "price": "From $320",
    "d": "Fairy chimneys, cave hotels and sunrise balloon flights.",
-   "hl": ["Hot air balloon at sunrise (weather permitting)", "Goreme Open Air Museum", "Cave hotel stay"],
+   "hl": [
+    "Hot air balloon at sunrise (weather permitting)",
+    "Goreme Open Air Museum",
+    "Cave hotel stay"
+   ],
    "img": "img/1795123655083.jpg"
   },
   {
@@ -160,7 +212,11 @@ const CONTENT = {
    "days": "2 days",
    "price": "From $210",
    "d": "White travertine pools and ancient Hierapolis.",
-   "hl": ["Natural thermal terraces", "Hierapolis ancient city", "Antique Pool swim"],
+   "hl": [
+    "Natural thermal terraces",
+    "Hierapolis ancient city",
+    "Antique Pool swim"
+   ],
    "img": "img/1795124670732.jpg"
   },
   {
@@ -172,7 +228,11 @@ const CONTENT = {
    "days": "2 days",
    "price": "From $230",
    "d": "Walk the marble streets of one of the best preserved ancient cities.",
-   "hl": ["Library of Celsus", "Temple of Artemis site", "House of the Virgin Mary"],
+   "hl": [
+    "Library of Celsus",
+    "Temple of Artemis site",
+    "House of the Virgin Mary"
+   ],
    "img": "img/1795123705848.jpg"
   },
   {
@@ -184,7 +244,11 @@ const CONTENT = {
    "days": "4 days",
    "price": "From $380",
    "d": "Turquoise coast, old town harbour and waterfalls.",
-   "hl": ["Kaleici old town", "Duden waterfalls", "Boat trip along the coast"],
+   "hl": [
+    "Kaleici old town",
+    "Duden waterfalls",
+    "Boat trip along the coast"
+   ],
    "img": "img/1795123734530.jpg"
   }
  ],
@@ -196,9 +260,21 @@ const CONTENT = {
    "e": "👞",
    "c": "#e8d5c0",
    "price": 85,
-   "sizes": ["40", "41", "42", "43", "44", "45"],
+   "sizes": [
+    "40",
+    "41",
+    "42",
+    "43",
+    "44",
+    "45"
+   ],
    "d": "Handcrafted leather dress shoe.",
-   "specs": ["Material: Leather", "Sole: Leather", "Style: Oxford, lace-up", "Colour: Brown"],
+   "specs": [
+    "Material: Leather",
+    "Sole: Leather",
+    "Style: Oxford, lace-up",
+    "Colour: Brown"
+   ],
    "more": "Handcrafted leather dress shoe. Choose your size where shown, add it to the cart and send your order on WhatsApp.",
    "imgs": []
   },
@@ -209,9 +285,19 @@ const CONTENT = {
    "e": "👠",
    "c": "#f7d6e0",
    "price": 70,
-   "sizes": ["36", "37", "38", "39", "40"],
+   "sizes": [
+    "36",
+    "37",
+    "38",
+    "39",
+    "40"
+   ],
    "d": "Comfortable heels for events and office.",
-   "specs": ["Heel type: Block", "Style: Closed toe", "Colour: Black"],
+   "specs": [
+    "Heel type: Block",
+    "Style: Closed toe",
+    "Colour: Black"
+   ],
    "more": "Comfortable heels for events and office. Choose your size where shown, add it to the cart and send your order on WhatsApp.",
    "imgs": []
   },
@@ -222,9 +308,20 @@ const CONTENT = {
    "e": "👟",
    "c": "#d6e4f7",
    "price": 60,
-   "sizes": ["40", "41", "42", "43", "44", "45"],
+   "sizes": [
+    "40",
+    "41",
+    "42",
+    "43",
+    "44",
+    "45"
+   ],
    "d": "Everyday casual sneakers.",
-   "specs": ["Style: Casual sneaker", "Colour: White", "Closure: Laces"],
+   "specs": [
+    "Style: Casual sneaker",
+    "Colour: White",
+    "Closure: Laces"
+   ],
    "more": "Everyday casual sneakers. Choose your size where shown, add it to the cart and send your order on WhatsApp.",
    "imgs": []
   },
@@ -235,9 +332,20 @@ const CONTENT = {
    "e": "👗",
    "c": "#f9d5ec",
    "price": 95,
-   "sizes": ["S", "M", "L", "XL", "XXL"],
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+   ],
    "d": "Flowing dress in sizes up to plus size.",
-   "specs": ["Style: Flowing dress", "Colour: Pink", "Sizes: S to XXL", "Care: Hand wash or gentle machine wash"],
+   "specs": [
+    "Style: Flowing dress",
+    "Colour: Pink",
+    "Sizes: S to XXL",
+    "Care: Hand wash or gentle machine wash"
+   ],
    "more": "Flowing dress in sizes up to plus size. Choose your size where shown, add it to the cart and send your order on WhatsApp.",
    "imgs": []
   },
@@ -248,11 +356,29 @@ const CONTENT = {
    "e": "🤵",
    "c": "#d0d7e5",
    "price": 210,
-   "sizes": ["48", "50", "52", "54", "56"],
+   "sizes": [
+    "48",
+    "50",
+    "52",
+    "54",
+    "56"
+   ],
    "d": "Tailored fit suit.",
-   "specs": ["Pieces: Jacket and trousers", "Fit: Tailored", "Sizes: 48 to 56"],
+   "specs": [
+    "Pieces: Jacket and trousers",
+    "Fit: Tailored",
+    "Sizes: 48 to 56"
+   ],
    "more": "Tailored fit suit. Choose your size where shown, add it to the cart and send your order on WhatsApp.",
-   "imgs": ["img/1795226491563-0.jpg", "img/1795226528891-0.jpg", "img/1795226532211-1.jpg", "img/1795226535258-2.jpg", "img/1795226538427-3.jpg", "img/1795226541777-4.jpg", "img/1795226545194-5.jpg"],
+   "imgs": [
+    "img/1795226491563-0.jpg",
+    "img/1795226528891-0.jpg",
+    "img/1795226532211-1.jpg",
+    "img/1795226535258-2.jpg",
+    "img/1795226538427-3.jpg",
+    "img/1795226541777-4.jpg",
+    "img/1795226545194-5.jpg"
+   ],
    "img": "img/1795226491563-0.jpg"
   },
   {
@@ -263,7 +389,11 @@ const CONTENT = {
    "c": "#e3d9f7",
    "price": 25,
    "d": "Soft printed scarf.",
-   "specs": ["Style: Printed scarf", "Material: Silk-feel fabric", "Care: Gentle wash"],
+   "specs": [
+    "Style: Printed scarf",
+    "Material: Silk-feel fabric",
+    "Care: Gentle wash"
+   ],
    "more": "Soft printed scarf. Choose your size where shown, add it to the cart and send your order on WhatsApp.",
    "imgs": []
   },
@@ -275,7 +405,11 @@ const CONTENT = {
    "c": "#f0dcc4",
    "price": 75,
    "d": "Spacious everyday bag.",
-   "specs": ["Material: Leather", "Closure: Zip", "Colour: Tan"],
+   "specs": [
+    "Material: Leather",
+    "Closure: Zip",
+    "Colour: Tan"
+   ],
    "more": "Spacious everyday bag. Choose your size where shown, add it to the cart and send your order on WhatsApp.",
    "imgs": []
   },
@@ -287,7 +421,11 @@ const CONTENT = {
    "c": "#e6dccd",
    "price": 30,
    "d": "Genuine leather belt.",
-   "specs": ["Material: Genuine leather", "Colour: Brown", "Style: Classic buckle"],
+   "specs": [
+    "Material: Genuine leather",
+    "Colour: Brown",
+    "Style: Classic buckle"
+   ],
    "more": "Genuine leather belt. Choose your size where shown, add it to the cart and send your order on WhatsApp.",
    "imgs": []
   },
@@ -301,7 +439,12 @@ const CONTENT = {
    "price": 0,
    "sizes": [],
    "d": "Key card lock for hotel guest rooms.",
-   "specs": ["Opens with: RFID key card", "Use: Hotel guest rooms", "Power: Batteries", "Supplied with: Lock body and handle (confirm in quote)"],
+   "specs": [
+    "Opens with: RFID key card",
+    "Use: Hotel guest rooms",
+    "Power: Batteries",
+    "Supplied with: Lock body and handle (confirm in quote)"
+   ],
    "more": "Key card lock for hotel guest rooms. Send us your quantity and delivery location and we will quote you.",
    "imgs": []
   },
@@ -315,7 +458,11 @@ const CONTENT = {
    "price": 0,
    "sizes": [],
    "d": "Programs key cards and manages room access.",
-   "specs": ["Function: Issues and cancels guest key cards", "Works with: Hotel card lock systems", "Supplied as: Encoder and software"],
+   "specs": [
+    "Function: Issues and cancels guest key cards",
+    "Works with: Hotel card lock systems",
+    "Supplied as: Encoder and software"
+   ],
    "more": "Programs key cards and manages room access. Send us your quantity and delivery location and we will quote you.",
    "imgs": []
   },
@@ -329,9 +476,31 @@ const CONTENT = {
    "price": 0,
    "sizes": [],
    "d": "Reinforced door for homes and apartments.",
-   "specs": ["Material: Steel", "Use: Homes and apartments", "Options: Colour, handle and lock type"],
+   "specs": [
+    "Material: Steel",
+    "Use: Homes and apartments",
+    "Options: Colour, handle and lock type"
+   ],
    "more": "Reinforced door for homes and apartments. Send us your quantity and delivery location and we will quote you.",
-   "imgs": ["img/1795228284088-0.jpg", "img/1795228292291-1.jpg", "img/1795228296926-2.jpg", "img/1795228302478-3.jpg", "img/1795228308337-4.jpg", "img/1795228311453-5.jpg", "img/1795228315917-6.jpg", "img/1795228318532-7.jpg", "img/1795228321549-8.jpg", "img/1795228325092-9.jpg", "img/1795228328015-10.jpg", "img/1795228330881-11.jpg", "img/1795228334086-12.jpg", "img/1795228338322-13.jpg", "img/1795228346229-14.jpg", "img/1795228355250-15.jpg", "img/1795228359129-16.jpg"]
+   "imgs": [
+    "img/1795228284088-0.jpg",
+    "img/1795228292291-1.jpg",
+    "img/1795228296926-2.jpg",
+    "img/1795228302478-3.jpg",
+    "img/1795228308337-4.jpg",
+    "img/1795228311453-5.jpg",
+    "img/1795228315917-6.jpg",
+    "img/1795228318532-7.jpg",
+    "img/1795228321549-8.jpg",
+    "img/1795228325092-9.jpg",
+    "img/1795228328015-10.jpg",
+    "img/1795228330881-11.jpg",
+    "img/1795228334086-12.jpg",
+    "img/1795228338322-13.jpg",
+    "img/1795228346229-14.jpg",
+    "img/1795228355250-15.jpg",
+    "img/1795228359129-16.jpg"
+   ]
   },
   {
    "id": "b4",
@@ -343,9 +512,19 @@ const CONTENT = {
    "price": 0,
    "sizes": [],
    "d": "Bed, wardrobe and bedside tables for hotel rooms.",
-   "specs": ["Includes: Bed, wardrobe and bedside tables", "Use: Hotel and guest rooms", "Options: Finish, size and quantity"],
+   "specs": [
+    "Includes: Bed, wardrobe and bedside tables",
+    "Use: Hotel and guest rooms",
+    "Options: Finish, size and quantity"
+   ],
    "more": "Bed, wardrobe and bedside tables for hotel rooms. Send us your quantity and delivery location and we will quote you.",
-   "imgs": ["img/1795228343732-0.jpg", "img/1795228351462-1.jpg", "img/1795228358110-2.jpg", "img/1795228361693-3.jpg", "img/1795228365114-4.jpg"]
+   "imgs": [
+    "img/1795228343732-0.jpg",
+    "img/1795228351462-1.jpg",
+    "img/1795228358110-2.jpg",
+    "img/1795228361693-3.jpg",
+    "img/1795228365114-4.jpg"
+   ]
   },
   {
    "id": "b5",
@@ -357,7 +536,11 @@ const CONTENT = {
    "price": 0,
    "sizes": [],
    "d": "Kitchen and household appliances, supplied as a package.",
-   "specs": ["Includes: Kitchen and household appliances (list agreed with you)", "Use: Homes and hotels", "Price: Depends on the selection"],
+   "specs": [
+    "Includes: Kitchen and household appliances (list agreed with you)",
+    "Use: Homes and hotels",
+    "Price: Depends on the selection"
+   ],
    "more": "Kitchen and household appliances, supplied as a package. Send us your quantity and delivery location and we will quote you.",
    "imgs": []
   },
@@ -371,9 +554,19 @@ const CONTENT = {
    "price": 0,
    "sizes": [],
    "d": "Toilet, basin and fittings set.",
-   "specs": ["Includes: Toilet, basin and fittings", "Use: Homes and hotels", "Options: Colour and style"],
+   "specs": [
+    "Includes: Toilet, basin and fittings",
+    "Use: Homes and hotels",
+    "Options: Colour and style"
+   ],
    "more": "Toilet, basin and fittings set. Send us your quantity and delivery location and we will quote you.",
-   "imgs": ["img/1795228592790-0.jpg", "img/1795228598009-1.jpg", "img/1795228601537-2.jpg", "img/1795228608443-3.jpg", "img/1795228616118-4.jpg"]
+   "imgs": [
+    "img/1795228592790-0.jpg",
+    "img/1795228598009-1.jpg",
+    "img/1795228601537-2.jpg",
+    "img/1795228608443-3.jpg",
+    "img/1795228616118-4.jpg"
+   ]
   },
   {
    "id": "b7",
@@ -385,7 +578,11 @@ const CONTENT = {
    "price": 0,
    "sizes": [],
    "d": "Made-to-measure cabinetry and casework.",
-   "specs": ["Type: Made to measure", "Use: Homes and projects", "Options: Finish and layout"],
+   "specs": [
+    "Type: Made to measure",
+    "Use: Homes and projects",
+    "Options: Finish and layout"
+   ],
    "more": "Made-to-measure cabinetry and casework. Send us your quantity and delivery location and we will quote you.",
    "imgs": []
   }
@@ -403,13 +600,55 @@ const CONTENT = {
    "roof": "#c0272d",
    "plan": [
     [
-     ["b", 0, 0, 3.81, 3.86],
-     ["l", 0, 3.86, 3.81, 5.12],
-     ["b", 3.81, 0, 3.82, 2.62],
-     ["h", 3.81, 2.62, 1.39, 5],
-     ["t", 5.2, 2.62, 2.43, 2.1],
-     ["k", 5.2, 4.72, 2.43, 2.9],
-     ["o", 3.81, 7.62, 3.82, 1.36]
+     [
+      "b",
+      0,
+      0,
+      3.81,
+      3.86
+     ],
+     [
+      "l",
+      0,
+      3.86,
+      3.81,
+      5.12
+     ],
+     [
+      "b",
+      3.81,
+      0,
+      3.82,
+      2.62
+     ],
+     [
+      "h",
+      3.81,
+      2.62,
+      1.39,
+      5
+     ],
+     [
+      "t",
+      5.2,
+      2.62,
+      2.43,
+      2.1
+     ],
+     [
+      "k",
+      5.2,
+      4.72,
+      2.43,
+      2.9
+     ],
+     [
+      "o",
+      3.81,
+      7.62,
+      3.82,
+      1.36
+     ]
     ]
    ]
   },
@@ -425,13 +664,55 @@ const CONTENT = {
    "roof": "#c0272d",
    "plan": [
     [
-     ["l", 0, 0, 4.44, 3.91],
-     ["t", 4.44, 0, 1.88, 2.6],
-     ["b", 6.32, 0, 3.19, 3.91],
-     ["h", 4.44, 2.6, 1.88, 5.13],
-     ["k", 1.5, 3.91, 2.94, 3.82],
-     ["b", 6.32, 3.91, 3.19, 3.82],
-     ["o", 4.44, 7.73, 1.88, 1.2]
+     [
+      "l",
+      0,
+      0,
+      4.44,
+      3.91
+     ],
+     [
+      "t",
+      4.44,
+      0,
+      1.88,
+      2.6
+     ],
+     [
+      "b",
+      6.32,
+      0,
+      3.19,
+      3.91
+     ],
+     [
+      "h",
+      4.44,
+      2.6,
+      1.88,
+      5.13
+     ],
+     [
+      "k",
+      1.5,
+      3.91,
+      2.94,
+      3.82
+     ],
+     [
+      "b",
+      6.32,
+      3.91,
+      3.19,
+      3.82
+     ],
+     [
+      "o",
+      4.44,
+      7.73,
+      1.88,
+      1.2
+     ]
     ]
    ]
   },
@@ -447,12 +728,48 @@ const CONTENT = {
    "roof": "#c0272d",
    "plan": [
     [
-     ["l", 0, 0, 5.07, 7.05],
-     ["t", 5.07, 0, 2.51, 2.8],
-     ["h", 5.07, 2.8, 2.51, 2.8],
-     ["b", 7.58, 0, 3.81, 3.86],
-     ["b", 7.58, 3.86, 3.81, 3.19],
-     ["o", 5.07, 5.6, 2.51, 1.45]
+     [
+      "l",
+      0,
+      0,
+      5.07,
+      7.05
+     ],
+     [
+      "t",
+      5.07,
+      0,
+      2.51,
+      2.8
+     ],
+     [
+      "h",
+      5.07,
+      2.8,
+      2.51,
+      2.8
+     ],
+     [
+      "b",
+      7.58,
+      0,
+      3.81,
+      3.86
+     ],
+     [
+      "b",
+      7.58,
+      3.86,
+      3.81,
+      3.19
+     ],
+     [
+      "o",
+      5.07,
+      5.6,
+      2.51,
+      1.45
+     ]
     ]
    ]
   },
@@ -468,15 +785,69 @@ const CONTENT = {
    "roof": "#c0272d",
    "plan": [
     [
-     ["b", 0, 0, 2.56, 3.86],
-     ["t", 2.56, 0, 2.51, 2.4],
-     ["t", 5.07, 0, 1.25, 2.4],
-     ["k", 6.32, 0, 2.56, 3.86],
-     ["h", 2.56, 2.4, 3.76, 1.46],
-     ["h", 3.81, 3.86, 1.26, 3.87],
-     ["l", 0, 3.86, 3.81, 3.87],
-     ["b", 5.07, 3.86, 3.81, 3.87],
-     ["o", 3.81, 7.73, 5.07, 1.25]
+     [
+      "b",
+      0,
+      0,
+      2.56,
+      3.86
+     ],
+     [
+      "t",
+      2.56,
+      0,
+      2.51,
+      2.4
+     ],
+     [
+      "t",
+      5.07,
+      0,
+      1.25,
+      2.4
+     ],
+     [
+      "k",
+      6.32,
+      0,
+      2.56,
+      3.86
+     ],
+     [
+      "h",
+      2.56,
+      2.4,
+      3.76,
+      1.46
+     ],
+     [
+      "h",
+      3.81,
+      3.86,
+      1.26,
+      3.87
+     ],
+     [
+      "l",
+      0,
+      3.86,
+      3.81,
+      3.87
+     ],
+     [
+      "b",
+      5.07,
+      3.86,
+      3.81,
+      3.87
+     ],
+     [
+      "o",
+      3.81,
+      7.73,
+      5.07,
+      1.25
+     ]
     ]
    ]
   },
@@ -492,20 +863,94 @@ const CONTENT = {
    "roof": "#c0272d",
    "plan": [
     [
-     ["t", 0, 0, 2.56, 1.2],
-     ["k", 0, 1.2, 2.56, 3.9],
-     ["o", 0, 5.1, 2.56, 1.38],
-     ["h", 2.56, 0, 1.26, 2.61],
-     ["s", 3.82, 0, 2.56, 2.61, "s"],
-     ["l", 2.56, 2.61, 3.82, 3.87]
+     [
+      "t",
+      0,
+      0,
+      2.56,
+      1.2
+     ],
+     [
+      "k",
+      0,
+      1.2,
+      2.56,
+      3.9
+     ],
+     [
+      "o",
+      0,
+      5.1,
+      2.56,
+      1.38
+     ],
+     [
+      "h",
+      2.56,
+      0,
+      1.26,
+      2.61
+     ],
+     [
+      "s",
+      3.82,
+      0,
+      2.56,
+      2.61,
+      "s"
+     ],
+     [
+      "l",
+      2.56,
+      2.61,
+      3.82,
+      3.87
+     ]
     ],
     [
-     ["t", 0, 0, 3.82, 1.4],
-     ["h", 0, 1.4, 3.82, 1.21],
-     ["s", 3.82, 0, 2.56, 2.61, "s"],
-     ["b", 0, 2.61, 2.56, 2.49],
-     ["n", 0, 5.1, 2.56, 1.38],
-     ["b", 2.56, 2.61, 3.82, 3.87]
+     [
+      "t",
+      0,
+      0,
+      3.82,
+      1.4
+     ],
+     [
+      "h",
+      0,
+      1.4,
+      3.82,
+      1.21
+     ],
+     [
+      "s",
+      3.82,
+      0,
+      2.56,
+      2.61,
+      "s"
+     ],
+     [
+      "b",
+      0,
+      2.61,
+      2.56,
+      2.49
+     ],
+     [
+      "n",
+      0,
+      5.1,
+      2.56,
+      1.38
+     ],
+     [
+      "b",
+      2.56,
+      2.61,
+      3.82,
+      3.87
+     ]
     ]
    ]
   },
@@ -521,23 +966,101 @@ const CONTENT = {
    "roof": "#c0272d",
    "plan": [
     [
-     ["k", 0, 0, 3.24, 2.5],
-     ["t", 3.24, 0, 0.9, 2.5],
-     ["s", 4.14, 0, 2.24, 2.5, "s"],
-     ["h", 0, 2.5, 6.38, 1.7],
-     ["l", 0, 4.2, 6.38, 3.48]
+     [
+      "k",
+      0,
+      0,
+      3.24,
+      2.5
+     ],
+     [
+      "t",
+      3.24,
+      0,
+      0.9,
+      2.5
+     ],
+     [
+      "s",
+      4.14,
+      0,
+      2.24,
+      2.5,
+      "s"
+     ],
+     [
+      "h",
+      0,
+      2.5,
+      6.38,
+      1.7
+     ],
+     [
+      "l",
+      0,
+      4.2,
+      6.38,
+      3.48
+     ]
     ],
     [
-     ["t", 0, 0, 3.24, 1.98],
-     ["h", 3.24, 0, 0.9, 2.5],
-     ["s", 4.14, 0, 2.24, 2.5, "s"],
-     ["h", 3.24, 2.5, 3.14, 1.9],
-     ["b", 0, 1.98, 3.24, 3.19],
-     ["n", 0, 5.17, 3.24, 2.51],
-     ["b", 3.24, 4.4, 3.14, 3.28]
+     [
+      "t",
+      0,
+      0,
+      3.24,
+      1.98
+     ],
+     [
+      "h",
+      3.24,
+      0,
+      0.9,
+      2.5
+     ],
+     [
+      "s",
+      4.14,
+      0,
+      2.24,
+      2.5,
+      "s"
+     ],
+     [
+      "h",
+      3.24,
+      2.5,
+      3.14,
+      1.9
+     ],
+     [
+      "b",
+      0,
+      1.98,
+      3.24,
+      3.19
+     ],
+     [
+      "n",
+      0,
+      5.17,
+      3.24,
+      2.51
+     ],
+     [
+      "b",
+      3.24,
+      4.4,
+      3.14,
+      3.28
+     ]
     ]
    ],
-   "door": [0, 3.35, "v"]
+   "door": [
+    0,
+    3.35,
+    "v"
+   ]
   },
   {
    "n": "RH 125",
@@ -551,15 +1074,69 @@ const CONTENT = {
    "roof": "#2e8b57",
    "plan": [
     [
-     ["b", 0, 0, 3.19, 3.9],
-     ["b", 0, 3.9, 3.19, 3.2],
-     ["t", 3.19, 0, 1.6, 2.4],
-     ["h", 3.19, 2.4, 1.6, 1.5],
-     ["k", 4.79, 0, 2.9, 3.9],
-     ["b", 7.69, 0, 2.51, 3.9],
-     ["l", 10.2, 0, 3.7, 7.1],
-     ["h", 3.19, 3.9, 7.01, 1.9],
-     ["o", 3.19, 5.8, 7.01, 1.3]
+     [
+      "b",
+      0,
+      0,
+      3.19,
+      3.9
+     ],
+     [
+      "b",
+      0,
+      3.9,
+      3.19,
+      3.2
+     ],
+     [
+      "t",
+      3.19,
+      0,
+      1.6,
+      2.4
+     ],
+     [
+      "h",
+      3.19,
+      2.4,
+      1.6,
+      1.5
+     ],
+     [
+      "k",
+      4.79,
+      0,
+      2.9,
+      3.9
+     ],
+     [
+      "b",
+      7.69,
+      0,
+      2.51,
+      3.9
+     ],
+     [
+      "l",
+      10.2,
+      0,
+      3.7,
+      7.1
+     ],
+     [
+      "h",
+      3.19,
+      3.9,
+      7.01,
+      1.9
+     ],
+     [
+      "o",
+      3.19,
+      5.8,
+      7.01,
+      1.3
+     ]
     ]
    ]
   },
@@ -575,14 +1152,62 @@ const CONTENT = {
    "roof": "#c0272d",
    "plan": [
     [
-     ["b", 0, 0, 3.24, 3.19],
-     ["b", 0, 3.19, 3.24, 2.51],
-     ["k", 0, 5.7, 3.24, 3.82],
-     ["t", 3.24, 0, 1.88, 2],
-     ["h", 3.24, 2, 1.88, 7.52],
-     ["b", 5.12, 0, 3.81, 3.7],
-     ["l", 5.12, 3.7, 3.81, 5.82],
-     ["o", 3.24, 9.52, 5.69, 1.87]
+     [
+      "b",
+      0,
+      0,
+      3.24,
+      3.19
+     ],
+     [
+      "b",
+      0,
+      3.19,
+      3.24,
+      2.51
+     ],
+     [
+      "k",
+      0,
+      5.7,
+      3.24,
+      3.82
+     ],
+     [
+      "t",
+      3.24,
+      0,
+      1.88,
+      2
+     ],
+     [
+      "h",
+      3.24,
+      2,
+      1.88,
+      7.52
+     ],
+     [
+      "b",
+      5.12,
+      0,
+      3.81,
+      3.7
+     ],
+     [
+      "l",
+      5.12,
+      3.7,
+      3.81,
+      5.82
+     ],
+     [
+      "o",
+      3.24,
+      9.52,
+      5.69,
+      1.87
+     ]
     ]
    ]
   },
@@ -598,22 +1223,108 @@ const CONTENT = {
    "roof": "#c0272d",
    "plan": [
     [
-     ["t", 0, 0, 2.56, 1.2],
-     ["h", 2.56, 0, 2.51, 2.61],
-     ["h", 0, 1.2, 2.56, 1.41],
-     ["s", 5.07, 0, 2.56, 2.61, "s"],
-     ["l", 0, 2.61, 5.07, 3.19],
-     ["l", 2.56, 5.8, 2.51, 1.3],
-     ["k", 5.07, 2.61, 2.56, 4.49],
-     ["o", 0, 5.8, 2.56, 1.3]
+     [
+      "t",
+      0,
+      0,
+      2.56,
+      1.2
+     ],
+     [
+      "h",
+      2.56,
+      0,
+      2.51,
+      2.61
+     ],
+     [
+      "h",
+      0,
+      1.2,
+      2.56,
+      1.41
+     ],
+     [
+      "s",
+      5.07,
+      0,
+      2.56,
+      2.61,
+      "s"
+     ],
+     [
+      "l",
+      0,
+      2.61,
+      5.07,
+      3.19
+     ],
+     [
+      "l",
+      2.56,
+      5.8,
+      2.51,
+      1.3
+     ],
+     [
+      "k",
+      5.07,
+      2.61,
+      2.56,
+      4.49
+     ],
+     [
+      "o",
+      0,
+      5.8,
+      2.56,
+      1.3
+     ]
     ],
     [
-     ["t", 0, 0, 2.56, 1.2],
-     ["h", 2.56, 0, 2.51, 2.61],
-     ["h", 0, 1.2, 2.56, 1.41],
-     ["s", 5.07, 0, 2.56, 2.61, "s"],
-     ["b", 0, 2.61, 3.82, 4.49],
-     ["b", 3.82, 2.61, 3.81, 4.49]
+     [
+      "t",
+      0,
+      0,
+      2.56,
+      1.2
+     ],
+     [
+      "h",
+      2.56,
+      0,
+      2.51,
+      2.61
+     ],
+     [
+      "h",
+      0,
+      1.2,
+      2.56,
+      1.41
+     ],
+     [
+      "s",
+      5.07,
+      0,
+      2.56,
+      2.61,
+      "s"
+     ],
+     [
+      "b",
+      0,
+      2.61,
+      3.82,
+      4.49
+     ],
+     [
+      "b",
+      3.82,
+      2.61,
+      3.81,
+      4.49
+     ]
     ]
    ]
   },
@@ -629,20 +1340,94 @@ const CONTENT = {
    "roof": "#c0272d",
    "plan": [
     [
-     ["b", 0, 0, 2.54, 3.86],
-     ["k", 2.54, 0, 2.56, 2.7],
-     ["h", 2.54, 2.7, 2.56, 1.16],
-     ["s", 5.1, 2.7, 1.2, 2.5, "s"],
-     ["l", 0, 3.86, 5.1, 3.86],
-     ["l", 5.1, 5.2, 1.2, 2.52],
-     ["o", 0, 7.72, 6.3, 1.89]
+     [
+      "b",
+      0,
+      0,
+      2.54,
+      3.86
+     ],
+     [
+      "k",
+      2.54,
+      0,
+      2.56,
+      2.7
+     ],
+     [
+      "h",
+      2.54,
+      2.7,
+      2.56,
+      1.16
+     ],
+     [
+      "s",
+      5.1,
+      2.7,
+      1.2,
+      2.5,
+      "s"
+     ],
+     [
+      "l",
+      0,
+      3.86,
+      5.1,
+      3.86
+     ],
+     [
+      "l",
+      5.1,
+      5.2,
+      1.2,
+      2.52
+     ],
+     [
+      "o",
+      0,
+      7.72,
+      6.3,
+      1.89
+     ]
     ],
     [
-     ["b", 0, 0, 2.54, 3.86],
-     ["t", 2.54, 0, 2.56, 2.7],
-     ["h", 2.54, 2.7, 2.56, 1.16],
-     ["s", 5.1, 2.7, 1.2, 2.5, "s"],
-     ["b", 0, 3.86, 5.1, 3.86]
+     [
+      "b",
+      0,
+      0,
+      2.54,
+      3.86
+     ],
+     [
+      "t",
+      2.54,
+      0,
+      2.56,
+      2.7
+     ],
+     [
+      "h",
+      2.54,
+      2.7,
+      2.56,
+      1.16
+     ],
+     [
+      "s",
+      5.1,
+      2.7,
+      1.2,
+      2.5,
+      "s"
+     ],
+     [
+      "b",
+      0,
+      3.86,
+      5.1,
+      3.86
+     ]
     ]
    ]
   },
@@ -658,24 +1443,108 @@ const CONTENT = {
    "roof": "#c0272d",
    "plan": [
     [
-     ["t", 0, 0, 1.93, 1.98],
-     ["s", 1.93, 0, 1.93, 1.98, "s"],
-     ["h", 0, 1.98, 3.86, 1.88],
-     ["k", 0, 3.86, 3.86, 3.24],
-     ["l", 3.86, 0, 3.76, 5.79],
-     ["o", 3.86, 5.79, 3.76, 1.31]
+     [
+      "t",
+      0,
+      0,
+      1.93,
+      1.98
+     ],
+     [
+      "s",
+      1.93,
+      0,
+      1.93,
+      1.98,
+      "s"
+     ],
+     [
+      "h",
+      0,
+      1.98,
+      3.86,
+      1.88
+     ],
+     [
+      "k",
+      0,
+      3.86,
+      3.86,
+      3.24
+     ],
+     [
+      "l",
+      3.86,
+      0,
+      3.76,
+      5.79
+     ],
+     [
+      "o",
+      3.86,
+      5.79,
+      3.76,
+      1.31
+     ]
     ],
     [
-     ["t", 0, 0, 1.93, 1.98],
-     ["s", 1.93, 0, 1.93, 1.98, "s"],
-     ["h", 0, 1.98, 3.86, 2.6],
-     ["b", 3.86, 0, 3.76, 3.2],
-     ["b", 3.86, 3.2, 3.76, 1.92],
-     ["b", 0, 4.58, 3.86, 2.52],
-     ["n", 3.86, 5.12, 3.76, 1.31]
+     [
+      "t",
+      0,
+      0,
+      1.93,
+      1.98
+     ],
+     [
+      "s",
+      1.93,
+      0,
+      1.93,
+      1.98,
+      "s"
+     ],
+     [
+      "h",
+      0,
+      1.98,
+      3.86,
+      2.6
+     ],
+     [
+      "b",
+      3.86,
+      0,
+      3.76,
+      3.2
+     ],
+     [
+      "b",
+      3.86,
+      3.2,
+      3.76,
+      1.92
+     ],
+     [
+      "b",
+      0,
+      4.58,
+      3.86,
+      2.52
+     ],
+     [
+      "n",
+      3.86,
+      5.12,
+      3.76,
+      1.31
+     ]
     ]
    ],
-   "door": [0, 2.9, "v"]
+   "door": [
+    0,
+    2.9,
+    "v"
+   ]
   },
   {
    "n": "RH 132",
@@ -689,15 +1558,69 @@ const CONTENT = {
    "roof": "#c0272d",
    "plan": [
     [
-     ["l", 0, 0, 4.44, 6.48],
-     ["k", 4.44, 0, 3.14, 3.2],
-     ["t", 7.58, 0, 1.26, 3.2],
-     ["t", 8.84, 0, 1.88, 3.2],
-     ["b", 10.72, 0, 3.81, 4.2],
-     ["h", 4.44, 3.2, 6.28, 1.8],
-     ["b", 5.2, 5, 2.6, 3.9],
-     ["b", 7.8, 5, 2.7, 3.9],
-     ["o", 0, 6.48, 4.44, 2.42]
+     [
+      "l",
+      0,
+      0,
+      4.44,
+      6.48
+     ],
+     [
+      "k",
+      4.44,
+      0,
+      3.14,
+      3.2
+     ],
+     [
+      "t",
+      7.58,
+      0,
+      1.26,
+      3.2
+     ],
+     [
+      "t",
+      8.84,
+      0,
+      1.88,
+      3.2
+     ],
+     [
+      "b",
+      10.72,
+      0,
+      3.81,
+      4.2
+     ],
+     [
+      "h",
+      4.44,
+      3.2,
+      6.28,
+      1.8
+     ],
+     [
+      "b",
+      5.2,
+      5,
+      2.6,
+      3.9
+     ],
+     [
+      "b",
+      7.8,
+      5,
+      2.7,
+      3.9
+     ],
+     [
+      "o",
+      0,
+      6.48,
+      4.44,
+      2.42
+     ]
     ]
    ]
   },
@@ -713,21 +1636,101 @@ const CONTENT = {
    "roof": "#c0272d",
    "plan": [
     [
-     ["t", 0, 0, 1.93, 2.61],
-     ["s", 1.93, 0, 1.88, 2.61, "s"],
-     ["h", 0, 2.61, 3.81, 1.26],
-     ["k", 0, 3.87, 3.81, 3.86],
-     ["l", 3.81, 0, 5.07, 5],
-     ["o", 3.81, 5, 5.07, 3]
+     [
+      "t",
+      0,
+      0,
+      1.93,
+      2.61
+     ],
+     [
+      "s",
+      1.93,
+      0,
+      1.88,
+      2.61,
+      "s"
+     ],
+     [
+      "h",
+      0,
+      2.61,
+      3.81,
+      1.26
+     ],
+     [
+      "k",
+      0,
+      3.87,
+      3.81,
+      3.86
+     ],
+     [
+      "l",
+      3.81,
+      0,
+      5.07,
+      5
+     ],
+     [
+      "o",
+      3.81,
+      5,
+      5.07,
+      3
+     ]
     ],
     [
-     ["t", 0, 0, 1.93, 2.61],
-     ["s", 1.93, 0, 1.88, 2.61, "s"],
-     ["b", 3.81, 0, 5.07, 2.61],
-     ["h", 0, 2.61, 8.88, 1.26],
-     ["b", 0, 3.87, 3.81, 3.86],
-     ["h", 3.81, 3.87, 1.19, 3.86],
-     ["b", 5, 3.87, 3.88, 3.86]
+     [
+      "t",
+      0,
+      0,
+      1.93,
+      2.61
+     ],
+     [
+      "s",
+      1.93,
+      0,
+      1.88,
+      2.61,
+      "s"
+     ],
+     [
+      "b",
+      3.81,
+      0,
+      5.07,
+      2.61
+     ],
+     [
+      "h",
+      0,
+      2.61,
+      8.88,
+      1.26
+     ],
+     [
+      "b",
+      0,
+      3.87,
+      3.81,
+      3.86
+     ],
+     [
+      "h",
+      3.81,
+      3.87,
+      1.19,
+      3.86
+     ],
+     [
+      "b",
+      5,
+      3.87,
+      3.88,
+      3.86
+     ]
     ]
    ]
   },
@@ -743,22 +1746,108 @@ const CONTENT = {
    "roof": "#c0272d",
    "plan": [
     [
-     ["b", 0, 0, 3.29, 5.07],
-     ["h", 3.29, 0, 1.21, 2.4],
-     ["t", 4.5, 0, 3.23, 2.4],
-     ["s", 6, 2.4, 1.73, 2.67, "s"],
-     ["l", 3.29, 2.4, 2.71, 6.99],
-     ["l", 6, 5.07, 1.73, 4.32],
-     ["k", 0, 5.07, 3.29, 4.32],
-     ["o", 2.2, 9.39, 2.9, 1.38]
+     [
+      "b",
+      0,
+      0,
+      3.29,
+      5.07
+     ],
+     [
+      "h",
+      3.29,
+      0,
+      1.21,
+      2.4
+     ],
+     [
+      "t",
+      4.5,
+      0,
+      3.23,
+      2.4
+     ],
+     [
+      "s",
+      6,
+      2.4,
+      1.73,
+      2.67,
+      "s"
+     ],
+     [
+      "l",
+      3.29,
+      2.4,
+      2.71,
+      6.99
+     ],
+     [
+      "l",
+      6,
+      5.07,
+      1.73,
+      4.32
+     ],
+     [
+      "k",
+      0,
+      5.07,
+      3.29,
+      4.32
+     ],
+     [
+      "o",
+      2.2,
+      9.39,
+      2.9,
+      1.38
+     ]
     ],
     [
-     ["b", 1.26, 0, 3.24, 5.07],
-     ["t", 4.5, 0, 3.23, 2.4],
-     ["h", 4.5, 2.4, 1.5, 2.67],
-     ["s", 6, 2.4, 1.73, 2.67, "s"],
-     ["b", 1.26, 5.07, 5, 4.32],
-     ["n", 2.6, 9.39, 2.5, 1.38]
+     [
+      "b",
+      1.26,
+      0,
+      3.24,
+      5.07
+     ],
+     [
+      "t",
+      4.5,
+      0,
+      3.23,
+      2.4
+     ],
+     [
+      "h",
+      4.5,
+      2.4,
+      1.5,
+      2.67
+     ],
+     [
+      "s",
+      6,
+      2.4,
+      1.73,
+      2.67,
+      "s"
+     ],
+     [
+      "b",
+      1.26,
+      5.07,
+      5,
+      4.32
+     ],
+     [
+      "n",
+      2.6,
+      9.39,
+      2.5,
+      1.38
+     ]
     ]
    ]
   },
@@ -774,22 +1863,108 @@ const CONTENT = {
    "roof": "#2e8b57",
    "plan": [
     [
-     ["b", 0, 0, 2.61, 3.82],
-     ["t", 2.61, 0, 1.15, 2.3],
-     ["t", 3.76, 0, 1.36, 2.3],
-     ["s", 5.12, 0, 2.61, 3.82, "s"],
-     ["h", 2.61, 2.3, 2.51, 1.52],
-     ["l", 0, 3.82, 7.73, 3.82],
-     ["o", 0, 7.64, 7.73, 2.52]
+     [
+      "b",
+      0,
+      0,
+      2.61,
+      3.82
+     ],
+     [
+      "t",
+      2.61,
+      0,
+      1.15,
+      2.3
+     ],
+     [
+      "t",
+      3.76,
+      0,
+      1.36,
+      2.3
+     ],
+     [
+      "s",
+      5.12,
+      0,
+      2.61,
+      3.82,
+      "s"
+     ],
+     [
+      "h",
+      2.61,
+      2.3,
+      2.51,
+      1.52
+     ],
+     [
+      "l",
+      0,
+      3.82,
+      7.73,
+      3.82
+     ],
+     [
+      "o",
+      0,
+      7.64,
+      7.73,
+      2.52
+     ]
     ],
     [
-     ["b", 0, 0, 2.61, 3.82],
-     ["t", 2.61, 0, 2.51, 2.3],
-     ["s", 5.12, 0, 2.61, 3.82, "s"],
-     ["h", 2.61, 2.3, 2.51, 1.52],
-     ["b", 0, 3.82, 3.76, 3.82],
-     ["b", 3.76, 3.82, 3.97, 3.82],
-     ["n", 3.76, 7.64, 3.97, 2.52]
+     [
+      "b",
+      0,
+      0,
+      2.61,
+      3.82
+     ],
+     [
+      "t",
+      2.61,
+      0,
+      2.51,
+      2.3
+     ],
+     [
+      "s",
+      5.12,
+      0,
+      2.61,
+      3.82,
+      "s"
+     ],
+     [
+      "h",
+      2.61,
+      2.3,
+      2.51,
+      1.52
+     ],
+     [
+      "b",
+      0,
+      3.82,
+      3.76,
+      3.82
+     ],
+     [
+      "b",
+      3.76,
+      3.82,
+      3.97,
+      3.82
+     ],
+     [
+      "n",
+      3.76,
+      7.64,
+      3.97,
+      2.52
+     ]
     ]
    ]
   },
@@ -805,21 +1980,101 @@ const CONTENT = {
    "roof": "#c0272d",
    "plan": [
     [
-     ["t", 0, 0, 2.5, 2.9],
-     ["s", 2.5, 0, 2.6, 2.9, "s"],
-     ["b", 5.1, 0, 2.53, 3.82],
-     ["h", 0, 2.9, 5.1, 0.92],
-     ["l", 0, 3.82, 7.63, 5.11],
-     ["o", 0, 8.93, 5.1, 1.26]
+     [
+      "t",
+      0,
+      0,
+      2.5,
+      2.9
+     ],
+     [
+      "s",
+      2.5,
+      0,
+      2.6,
+      2.9,
+      "s"
+     ],
+     [
+      "b",
+      5.1,
+      0,
+      2.53,
+      3.82
+     ],
+     [
+      "h",
+      0,
+      2.9,
+      5.1,
+      0.92
+     ],
+     [
+      "l",
+      0,
+      3.82,
+      7.63,
+      5.11
+     ],
+     [
+      "o",
+      0,
+      8.93,
+      5.1,
+      1.26
+     ]
     ],
     [
-     ["t", 0, 0, 2.5, 2.9],
-     ["s", 2.5, 0, 2.6, 2.9, "s"],
-     ["b", 5.1, 0, 2.53, 3.82],
-     ["h", 0, 2.9, 5.1, 0.92],
-     ["b", 0, 3.82, 3, 5.11],
-     ["b", 3, 3.82, 4.63, 5.11],
-     ["n", 3, 8.93, 4.63, 1.26]
+     [
+      "t",
+      0,
+      0,
+      2.5,
+      2.9
+     ],
+     [
+      "s",
+      2.5,
+      0,
+      2.6,
+      2.9,
+      "s"
+     ],
+     [
+      "b",
+      5.1,
+      0,
+      2.53,
+      3.82
+     ],
+     [
+      "h",
+      0,
+      2.9,
+      5.1,
+      0.92
+     ],
+     [
+      "b",
+      0,
+      3.82,
+      3,
+      5.11
+     ],
+     [
+      "b",
+      3,
+      3.82,
+      4.63,
+      5.11
+     ],
+     [
+      "n",
+      3,
+      8.93,
+      4.63,
+      1.26
+     ]
     ]
    ]
   }
@@ -834,7 +2089,11 @@ const CONTENT = {
   "navy": "#1b2b48",
   "cream": "#fff3e0",
   "tagline": "Cargo, logistics, housing, travel and more, from Istanbul.",
-  "trust": ["Offices in Istanbul and Accra", "Door-to-door cargo", "Housing, travel and shopping in one place"],
+  "trust": [
+   "Offices in Istanbul and Accra",
+   "Door-to-door cargo",
+   "Housing, travel and shopping in one place"
+  ],
   "heroImg": "",
   "ctaTitle": "Ready to get started?",
   "ctaText": "Tell us what you need and we will reply on WhatsApp.",
@@ -849,6 +2108,10 @@ const CONTENT = {
   {
    "n": "How do I book a hotel?",
    "a": "Open Travel, then Hotel booking. Choose a destination and hotel, pick your dates, room type and number of guests, and send the request. We reply on WhatsApp to confirm availability, the price and payment."
+  },
+  {
+   "n": "Can I book a hotel that isn't on your list?",
+   "a": "Yes. On the Hotel booking page choose Request a hotel, tell us the hotel and your dates, and we will check availability and the price for you."
   },
   {
    "n": "How do I get a price for cargo or freight?",
@@ -1040,8 +2303,17 @@ const CONTENT = {
    "img": "",
    "price": 90,
    "d": "Sample listing: comfortable rooms close to the old city and the waterfront.",
-   "amen": ["Free Wi-Fi", "Breakfast", "Airport transfer on request"],
-   "rooms": ["Standard room | 90", "Deluxe room with view | 120"]
+   "amen": [
+    "Free Wi-Fi",
+    "Breakfast",
+    "Airport transfer on request"
+   ],
+   "rooms": [
+    "Standard room | 90",
+    "Deluxe room with view | 120"
+   ],
+   "imgs": [],
+   "credit": ""
   },
   {
    "id": "h2",
@@ -1053,8 +2325,16 @@ const CONTENT = {
    "img": "",
    "price": 65,
    "d": "Sample listing: small boutique hotel within walking distance of the main sights.",
-   "amen": ["Free Wi-Fi", "Breakfast"],
-   "rooms": ["Double room | 65", "Family room | 95"]
+   "amen": [
+    "Free Wi-Fi",
+    "Breakfast"
+   ],
+   "rooms": [
+    "Double room | 65",
+    "Family room | 95"
+   ],
+   "imgs": [],
+   "credit": ""
   },
   {
    "id": "h3",
@@ -1066,8 +2346,17 @@ const CONTENT = {
    "img": "",
    "price": 110,
    "d": "Sample listing: stay in a stone cave suite with valley views.",
-   "amen": ["Free Wi-Fi", "Breakfast", "Terrace"],
-   "rooms": ["Cave suite | 110", "Deluxe cave suite | 150"]
+   "amen": [
+    "Free Wi-Fi",
+    "Breakfast",
+    "Terrace"
+   ],
+   "rooms": [
+    "Cave suite | 110",
+    "Deluxe cave suite | 150"
+   ],
+   "imgs": [],
+   "credit": ""
   },
   {
    "id": "h4",
@@ -1079,8 +2368,17 @@ const CONTENT = {
    "img": "",
    "price": 75,
    "d": "Sample listing: thermal pools close to the ancient city.",
-   "amen": ["Thermal pool", "Breakfast", "Free Wi-Fi"],
-   "rooms": ["Standard room | 75", "Family room | 105"]
+   "amen": [
+    "Thermal pool",
+    "Breakfast",
+    "Free Wi-Fi"
+   ],
+   "rooms": [
+    "Standard room | 75",
+    "Family room | 105"
+   ],
+   "imgs": [],
+   "credit": ""
   },
   {
    "id": "h5",
@@ -1092,8 +2390,17 @@ const CONTENT = {
    "img": "",
    "price": 120,
    "d": "Sample listing: beachfront resort on the Mediterranean coast.",
-   "amen": ["Beach access", "Pool", "Breakfast"],
-   "rooms": ["Sea view room | 120", "Family suite | 180"]
+   "amen": [
+    "Beach access",
+    "Pool",
+    "Breakfast"
+   ],
+   "rooms": [
+    "Sea view room | 120",
+    "Family suite | 180"
+   ],
+   "imgs": [],
+   "credit": ""
   }
  ],
  "partners": [],
@@ -1170,5 +2477,11 @@ const CONTENT = {
  "shopInfo": {
   "title": "Shop",
   "intro": "Choose a section to browse, then order or ask for a quote on WhatsApp."
+ },
+ "hotelInfo": {
+  "title": "Hotel booking",
+  "intro": "Choose a destination, pick a hotel, then send your dates on WhatsApp.",
+  "reqTitle": "Can't find your hotel?",
+  "reqText": "Tell us the hotel you want and your dates, and we will check availability and the price for you."
  }
 };
