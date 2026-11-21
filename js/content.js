@@ -242,6 +242,20 @@ const CONTENT = {
    "imgs": []
   },
   {
+   "id": "p6",
+   "n": "Men's Two-Piece Suit",
+   "cat": "mens",
+   "e": "🤵",
+   "c": "#d0d7e5",
+   "price": 210,
+   "sizes": ["48", "50", "52", "54", "56"],
+   "d": "Tailored fit suit.",
+   "specs": ["Pieces: Jacket and trousers", "Fit: Tailored", "Sizes: 48 to 56"],
+   "more": "Tailored fit suit. Choose your size where shown, add it to the cart and send your order on WhatsApp.",
+   "imgs": ["img/1795226491563-0.jpg", "img/1795226528891-0.jpg", "img/1795226532211-1.jpg", "img/1795226535258-2.jpg", "img/1795226538427-3.jpg", "img/1795226541777-4.jpg", "img/1795226545194-5.jpg"],
+   "img": "img/1795226491563-0.jpg"
+  },
+  {
    "id": "p5",
    "n": "Silk Scarf",
    "cat": "ladies",
@@ -251,19 +265,6 @@ const CONTENT = {
    "d": "Soft printed scarf.",
    "specs": ["Style: Printed scarf", "Material: Silk-feel fabric", "Care: Gentle wash"],
    "more": "Soft printed scarf. Choose your size where shown, add it to the cart and send your order on WhatsApp.",
-   "imgs": []
-  },
-  {
-   "id": "p6",
-   "n": "Men's Two-Piece Suit",
-   "cat": "mens",
-   "e": "🤵",
-   "c": "#d0d7e5",
-   "price": 210,
-   "sizes": ["48", "50", "52", "54", "56"],
-   "d": "Tailored fit suit.",
-   "specs": ["Pieces: Jacket and trousers", "Fit: Tailored", "Colour: Navy", "Sizes: 48 to 56"],
-   "more": "Tailored fit suit. Choose your size where shown, add it to the cart and send your order on WhatsApp.",
    "imgs": []
   },
   {
@@ -405,7 +406,7 @@ const CONTENT = {
      ["b", 0, 0, 3.81, 3.86],
      ["l", 0, 3.86, 3.81, 5.12],
      ["b", 3.81, 0, 3.82, 2.62],
-     ["h", 3.81, 2.62, 1.39, 5.0],
+     ["h", 3.81, 2.62, 1.39, 5],
      ["t", 5.2, 2.62, 2.43, 2.1],
      ["k", 5.2, 4.72, 2.43, 2.9],
      ["o", 3.81, 7.62, 3.82, 1.36]
@@ -694,8 +695,8 @@ const CONTENT = {
      ["t", 8.84, 0, 1.88, 3.2],
      ["b", 10.72, 0, 3.81, 4.2],
      ["h", 4.44, 3.2, 6.28, 1.8],
-     ["b", 5.2, 5.0, 2.6, 3.9],
-     ["b", 7.8, 5.0, 2.7, 3.9],
+     ["b", 5.2, 5, 2.6, 3.9],
+     ["b", 7.8, 5, 2.7, 3.9],
      ["o", 0, 6.48, 4.44, 2.42]
     ]
    ]
@@ -726,7 +727,7 @@ const CONTENT = {
      ["h", 0, 2.61, 8.88, 1.26],
      ["b", 0, 3.87, 3.81, 3.86],
      ["h", 3.81, 3.87, 1.19, 3.86],
-     ["b", 5.0, 3.87, 3.88, 3.86]
+     ["b", 5, 3.87, 3.88, 3.86]
     ]
    ]
   },
@@ -756,7 +757,7 @@ const CONTENT = {
      ["t", 4.5, 0, 3.23, 2.4],
      ["h", 4.5, 2.4, 1.5, 2.67],
      ["s", 6, 2.4, 1.73, 2.67, "s"],
-     ["b", 1.26, 5.07, 5.0, 4.32],
+     ["b", 1.26, 5.07, 5, 4.32],
      ["n", 2.6, 9.39, 2.5, 1.38]
     ]
    ]
@@ -890,7 +891,8 @@ const CONTENT = {
    "c": "#e8d5c0",
    "img": "img/1795123781588.jpg",
    "d": "Men's and women's shoes",
-   "sec": "apparel"
+   "sec": "apparel",
+   "svc": "apparel"
   },
   {
    "id": "ladies",
@@ -899,7 +901,8 @@ const CONTENT = {
    "c": "#f9d5ec",
    "img": "img/1795123793057.jpg",
    "d": "Dresses, scarves and more",
-   "sec": "apparel"
+   "sec": "apparel",
+   "svc": "apparel"
   },
   {
    "id": "mens",
@@ -908,7 +911,8 @@ const CONTENT = {
    "c": "#d0d7e5",
    "img": "img/1795123803990.jpg",
    "d": "Suits, shirts and more",
-   "sec": "apparel"
+   "sec": "apparel",
+   "svc": "apparel"
   },
   {
    "id": "accessories",
@@ -917,7 +921,8 @@ const CONTENT = {
    "c": "#f0dcc4",
    "img": "img/1795123815199.jpg",
    "d": "Bags, belts and more",
-   "sec": "apparel"
+   "sec": "apparel",
+   "svc": "apparel"
   },
   {
    "id": "hotel-locks",
@@ -926,7 +931,8 @@ const CONTENT = {
    "c": "#d6e4f7",
    "img": "img/1795123982832.jpg",
    "d": "Electronic locks and key card systems for hotels",
-   "sec": "building"
+   "sec": "building",
+   "svc": "apparel"
   },
   {
    "id": "security-doors",
@@ -935,7 +941,8 @@ const CONTENT = {
    "c": "#e8d5c0",
    "img": "img/1795124103821.jpg",
    "d": "Doors, handles and door accessories",
-   "sec": "building"
+   "sec": "building",
+   "svc": "apparel"
   },
   {
    "id": "contract-furniture",
@@ -944,7 +951,8 @@ const CONTENT = {
    "c": "#f0dcc4",
    "img": "img/1795124358076.jpg",
    "d": "Furniture for hotels, offices and projects",
-   "sec": "building"
+   "sec": "building",
+   "svc": "apparel"
   },
   {
    "id": "home-appliances",
@@ -953,7 +961,8 @@ const CONTENT = {
    "c": "#e3d9f7",
    "img": "img/1795124455515.jpg",
    "d": "Appliances for homes and hotels",
-   "sec": "building"
+   "sec": "building",
+   "svc": "apparel"
   },
   {
    "id": "sanitaryware",
@@ -962,7 +971,8 @@ const CONTENT = {
    "c": "#cfe0e6",
    "img": "img/1795124535454.jpg",
    "d": "Bathroom fittings and fitted cabinetry",
-   "sec": "building"
+   "sec": "building",
+   "svc": "apparel"
   }
  ],
  "destinations": [
