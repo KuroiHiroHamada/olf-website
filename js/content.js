@@ -1,7 +1,7 @@
 const CONTENT = {
  "config": {
   "whatsapp": "905312784676",
-  "email": "outshinealuconst@yahoo.com",
+  "email": "onelifebusinessconsults1@gmail.com",
   "ghana": "+233 24 481 3141",
   "turkey": "+90 531 278 46 76"
  },
@@ -325,27 +325,27 @@ const CONTENT = {
    "cat": "security-doors",
    "e": "🚪",
    "c": "#e8d5c0",
-   "img": "",
+   "img": "img/1795228284088-0.jpg",
    "price": 0,
    "sizes": [],
    "d": "Reinforced door for homes and apartments.",
    "specs": ["Material: Steel", "Use: Homes and apartments", "Options: Colour, handle and lock type"],
    "more": "Reinforced door for homes and apartments. Send us your quantity and delivery location and we will quote you.",
-   "imgs": []
+   "imgs": ["img/1795228284088-0.jpg", "img/1795228292291-1.jpg", "img/1795228296926-2.jpg", "img/1795228302478-3.jpg", "img/1795228308337-4.jpg", "img/1795228311453-5.jpg", "img/1795228315917-6.jpg", "img/1795228318532-7.jpg", "img/1795228321549-8.jpg", "img/1795228325092-9.jpg", "img/1795228328015-10.jpg", "img/1795228330881-11.jpg", "img/1795228334086-12.jpg", "img/1795228338322-13.jpg", "img/1795228346229-14.jpg", "img/1795228355250-15.jpg", "img/1795228359129-16.jpg"]
   },
   {
    "id": "b4",
-   "n": "Hotel room furniture set",
+   "n": "Furniture set",
    "cat": "contract-furniture",
    "e": "🛏️",
    "c": "#f0dcc4",
-   "img": "",
+   "img": "img/1795228343732-0.jpg",
    "price": 0,
    "sizes": [],
    "d": "Bed, wardrobe and bedside tables for hotel rooms.",
    "specs": ["Includes: Bed, wardrobe and bedside tables", "Use: Hotel and guest rooms", "Options: Finish, size and quantity"],
    "more": "Bed, wardrobe and bedside tables for hotel rooms. Send us your quantity and delivery location and we will quote you.",
-   "imgs": []
+   "imgs": ["img/1795228343732-0.jpg", "img/1795228351462-1.jpg", "img/1795228358110-2.jpg", "img/1795228361693-3.jpg", "img/1795228365114-4.jpg"]
   },
   {
    "id": "b5",
@@ -367,13 +367,13 @@ const CONTENT = {
    "cat": "sanitaryware",
    "e": "🚽",
    "c": "#cfe0e6",
-   "img": "",
+   "img": "img/1795228592790-0.jpg",
    "price": 0,
    "sizes": [],
    "d": "Toilet, basin and fittings set.",
    "specs": ["Includes: Toilet, basin and fittings", "Use: Homes and hotels", "Options: Colour and style"],
    "more": "Toilet, basin and fittings set. Send us your quantity and delivery location and we will quote you.",
-   "imgs": []
+   "imgs": ["img/1795228592790-0.jpg", "img/1795228598009-1.jpg", "img/1795228601537-2.jpg", "img/1795228608443-3.jpg", "img/1795228616118-4.jpg"]
   },
   {
    "id": "b7",
