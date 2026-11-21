@@ -3,20 +3,23 @@ const KEY="olf_cart";let cart=[],cur={},q="",GP=[];
 try{cart=JSON.parse(localStorage.getItem(KEY))||[]}catch(e){}
 const $=i=>document.getElementById(i),money=n=>"$"+n,find=id=>PRODUCTS.find(p=>p.id==id),priced=p=>+p.price>0;
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const itemUrl=p=>location.href.split("#")[0]+"#item/"+encodeURIComponent(p.id);
 const catName=id=>(CATS.find(c=>c.id==id)||{}).n||"";
 const photos=o=>o.imgs&&o.imgs.length?o.imgs:(o.img?[o.img]:[]);
 const pic=(o,k)=>{const u=photos(o)[0];return u?`<img src="${esc(u)}" alt="${esc(o.n)}">`:esc(o[k||"e"]||"")};
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(cart))}catch(e){}drawCart()};
 const tile=(href,bg,icon,name,desc,note)=>`<a class="house" href="${href}"><div class="pic" style="background:${esc(bg)}">${icon}</div><div class="in"><h3 style="text-align:left;margin:0">${esc(name)}</h3><p style="margin-top:6px">${esc(desc||"")}</p><span class="tag">${note}</span><p style="color:var(--blue);margin-top:6px">Browse →</p></div></a>`;
 const cnt=(n,w,pl)=>n+" "+(n==1?w:pl||w+"s");
-function route(){const h=decodeURIComponent(location.hash.slice(1)),[a,b]=h.split("/"),secA=SECTIONS.find(s=>s.id==a),catX=CATS.find(c=>c.id==(b||a)&&(!secA||c.sec==secA.id));
+function route(){let h=decodeURIComponent(location.hash.slice(1)),openId=null;if(h.startsWith("item/")){const p=find(h.slice(5));if(p){const c=CATS.find(x=>x.id==p.cat);h=c?c.sec+"/"+c.id:"all";openId=p.id}else h=""}
+ const [a,b]=h.split("/"),secA=SECTIONS.find(s=>s.id==a),catX=CATS.find(c=>c.id==(b||a)&&(!secA||c.sec==secA.id));
  const sec=secA||(catX&&SECTIONS.find(s=>s.id==catX.sec)),lvl=!h?0:(secA&&!b)?1:2;
  $("cats").hidden=lvl==2;$("catalog").hidden=lvl<2;
  const title=catX?catX.n:sec?(sec.allN||"All "+sec.n):"All items",cr=[["Shop","#"]];if(sec)cr.push([sec.n,"#"+encodeURIComponent(sec.id)]);if(lvl==2)cr.push([title,""]);
  $("crumbs").innerHTML=lvl?cr.map(([t,u])=>u?`<a href="${u}">${esc(t)}</a>`:esc(t)).join(" › "):"";
  if(lvl==0)$("cats").innerHTML=SECTIONS.map(s=>tile("#"+encodeURIComponent(s.id),s.c||"#e3d9f7",pic(s),s.n,s.d,cnt(CATS.filter(c=>c.sec==s.id).length,"category","categories"))).join("")||"<p>The shop is being set up. Please check back soon.</p>";
  else if(lvl==1){const cs=CATS.filter(c=>c.sec==sec.id);$("cats").innerHTML=cs.map(c=>tile("#"+encodeURIComponent(sec.id)+"/"+encodeURIComponent(c.id),c.c,pic(c),c.n,c.d,cnt(PRODUCTS.filter(p=>p.cat==c.id).length,"item"))).join("")+tile("#"+encodeURIComponent(sec.id)+"/all","#e3d9f7",sec.allImg?`<img src="${esc(sec.allImg)}" alt="">`:"🛍️",sec.allN||"All "+sec.n,sec.allD||"See everything in this section",cnt(PRODUCTS.filter(p=>cs.some(c=>c.id==p.cat)).length,"item"))}
- else{cur={sec:sec&&sec.id,cat:catX&&b!="all"?catX.id:null};q="";$("s").value="";$("ct").textContent=title;$("cd").textContent=catX?catX.d||"":sec?sec.d||"":"Everything in the shop.";drawList();scrollTo(0,0)}}
+ else{cur={sec:sec&&sec.id,cat:catX&&b!="all"?catX.id:null};q="";$("s").value="";$("ct").textContent=title;$("cd").textContent=catX?catX.d||"":sec?sec.d||"":"Everything in the shop.";drawList();scrollTo(0,0)}
+ if(openId)product(openId)}
 function drawList(){const ok=p=>cur.cat?p.cat==cur.cat:cur.sec?CATS.some(c=>c.id==p.cat&&c.sec==cur.sec):true;
  const items=PRODUCTS.filter(p=>ok(p)&&p.n.toLowerCase().includes(q.toLowerCase()));
  $("prods").innerHTML=items.map(p=>`<div class="house prod" onclick="product('${p.id}')"><div class="pic" style="background:${esc(p.c)}">${pic(p)}${photos(p).length>1?`<span class="pcnt">📷 ${photos(p).length}</span>`:""}</div><div class="in"><h3 style="text-align:left;margin:0">${esc(p.n)}</h3><span class="tag">${esc(catName(p.cat))}</span><p style="margin-top:6px">${esc(p.d)}</p><p class="price">${priced(p)?money(p.price):"Price on request"}</p><p style="color:var(--blue);font-size:14px;margin-top:4px">Photos, details and specifications →</p>${p.sizes&&p.sizes.length?`<select id="sz${p.id}" onclick="event.stopPropagation()">${p.sizes.map(z=>`<option>${esc(z)}</option>`).join("")}</select>`:""}<button class="btn" onclick="event.stopPropagation();add('${p.id}')">${priced(p)?"Add to cart":"Request a quote"}</button></div></div>`).join("")||"<p>No items found.</p>"}
@@ -48,7 +51,7 @@ function drawCart(){$("cn").textContent=cart.reduce((a,c)=>a+c.q,0);
  $("tot").textContent=money(cart.reduce((a,c)=>{const p=find(c.id);return a+(p&&priced(p)?p.price*c.q:0)},0))}
 function openCart(){$("cart").classList.add("open")}function closeCart(){$("cart").classList.remove("open")}
 $("co").onsubmit=e=>{e.preventDefault();cart=cart.filter(c=>find(c.id));if(!cart.length)return alert("Your cart is empty.");const v=Object.fromEntries(new FormData(e.target));
- const lines=cart.map(c=>{const p=find(c.id);return `${c.q} x ${p.n}${c.sz?" ("+c.sz+")":""} - ${priced(p)?money(p.price*c.q):"price on request"}`}).join("\n");
+ const lines=cart.map(c=>{const p=find(c.id);return `${c.q} x ${p.n}${c.sz?" ("+c.sz+")":""} - ${priced(p)?money(p.price*c.q):"price on request"}\n   View item: ${itemUrl(p)}`}).join("\n");
  const msg=`New order / quote request\n${lines}\nTotal (priced items): ${$("tot").textContent}\nName: ${v.name}\nPhone: ${v.phone}\nAddress: ${v.addr}`;
  window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`,"_blank")};
 route();drawCart();
