@@ -149,3 +149,4 @@ details.faq{background:#fff;border:1px solid var(--line);border-radius:12px;marg
 @media(max-width:820px){.pwrap{grid-template-columns:minmax(0,1fr)}}
 .imb{overflow-x:hidden}.gal,.gthumbs{max-width:100%}.pinfo h2{overflow-wrap:anywhere}
 .gcount{position:absolute;bottom:10px;right:12px;background:rgba(27,43,72,.85);color:#fff;font-size:12px;padding:2px 10px;border-radius:999px}
+.reqbar{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;background:#fff;border:2px dashed var(--lime);border-radius:var(--r);padding:22px 26px}.reqbar h3{font-size:20px}
