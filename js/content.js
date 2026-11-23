@@ -222,8 +222,8 @@ const CONTENT = {
    "price": 95,
    "sizes": ["S", "M", "L", "XL", "XXL"],
    "d": "Flowing dress in sizes up to plus size.",
-   "imgs": ["img/1795468729743-0.jpg", "img/1795468735822-1.jpg", "img/1795468743122-2.jpg", "img/1795468746681-3.jpg", "img/1795468749914-4.jpg", "img/1795468753889-5.jpg"],
-   "img": "img/1795468729743-0.jpg"
+   "imgs": ["img/1795468753889-5.jpg", "img/1795468729743-0.jpg", "img/1795468735822-1.jpg", "img/1795468743122-2.jpg", "img/1795468746681-3.jpg", "img/1795468749914-4.jpg", "img/1795470381363-0.jpg", "img/1795470385129-1.jpg", "img/1795470388108-2.jpg", "img/1795470391242-3.jpg", "img/1795470394626-4.jpg", "img/1795470397792-5.jpg", "img/1795470400627-6.jpg", "img/1795470403805-7.jpg", "img/1795470406813-8.jpg", "img/1795470409627-9.jpg", "img/1795470412644-10.jpg", "img/1795470416017-11.jpg", "img/1795470418913-12.jpg", "img/1795470421822-13.jpg", "img/1795470424665-14.jpg", "img/1795470427463-15.jpg", "img/1795470430586-16.jpg", "img/1795470433585-17.jpg"],
+   "img": "img/1795468753889-5.jpg"
   },
   {
    "id": "p6",
@@ -244,7 +244,7 @@ const CONTENT = {
    "c": "#f0dcc4",
    "price": 75,
    "d": "Spacious everyday bag.",
-   "imgs": ["img/1795468637829-0.jpg", "img/1795468643094-1.jpg", "img/1795468647039-2.jpg"],
+   "imgs": ["img/1795468637829-0.jpg", "img/1795468643094-1.jpg", "img/1795468647039-2.jpg", "img/1795470249093-0.jpg", "img/1795470252666-1.jpg", "img/1795470255721-2.jpg", "img/1795470258736-3.jpg", "img/1795470261839-4.jpg", "img/1795470264764-5.jpg", "img/1795470267675-6.jpg", "img/1795470270828-7.jpg", "img/1795470274100-8.jpg", "img/1795470277142-9.jpg", "img/1795470280110-10.jpg", "img/1795470282932-11.jpg", "img/1795470286071-12.jpg", "img/1795470289602-13.jpg", "img/1795470292560-14.jpg", "img/1795470295626-15.jpg"],
    "img": "img/1795468637829-0.jpg"
   },
   {
@@ -291,13 +291,13 @@ const CONTENT = {
    "cat": "security-doors",
    "e": "🚪",
    "c": "#e8d5c0",
-   "img": "",
+   "img": "img/1795470546502-0.jpg",
    "price": 0,
    "sizes": [],
    "d": "Reinforced door for homes and apartments.",
    "specs": ["Material: Steel", "Use: Homes and apartments", "Options: Colour, handle and lock type"],
    "more": "Reinforced door for homes and apartments. Send us your quantity and delivery location and we will quote you.",
-   "imgs": []
+   "imgs": ["img/1795470546502-0.jpg", "img/1795470550013-1.jpg", "img/1795470552958-2.jpg", "img/1795470555881-3.jpg", "img/1795470558902-4.jpg", "img/1795470561950-5.jpg", "img/1795470564967-6.jpg", "img/1795470567884-7.jpg", "img/1795470570842-8.jpg", "img/1795470573601-9.jpg", "img/1795470576981-10.jpg", "img/1795470580393-11.jpg", "img/1795470583716-12.jpg", "img/1795470586599-13.jpg", "img/1795470589574-14.jpg", "img/1795470592903-15.jpg", "img/1795470595864-16.jpg", "img/1795470598971-17.jpg", "img/1795470602027-18.jpg", "img/1795470605302-19.jpg"]
   },
   {
    "id": "b4",
