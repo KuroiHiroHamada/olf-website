@@ -242,18 +242,6 @@ const CONTENT = {
    "imgs": []
   },
   {
-   "id": "p5",
-   "n": "Silk Scarf",
-   "cat": "ladies",
-   "e": "🧣",
-   "c": "#e3d9f7",
-   "price": 25,
-   "d": "Soft printed scarf.",
-   "specs": ["Style: Printed scarf", "Material: Silk-feel fabric", "Care: Gentle wash"],
-   "more": "Soft printed scarf. Choose your size where shown, add it to the cart and send your order on WhatsApp.",
-   "imgs": []
-  },
-  {
    "id": "p6",
    "n": "Men's Two-Piece Suit",
    "cat": "mens",
