@@ -204,7 +204,7 @@ const CONTENT = {
   },
   {
    "id": "p2",
-   "n": "Women's Heels",
+   "n": "Women's Block Heels",
    "cat": "shoes",
    "e": "👠",
    "c": "#f7d6e0",
@@ -213,7 +213,8 @@ const CONTENT = {
    "d": "Comfortable heels for events and office.",
    "specs": ["Heel type: Block", "Style: Closed toe", "Colour: Black"],
    "more": "Comfortable heels for events and office. Choose your size where shown, add it to the cart and send your order on WhatsApp.",
-   "imgs": []
+   "imgs": ["img/1795854858938-0.jpg", "img/1795854862069-1.jpg", "img/1795854864822-2.jpg", "img/1795854867276-3.jpg", "img/1795854870210-4.jpg", "img/1795854873002-5.jpg", "img/1795854875723-6.jpg", "img/1795854878836-7.jpg"],
+   "img": "img/1795854858938-0.jpg"
   },
   {
    "id": "p3",
@@ -230,7 +231,7 @@ const CONTENT = {
   },
   {
    "id": "p4",
-   "n": "Ladies Dresses",
+   "n": "Elegant Pink Dress",
    "cat": "ladies",
    "e": "👗",
    "c": "#f9d5ec",
@@ -239,7 +240,8 @@ const CONTENT = {
    "d": "Flowing dress in sizes up to plus size.",
    "specs": ["Style: Flowing dress", "Colour: Pink", "Sizes: S to XXL", "Care: Hand wash or gentle machine wash"],
    "more": "Flowing dress in sizes up to plus size. Choose your size where shown, add it to the cart and send your order on WhatsApp.",
-   "imgs": []
+   "imgs": ["img/1795854900518-0.jpg", "img/1795854904447-1.jpg", "img/1795854907178-2.jpg", "img/1795854910092-3.jpg", "img/1795854912790-4.jpg", "img/1795854915919-5.jpg", "img/1795854919272-6.jpg", "img/1795854922104-7.jpg", "img/1795854925012-8.jpg", "img/1795854927772-9.jpg", "img/1795854931204-10.jpg", "img/1795854935006-11.jpg", "img/1795854937615-12.jpg", "img/1795854940933-13.jpg", "img/1795854944670-14.jpg", "img/1795854947483-15.jpg", "img/1795854950493-16.jpg", "img/1795854953409-17.jpg", "img/1795854956012-18.jpg", "img/1795854958751-19.jpg", "img/1795854961658-20.jpg"],
+   "img": "img/1795854900518-0.jpg"
   },
   {
    "id": "p6",
@@ -257,7 +259,7 @@ const CONTENT = {
   },
   {
    "id": "p7",
-   "n": "Ladies Leather Handbag",
+   "n": "Leather Handbag",
    "cat": "accessories",
    "e": "👜",
    "c": "#f0dcc4",
@@ -265,7 +267,8 @@ const CONTENT = {
    "d": "Spacious everyday bag.",
    "specs": ["Material: Leather", "Closure: Zip", "Colour: Tan"],
    "more": "Spacious everyday bag. Choose your size where shown, add it to the cart and send your order on WhatsApp.",
-   "imgs": []
+   "imgs": ["img/1795854980611-0.jpg", "img/1795854983274-1.jpg", "img/1795854986272-2.jpg", "img/1795854989094-3.jpg", "img/1795854991755-4.jpg", "img/1795854994519-5.jpg", "img/1795854997201-6.jpg", "img/1795855000157-7.jpg", "img/1795855003178-8.jpg", "img/1795855005832-9.jpg", "img/1795855008705-10.jpg", "img/1795855011427-11.jpg", "img/1795855014263-12.jpg", "img/1795855016876-13.jpg", "img/1795855019828-14.jpg", "img/1795855022535-15.jpg", "img/1795855025455-16.jpg", "img/1795855028419-17.jpg", "img/1795855031157-18.jpg"],
+   "img": "img/1795854980611-0.jpg"
   },
   {
    "id": "p8",
