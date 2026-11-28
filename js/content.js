@@ -204,7 +204,7 @@ const CONTENT = {
   },
   {
    "id": "p2",
-   "n": "Women's Block Heels",
+   "n": "Women's Heels",
    "cat": "shoes",
    "e": "👠",
    "c": "#f7d6e0",
@@ -230,7 +230,7 @@ const CONTENT = {
   },
   {
    "id": "p4",
-   "n": "Elegant Pink Dress",
+   "n": "Ladies Overflows",
    "cat": "ladies",
    "e": "👗",
    "c": "#f9d5ec",
@@ -257,7 +257,7 @@ const CONTENT = {
   },
   {
    "id": "p7",
-   "n": "Leather Handbag",
+   "n": "Ladies Leather Handbag",
    "cat": "accessories",
    "e": "👜",
    "c": "#f0dcc4",
