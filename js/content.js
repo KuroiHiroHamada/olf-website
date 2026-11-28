@@ -230,7 +230,7 @@ const CONTENT = {
   },
   {
    "id": "p4",
-   "n": "Ladies Overflows",
+   "n": "Ladies Dresses",
    "cat": "ladies",
    "e": "👗",
    "c": "#f9d5ec",
